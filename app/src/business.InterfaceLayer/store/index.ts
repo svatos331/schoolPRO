@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
-import { todoApi } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";
-import { todoReducer } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/slice";
+import { todoApi } from "./shared/entities/kirillKornilov.entities/todo.entity/redux/api";
+import { todoReducer } from "./shared/entities/kirillKornilov.entities/todo.entity/redux/slice";
 import reducerPaths from "./reducerPaths";
 
 const allSliceReducersReducer = combineReducers({
