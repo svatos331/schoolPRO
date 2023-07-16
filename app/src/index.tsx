@@ -22,7 +22,7 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<RouterProvider router={routers} />
-			<div>Sad</div>
+			{/* <div>Sad</div> */}
 			
 
 		</Provider>

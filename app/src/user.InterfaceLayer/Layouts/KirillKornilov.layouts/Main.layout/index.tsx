@@ -4,15 +4,15 @@ import { Link, Outlet } from "react-router-dom";
 const MainLayout: FC = () => (
 	<div>
 		<div>
-			<Link to={"/kirillKornilov/last"}>last</Link>
+			<Link to={"/kirillKornilov/last"}> </Link>
 		</div>
 		<div>
-			<Link to={"/kirillKornilov"}>main</Link>
+			<Link to={"/kirillKornilov"}> </Link>
 		</div>
 		<div>
-			<Link to={"/kirillKornilov/sign"}>sign</Link>
+			<Link to={"/kirillKornilov/sign"}> </Link>
 		</div>
-		KirillKornilov <Outlet />
+		<Outlet />
 	</div>
 );
 
