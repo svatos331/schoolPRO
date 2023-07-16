@@ -4,15 +4,20 @@ import ComponentSideBarMain from "user.InterfaceLayer/Components/KirillKornilov.
 // import { Component1 } from "test-lib";
 import MainHeader from "user.InterfaceLayer/Components/KirillKornilov.components.bll/HeaderMain.component.bll";
 
+import "./style.css";
+
 const MainPage: FC = () => {
 	// eslint-disable-next-line no-console
 	// console.log(Component1);
 
 	return 	(
+
 			<>
-			<ComponentSideBarMain/>
-			<MainHeader/>
+				<ComponentSideBarMain/>
+				<div id='main-page'><MainHeader/></div>
+				
 			</>
+
 			);
 };
 
