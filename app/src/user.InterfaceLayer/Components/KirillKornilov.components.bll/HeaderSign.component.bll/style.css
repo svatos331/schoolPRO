@@ -1,0 +1,13 @@
+/* #sign-in{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+} */
+#head{
+    
+    display: flex;
+    padding: 1vh;
+    justify-content: space-between;
+}
+
