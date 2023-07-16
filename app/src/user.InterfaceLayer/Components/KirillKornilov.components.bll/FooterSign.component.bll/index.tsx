@@ -16,7 +16,6 @@ return(
 				</svg>
 				<p>copyright 2021</p>
 			</div><div>
-			
 			<a href='#'>Политика конфидециальности</a>
 			</div>
 		</footer>

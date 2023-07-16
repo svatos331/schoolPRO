@@ -7,7 +7,7 @@
 #head{
     
     display: flex;
-    padding: 1vh;
+    padding: 20px;
     justify-content: space-between;
 }
 
