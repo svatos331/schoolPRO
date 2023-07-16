@@ -1,0 +1,12 @@
+.data-name{
+    margin: 0 0 20px 0;
+    color: #29A19C;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.72px;
+}
+.data-items{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
