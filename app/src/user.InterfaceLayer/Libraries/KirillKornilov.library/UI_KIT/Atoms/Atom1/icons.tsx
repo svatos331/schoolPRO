@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-export enum Icons { House, RoundPlus, ReactPlus, Moon, Clipboard, Copyright, Family, Job, Sport, Statistics, Compare, Exit, Clock, Calendar, Edit, TrashBin, Star, Settings, Profile, Sun }
+export enum Icons { House, RoundPlus, ReactPlus, Moon, Clipboard, Copyright, Family, Job, Sport, Statistics, Compare, Exit, Clock, Calendar, Edit, TrashBin, Star, Settings, Profile, Sun , Check}
 
 interface IIcon{
     icon: Icons;
@@ -96,6 +96,19 @@ export const Icon:FC <IIcon> = ({icon, width, height, color}) => {
                     <path d="M12.75 4.5H17.25V9" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             );
+            case Icons.Check:
+                return (
+                    <svg xmlns="http://www.w3.org/2000/svg" width={width.toString()} height={height.toString()} viewBox="0 0 15 9" fill="none">
+                        <g clipPath="url(#clip0_982_549)">
+                            <path d="M14.2857 0.692261L6.42855 8.30765L2.85712 4.84611" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_982_549">
+                            <rect width="15" height="9" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                );
 
             default:
             return <div/>;
