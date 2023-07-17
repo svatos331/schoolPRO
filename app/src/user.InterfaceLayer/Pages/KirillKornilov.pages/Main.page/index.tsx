@@ -8,10 +8,16 @@ import Card from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/At
 import CardData from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/CardData.Atom";
 import CardDataOptions from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/CardDataOptions.molecule";
 import Activity from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/Activity.molecule";
+//import Component1 from "user.InterfaceLayer/Components/KirillKornilov.components.bll/Components1.component.bll";
 
 import "./style.css";
 
+//const fd = this.state; 
+
 const MainPage: FC = () => {
+
+
+
 
 	return 	(
 
@@ -33,12 +39,15 @@ const MainPage: FC = () => {
 
 						<Card>
 						<>
-							<CardDataOptions title="Активные задачи">
+
+							<CardDataOptions title="Активные задачи" >
 								<div className="tasks-list">
 									<Task text="Приготовить вкусный ужин" completed={false}/>
 									<Task text="Устранить засор в раковине" completed={false}/>
 									<Task text="Стирка белого белья" completed={false}/>
 									<Task text="Разморозить холодильник" completed={false}/>
+
+									
 								</div>
 							</CardDataOptions>
 							<CardData title="Заверщённые задачи">

@@ -14,7 +14,7 @@ const ComponentSideBarMain = () => {
 		<div id="side-bar-box">
 		<Logo/>
 		<WidgetSideBarData/>
-		<WidgetSideBarData/>
+		{/* <WidgetSideBarData/> */}
 			<div id="exit">
 				<SidebarDataItem text="Выйти" color="#000" icon={Icons.Exit}/>
 

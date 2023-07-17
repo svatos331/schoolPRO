@@ -10,7 +10,7 @@ const CardDataOptions: FC<ICardData> = ({title, children}) => {
         <div className="column-card">
                 <div className="title-box">
                 <p className="title">{title}</p>
-                <button>•••</button>
+                <button >• • •</button>
                 </div>
 
                 <div className="children">
