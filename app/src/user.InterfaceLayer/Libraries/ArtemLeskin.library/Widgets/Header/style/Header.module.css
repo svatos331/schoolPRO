@@ -1,0 +1,14 @@
+
+.header{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.navItems{
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+}

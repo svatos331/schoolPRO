@@ -1,0 +1,21 @@
+.btn{
+    padding: 10px;
+    background-color: transparent;
+    transition: all .3s ease;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(125, 125, 125, 0.712);
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
+
+.header{
+    display: flex;
+    margin-bottom: 10px;
+}
