@@ -8,11 +8,11 @@ import { store } from "./business.InterfaceLayer/store";
 import mainRouter from "./user.InterfaceLayer/router";
 import ToasterModalWindow from "./user.InterfaceLayer/Components/general.components/ModalWindows/Toaster.modalWindow";
 
-import "./user.InterfaceLayer/styles/global.css";
+import "./user.InterfaceLayer/styles/global.scss";
 import "user.InterfaceLayer/styles/default.css";
-import "user.InterfaceLayer/styles/global.css";
+import "user.InterfaceLayer/styles/global.scss";
 import "user.InterfaceLayer/styles/scrollbar.css";
-import "user.InterfaceLayer/styles/fonts.css";
+import "user.InterfaceLayer/styles/fonts.scss";
 
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);

@@ -4,11 +4,11 @@
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: 10.86%;
   position: relative;
   overflow-x: hidden;
   /*width: 100vw;*/
-  min-height: 100vh;
+  height: 100vh;
 }
 input {
   padding: 0;

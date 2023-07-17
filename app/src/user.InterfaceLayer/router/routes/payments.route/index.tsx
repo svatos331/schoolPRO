@@ -9,7 +9,7 @@ import { RouteObject } from "react-router-dom";
 // import Loader from "../../../Components/general.components/Loader";
 //
 // const LastPage = lazy(
-// 	() => import("../../../Pages/payments.pages/Last.page")
+// 	() => import("../../../Pages/payments.pages/LaunchScreen.page")
 // );
 //
 // const MainPage = lazy(

@@ -1,2 +1,28 @@
-body {
+@import url("https://fonts.cdnfonts.com/css/montserrat");
+@import url("https://fonts.cdnfonts.com/css/segoe-ui-4");
+.fluid-fz-1 {
+  font-size: calc( 0.0055555556 * 100vw + 10.2222222222px );
 }
+
+.fluid-fz-2 {
+  font-size: calc( 0.0230769231 * 100vw + 1.4615384615px );
+}
+
+.f-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-f {
+  display: flex;
+}
+
+.MainTextMont30_45_413_900 {
+  font-size: calc( 0.0308008214 * 100vw + 17.2792607803px );
+}
+
+/*# sourceMappingURL=global.css.map */

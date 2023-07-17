@@ -1,0 +1,18 @@
+@import "adaptiveFont";
+@import "fonts";
+body {
+}
+.f-center{
+    justify-content: center;
+    align-items: center;
+}
+.text-center{
+    text-align: center;
+}
+.d-f{
+    display: flex;
+}
+.MainTextMont30_45_413_900{
+    font-size: calcFluidFontSize(30,45,413, 900);
+    //font-family: Montserrat serif;
+}

@@ -1,16 +1,10 @@
 import React, { FC } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-const MainLayout: FC = () => (
+const MainLayout: FC<{ children? : JSX.Element}> = ({children}) => (
 	<div>
-		<div>
-			<Link to={"/svyatoslavZhilin/last"}>last</Link>
-		</div>
-		<div>
-			<Link to={"/svyatoslavZhilin"}>main</Link>
-		</div>
-		SvyatoslavZhilinMainLayout <Outlet />
+		{children}
+		{children ? null : <Outlet/>}
 	</div>
 );
-
 export default MainLayout;
