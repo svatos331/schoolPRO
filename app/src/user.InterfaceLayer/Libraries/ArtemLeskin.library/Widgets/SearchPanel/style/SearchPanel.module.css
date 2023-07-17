@@ -1,0 +1,18 @@
+.srchModule{
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+}
+
+@media (max-width: 1600px) {
+    .srchModule{
+        width: 45%;
+    }
+}
+
+.SearchPanel{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
