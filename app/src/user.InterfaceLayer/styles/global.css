@@ -8,6 +8,11 @@
   font-size: calc( 0.0230769231 * 100vw + 1.4615384615px );
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .f-center {
   justify-content: center;
   align-items: center;

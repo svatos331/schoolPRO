@@ -32,6 +32,7 @@ const WelcomeAuth :FC= () => {
                 console.log(1);
             }}
         />
+
     </ST.WelcomeAuthWrapper>);
 };
 export default WelcomeAuth;

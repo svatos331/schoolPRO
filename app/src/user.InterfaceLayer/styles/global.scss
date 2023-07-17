@@ -1,6 +1,8 @@
 @import "adaptiveFont";
 @import "fonts";
-body {
+*{
+    padding: 0;
+    margin: 0;
 }
 .f-center{
     justify-content: center;

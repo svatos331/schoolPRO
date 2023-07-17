@@ -7,7 +7,7 @@ import svgMain from "../../../../assets/icons/gradient/Shapes.svg";
 
 const AbsoluteBlockGradientBig :FC = () => {
     return (
-        <ST.AbsoluteBlock className="absoluteBlock">
+        <ST.AbsoluteBlock  minh = {"500px"} maxh = {"600px"} className="absoluteBlock">
             <AbsolutePosElement position="absolute" top="0" left="0">
                 <ST.GradientImg src={svgMain} alt="svg"/>
             </AbsolutePosElement>
