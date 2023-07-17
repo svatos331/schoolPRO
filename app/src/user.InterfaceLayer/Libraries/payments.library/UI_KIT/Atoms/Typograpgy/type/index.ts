@@ -7,7 +7,7 @@ type ITypographyProps = {
     color?:Colors,
     size?:string,
     children:JSX.Element | string,
-    className:string
+    className?:string
 };
 
 export default ITypographyProps;

@@ -2,9 +2,10 @@
 import React, {FC} from "react";
 
 import * as ST from "./styled";
-import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
+// import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AbsoluteGradientBlockBig from "../../../Libraries/payments.library/UI_KIT/Molecules/AbsoluteBlockGradientBig";
 import AbsoluteAuthBlock from "../../../Libraries/payments.library/UI_KIT/Molecules/AbsoluteAuthBlock";
+import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 
 const WelcomeBackPage: FC = () =>
     (
@@ -14,8 +15,8 @@ const WelcomeBackPage: FC = () =>
             <AbsoluteAuthBlock/>
             <main>
                 {/*тут будет outlet*/}
-                <WelcomeAuth/>
-
+                {/*<WelcomeAuth/>*/}
+                <AuthWidget title={"Sign in"}/>
             </main>
         </ST.WelcomeBackPage>
     );

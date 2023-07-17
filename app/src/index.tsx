@@ -13,7 +13,8 @@ import "user.InterfaceLayer/styles/default.css";
 import "user.InterfaceLayer/styles/global.scss";
 import "user.InterfaceLayer/styles/scrollbar.css";
 import "user.InterfaceLayer/styles/fonts.scss";
-
+// import "primereact/resources/themes/arya-blue/theme.css";
+import "primereact/resources/primereact.min.css";
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);

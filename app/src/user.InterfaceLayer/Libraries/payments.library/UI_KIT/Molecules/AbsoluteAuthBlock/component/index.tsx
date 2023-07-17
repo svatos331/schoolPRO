@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {FC} from "react";
 
@@ -11,6 +10,8 @@ import Typography from "../../../Atoms/Typograpgy";
 import Colors from "../../../../constants/colors";
 import EFontClasses, {EFontFamily} from "../../../../../../constants/fontsClasses";
 import {AbsolutePosElement} from "../../../Atoms/AbsolutePosElement/component";
+import Typography_Montserrat_Normal from "../../Typographies/Montserrat/Normal";
+
 const AbsoluteAuthBlock :FC= () => {
     return (
         <AbsolutePosElement position={"absolute"} top={"0"} left={"0"}>
@@ -19,23 +20,8 @@ const AbsoluteAuthBlock :FC= () => {
                     <LogoWhite/>
                 </ST.Logo>
                 <ST.Typography>
-                    <Typography
-                        family={"'Montserrat', serif"}
-                        weight={"normal"}
-                        as="p"
-                        color={Colors.WHITE}
-                        className={EFontClasses.MainTextMont30_45_413_900}
-                    >
-                        Welcome
-                    </Typography>
-                    <Typography
-                        family={EFontFamily.MONT}
-                        as="p"
-                        color={Colors.WHITE}
-                        className={EFontClasses.MainTextMont30_45_413_900}
-                    >
-                        Back
-                    </Typography>
+                    <Typography_Montserrat_Normal as={"p"} text={"Welcome"} color={Colors.WHITE}/>
+                    <Typography_Montserrat_Normal as={"p"} text={"Back"} color={Colors.WHITE}/>
                 </ST.Typography>
             </ST.LogoBlock>
 
