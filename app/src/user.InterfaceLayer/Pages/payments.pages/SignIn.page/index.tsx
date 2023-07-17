@@ -9,11 +9,14 @@ import Typography from "../../../Libraries/payments.library/UI_KIT/Atoms/Typogra
 import EFontClasses, {EFontFamily} from "../../../constants/fontsClasses";
 import Colors from "../../../Libraries/payments.library/constants/colors";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
-import AbsoluteGradientBlockBig from "../../../Libraries/payments.library/UI_KIT/Molecules/AbsoluteBlockGradientBig";
 
 const WelcomeBackPage: FC = () =>
     (<ST.WelcomeBackPage>
-        <AbsoluteGradientBlockBig/>
+        <ST.AbsoluteBlock className="absoluteBlock">
+            <AbsolutePosElement position="absolute" top="0" left="0">
+                <ST.GradientImg src={svgMain} alt="svg"/>
+            </AbsolutePosElement>
+        </ST.AbsoluteBlock>
         <AbsolutePosElement position={"absolute"} top={"0"} left={"0"}>
             <ST.LogoBlock>
                 <ST.Logo>

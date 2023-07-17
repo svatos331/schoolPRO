@@ -1,7 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from "react";
 
 type IIconElementProps = {
-    src : string,
+    src ?: string,
     width?:string,
     height?:string,
     customClass?:string,

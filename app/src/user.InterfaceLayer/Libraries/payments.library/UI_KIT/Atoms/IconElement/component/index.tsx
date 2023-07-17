@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {FC} from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import IIconElementProps from "../type";
 import IconElementDefProps from "../const";
 
