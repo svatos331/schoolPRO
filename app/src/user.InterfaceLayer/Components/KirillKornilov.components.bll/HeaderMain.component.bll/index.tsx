@@ -10,19 +10,20 @@ import "./style.css";
 const MainHeader = () => {
 
     return (
-        <section id='main-header'>
+        <div id='main-header'>
             <Button text='Новая задача' color='#29A19C' icon={true}/>
             <button className='theme-button'>
                 <Icon width={24} height={24} color='#bbbcb9' icon={Icons.Moon}/>
             </button>
             <div id='user-card'>
                 <p>Хорошего дня, username</p>
-                <Avatar img='/assets/avatar.png' diameter={44}/>
+                <Avatar img={require("../../../Libraries/KirillKornilov.library/assets/icons/avatar.png")} diameter={44}/>
+                
                 <button className='toggle-button'>
                     &gt;
                 </button>
             </div>
-        </section>
+        </div>
     );
 };
 
