@@ -7,6 +7,7 @@ import MainHeader from "user.InterfaceLayer/Components/KirillKornilov.components
 import Card from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Card.Atom";
 import CardData from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/CardData.Atom";
 import CardDataOptions from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/CardDataOptions.molecule";
+import Activity from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/Activity.molecule";
 
 import "./style.css";
 
@@ -21,6 +22,15 @@ const MainPage: FC = () => {
 				<div className='columns'>
 					<div className='left-column'>
 					<>
+						<Card>
+							<>
+							<CardDataOptions title="Успехи за неделю">
+								<Activity/>
+							</CardDataOptions>
+							</>
+						</Card>
+
+
 						<Card>
 						<>
 							<CardDataOptions title="Активные задачи">
