@@ -1,5 +1,6 @@
 enum reducerPaths {
 	todo = "todo",
+	movie = "movie"
 	fishing = "fishing",
 	cart = "cart",
 	auth = "auth",

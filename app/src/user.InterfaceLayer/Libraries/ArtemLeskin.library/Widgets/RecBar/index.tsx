@@ -18,7 +18,7 @@ export const RecBar: React.FC<indexProps> = (props: indexProps) => {
             <RecHeaader text={headerTitle}/>
             <div className={cls.cardList}>
                 {cards.map((card) => 
-                    <Card card={card} key={card.id}/>
+                    <Card card={card} key={card.kinopoiskId}/>
                 )}
             </div>
         </div>

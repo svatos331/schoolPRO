@@ -17,7 +17,7 @@ const ListPage: React.FC = () => {
                 size={TextSize.XL}
             />
             <SearchPanelBll/>
-            <ListCard/>
+            <ListCard type={id === "series"?"TV_SERIES":"FILM"} />
         </div>
     );
 };

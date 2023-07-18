@@ -1,11 +1,11 @@
 
 export interface ICard {
-    id: number,
-    name: string,
-    preview: string,
-    rating: number,
-    filsLength: number,
+    kinopoiskId: number,
+    nameRu: string,
+    posterUrlPreview: string,
+    ratingKinopoisk: string,
     year: number,
+    filmLength: number
 }
 
 export interface IMoviePage {
