@@ -21,6 +21,7 @@ export const ButtonWrapper = styled.button<IButtonPropsStyled>`
   justify-content: space-between;
   border: ${({border}) => border};
   color: ${({color}) => color};
+  
   ${(props) =>
           props.type === "primary" &&
           css`
@@ -54,5 +55,9 @@ export const ButtonWrapper = styled.button<IButtonPropsStyled>`
             flex-direction: row;
             justify-content: space-between;
           `}
-
+  ${({disabled}) =>
+          disabled === true &&
+          css`
+            filter: brightness(1.4);
+          `}
 `;

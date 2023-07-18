@@ -5,17 +5,19 @@ import { RouteObject } from "react-router-dom";
 import RoutesPaths from "./routesPaths";
 // import CheckAuth from "./services/Components/CheckAuth";
 import Error from "../Components/general.components/Error";
-import WelcomeBackPage from "../Pages/payments.pages/WelcomeBackPage";
-import MainLayout from "../Layouts/payments.layouts/Main.layout";
+// import BeforeAuth.layout from "../Pages/payments.pages/BeforeAuth.layout";
+import AfterAuthLayout from "../Layouts/payments.layouts/AfterAuth.layout";
+import OTPPage from "../Pages/payments.pages/OTP.page";
+import paymentsRoutes from "./routes/payments.route";
+import CheckAuth from "./services/Components/CheckAuth";
 // import LaunchScreen from "../Pages/payments.pages/LaunchScreen.page";
 
 const mainRouter: RouteObject[] = [
 	{
 		path: RoutesPaths.MAIN,
-
-		element: <MainLayout><WelcomeBackPage/></MainLayout>,
+		element: <CheckAuth/>,
 		errorElement: <Error />,
-		// children: [...paymentsRoutes],
+		children: [...paymentsRoutes],
 	},
 ];
 

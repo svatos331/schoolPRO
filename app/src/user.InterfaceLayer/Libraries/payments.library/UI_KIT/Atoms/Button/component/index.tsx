@@ -10,7 +10,7 @@ import EFontClasses, {EFontFamily} from "../../../../../../constants/fontsClasse
 import Typography from "../../Typograpgy";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Button: FC<IButtonProps> = ({ color,border,className,contentposition,width,height,icon, iconPosition, hasIcon, disabled, text, type, onClick, background}) => {
+const Button: FC<IButtonProps> = ({color,border,className,contentposition,width,height,icon, iconPosition, hasIcon, disabled, text, type, onClick, background}) => {
     const isIconNeed = useMemo(() => {
         return (hasIcon && icon);
     }, [hasIcon, icon]);

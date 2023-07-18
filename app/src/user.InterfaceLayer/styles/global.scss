@@ -3,6 +3,8 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+
 }
 .f-center{
     justify-content: center;
@@ -24,5 +26,21 @@
 }
 .MainTextMont28_35_413_900{
     font-size: calcFluidFontSize(28,35,413, 900);
+
+}
+.MainTextMont24_28_413_900{
+    font-size: calcFluidFontSize(24,28,413, 900);
+
+}
+.MainTextPTSan20_24_413_900{
+    font-size: calcFluidFontSize(20,24,413, 900);
+
+}
+.MainTextPTSanBold19_21_413_900{
+    font-size: calcFluidFontSize(19,21,413, 900);
+
+}
+.SecondaryTextPTSanBold15_18_413_900{
+    font-size: calcFluidFontSize(15,18,413, 900);
 
 }
