@@ -3,26 +3,30 @@ import {SecondTitle} from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/T
 import {LikeButton} from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/Button/styled/styled";
 import Button from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/Button";
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {
-    favoriteActions
-} from "../../../../business.InterfaceLayer/store/shared/entities/elenaBokova.entities/favorite.entity/redux/slice";
+import {useSelector} from "react-redux";
+import addToFav from "../../../Libraries/ElenaBokova.library/assets/icons/addToFav.svg"
+import deleteFromFav from "../../../Libraries/ElenaBokova.library/assets/icons/deleteFromFav.svg"
+import {useActions} from "../../../../business.InterfaceLayer/store/services/hooks/useActions";
+import {useAppSelector} from "../../../../business.InterfaceLayer/store/services/hooks/redux";
 
 // @ts-ignore
 function ProductItem({ item }) {
-
-    // const state = useSelector( state => state)
-    // console.log(state.favorite[0])
-
-    const dispatch = useDispatch();
-
     const image = `/images/${item.id}.png`
+
     // @ts-ignore
+    const favorites = useAppSelector( (state) => state.favorite)
+
+    const {toggleFavorite} = useActions()
+    // @ts-ignore
+    const isExist = favorites.some(element => element.id === item.id)
+
     return (
         <Item>
             <img src={image} alt={"product photo"} style={{width:'140px'}}>
             </img>
-            <LikeButton onClick={() => dispatch(favoriteActions.toggleFavorite(item))}/>
+            <LikeButton aria-label="add to favorites" onClick={() => toggleFavorite(item)}>
+                {isExist? <img src={deleteFromFav} alt=""/> : <img src={addToFav} alt=""/>}
+            </LikeButton>
             <div>
                 <SecondTitle as="h3">{item.name}</SecondTitle>
             </div>

@@ -1,5 +1,4 @@
 import React, {FC} from "react";
-import * as ST from "./styled/styled";
 // @ts-ignore
 import logo from "../../../assets/logo.png"
 

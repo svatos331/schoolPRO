@@ -30,14 +30,14 @@ export const LikeButton = styled.button`
   position: absolute;
   right: 1vw;
   top: 1vw;
-  width: 35px;
-  height: 35px;
+  width: 39px;
+  height: 39px;
+  border: 3px solid ${CustomColors.DARK};
   border-radius: 50px;
   background-color: ${CustomColors.DARK};
   cursor: pointer;
   transition: opacity 0.2s ease-out;
-
-  
+    
   &:hover {
     opacity: 0.8;
   }

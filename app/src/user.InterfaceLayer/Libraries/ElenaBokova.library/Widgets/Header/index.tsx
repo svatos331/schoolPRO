@@ -1,13 +1,18 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import {StyledSection, StyledNavList, StyledNavLink, StyledNav} from "./styled/styled";
-// @ts-ignore
 import favorite from "../../assets/icons/favorite.svg"
 import cart from "../../assets/icons/cart.svg"
 import user from "../../assets/icons/user.svg"
 import Logo from "../../UI_KIT/Atoms/Logo";
+import {useAppSelector} from "../../../../../business.InterfaceLayer/store/services/hooks/redux";
+import Amount from "../../UI_KIT/Atoms/Amount";
+
 
 const Header = () => {
+
+	const favorites = useAppSelector( state => state.favorite)
+
 	return (
 		<StyledSection as="header">
 			<StyledNav>
@@ -18,6 +23,7 @@ const Header = () => {
 					<StyledNavLink>
 						<Link to={"/elenaBokova/favorite"}>
 							<img src={favorite} alt=""/>
+							<Amount>{favorites.length}</Amount>
 						</Link>
 					</StyledNavLink>
 					<StyledNavLink>

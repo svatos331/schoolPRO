@@ -38,6 +38,9 @@ export const StyledNavLink = styled.li`
   
   &:nth-child(0) {
     margin-right: auto;
-  }
-  
+  }  
+`;
+
+export const StyledSpan = styled.span`
+margin-left: -10px
 `;
