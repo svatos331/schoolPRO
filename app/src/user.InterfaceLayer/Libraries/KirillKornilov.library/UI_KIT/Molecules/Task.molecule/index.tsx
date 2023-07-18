@@ -7,14 +7,15 @@ import "./styled/style.css";
 
 
 interface ITask {
-    text:string
+    key: React.Key,
+    text:string,
     completed:boolean
 }
 
-const Task:FC<ITask> = ({text, completed}) => {
+const Task:FC<ITask> = ({key ,text, completed}) => {
 
     return (
-        <div className={completed ? "task completed" : "task"}>
+        <div key={key} className={completed ? "task completed" : "task"}>
             <div className='checkbox-box'>
                 <CheckBox checked={completed ? true : false}/>
             </div>

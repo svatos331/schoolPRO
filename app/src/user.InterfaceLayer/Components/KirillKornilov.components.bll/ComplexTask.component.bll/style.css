@@ -1,7 +1,5 @@
 #side-bar-box {
-    position:fixed;
-    overflow-y: auto;
-    overflow-x: hidden;
+    position: absolute;
     box-sizing: border-box;
     box-shadow: 0px 10px 25px 0px rgba(29, 52, 54, 0.08);
     width: 232px;

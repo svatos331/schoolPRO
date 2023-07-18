@@ -3,7 +3,10 @@
     padding: 20px 70px;
     background-color: #FAFAFA;
 }
-
+/* #contentBar{
+    position:fixed;
+    overflow-y: auto;
+} */
 .columns {
     display: flex;
     flex-direction: row;
@@ -29,3 +32,4 @@
     flex-direction: column;
     gap: 10px;
 }
+
