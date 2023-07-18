@@ -72,7 +72,19 @@ const MainPage: FC = () => {
 						</Card>
 						
 						<Card>
+						<CardData title="Наблюдение">
+								<>
+									<p style={{margin:0}}>
+										Больше всего задач вы <a href="#">создаете</a> в Понедельник<br/><br/>
+										Больше всего задач вы завершаете во Вторник
+									</p>
+								</>
+							</CardData>
+						</Card>
+							
+						<Card>
 							<>
+							
 							<CardData title="Факт дня">
 								<>
 									<p style={{margin:0}}>
