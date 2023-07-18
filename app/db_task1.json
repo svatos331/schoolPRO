@@ -1,0 +1,52 @@
+{"user": [
+  {
+    "userId": 1,
+    "email":  "some@mail.ru",
+    "password": "pass",
+    "firstname": "Ivan",
+    "lastname": "Ivanov",
+    "userType": 0,
+    "avatar": "",
+    "phone": "",
+    "username": "",
+    "bio": ""
+  },
+  {
+    "userId": 2,
+    "email":  "some2@mail.ru",
+    "password": "pass2",
+    "firstname": "Petr",
+    "lastname": "Petrov",
+    "userType": 0,
+    "avatar": "",
+    "phone": "",
+    "username": "",
+    "bio": ""
+  }
+],
+
+  "todos": [
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "vvv delectus aut autem",
+    "completed": false
+  },
+    {
+      "userId": 2,
+      "id": 2,
+      "title": "ggg delectus aut autem",
+      "completed": true
+    }
+  ],
+
+  "product": [
+    {
+      "category": 1,
+      "id": 1,
+      "details": "some details",
+      "price": "1000",
+      "name": "some product"
+    }
+  ]}
+

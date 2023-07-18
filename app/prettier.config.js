@@ -5,6 +5,5 @@ module.exports = {
 	singleAttributePerLine: true,
 	useTabs: true,
 	printWidth: 80,
-	endOfLine: "lf",
+	endOfLine: "crlf",
 };
-

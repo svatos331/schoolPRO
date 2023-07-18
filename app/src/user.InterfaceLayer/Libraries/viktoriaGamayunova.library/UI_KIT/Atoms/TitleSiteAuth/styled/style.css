@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+.titleSiteAuth {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.55;
+    color: black;
+    font-size: 128pt;
+    margin-left: -9%;
+}
