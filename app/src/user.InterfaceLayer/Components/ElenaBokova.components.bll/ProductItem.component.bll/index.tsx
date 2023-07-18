@@ -3,7 +3,6 @@ import {SecondTitle} from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/T
 import {LikeButton} from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/Button/styled/styled";
 import Button from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/Button";
 import React from "react";
-import {useSelector} from "react-redux";
 import addToFav from "../../../Libraries/ElenaBokova.library/assets/icons/addToFav.svg"
 import deleteFromFav from "../../../Libraries/ElenaBokova.library/assets/icons/deleteFromFav.svg"
 import {useActions} from "../../../../business.InterfaceLayer/store/services/hooks/useActions";

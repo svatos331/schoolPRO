@@ -1,6 +1,6 @@
 enum reducerPaths {
 	todo = "todo",
-	users ="users",
+	product ="product",
 	favorite = "favorite",
 }
 

@@ -5,8 +5,8 @@ import ProductItem from "../ProductItem.component.bll";
 import {CatalogList} from "./styled/styled";
 import {SecondTitle} from "../../../Libraries/ElenaBokova.library/UI_KIT/Atoms/Title/styled/styled";
 
-const Catalog: FunctionComponent<CatalogType> = ({useGetUserQuery}) => {
-    const {data = []} = useGetUserQuery({authToken: ""});
+const Catalog: FunctionComponent<CatalogType> = ({useGetProductsQuery}) => {
+    const {data = []} = useGetProductsQuery({authToken: ""});
 
     // // @ts-ignore
     // data.forEach((item) => console.log(JSON.stringify(item.name)))

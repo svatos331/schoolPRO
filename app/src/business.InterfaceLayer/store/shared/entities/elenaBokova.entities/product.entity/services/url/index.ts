@@ -1,6 +1,6 @@
 enum url {
 	todo = "/todos",
-	users = "/users"
+	users = "/users",
 }
 
 export default url;

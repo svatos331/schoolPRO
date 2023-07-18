@@ -1,5 +1,5 @@
 interface CatalogType {
-	useGetUserQuery: any;
+	useGetProductsQuery: any;
 }
 
 export default CatalogType;

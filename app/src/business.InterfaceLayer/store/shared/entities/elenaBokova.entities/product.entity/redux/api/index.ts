@@ -11,15 +11,15 @@ export interface Props {
 	params: { id: string };
 }
 
-export const userApi = createApi({
-	reducerPath: `${reducerPaths.users}/api`,
+export const productApi = createApi({
+	reducerPath: `${reducerPaths.product}/api`,
 	baseQuery: fetchBaseQuery({
 		baseUrl: process.env.REACT_APP_API_URL,
 	}),
-	tagTypes: [`${reducerPaths.users}TAG`],
+	tagTypes: [`${reducerPaths.product}TAG`],
 
 	endpoints: (build) => ({
-		getUser: build.query<any, Props>({
+		getProduct: build.query<any, Props>({
 			query: ({ authToken, params }) => ({
 				url: url.users,
 				method: httpMethods.GET,
@@ -29,10 +29,10 @@ export const userApi = createApi({
 				params: params,
 				validateStatus,
 			}),
-			providesTags: [`${reducerPaths.users}TAG`],
+			providesTags: [`${reducerPaths.product}TAG`],
 			transformResponse: todoFromDtoServiceArray,
 		}),
 	}),
 });
 
-export const { useGetUserQuery } = userApi;
+export const { useGetProductQuery } = productApi;

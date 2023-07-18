@@ -1,6 +1,6 @@
 interface HeaderType {
 	useGetTodoQuery: any;
-	useGetUserQuery: any;
+	useGetProductQuery: any;
 }
 
 export default HeaderType;
