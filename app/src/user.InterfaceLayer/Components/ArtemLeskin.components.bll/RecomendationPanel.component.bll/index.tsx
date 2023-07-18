@@ -1,61 +1,30 @@
 /* eslint-disable no-console */
-import React, { useState} from "react";
-import { ICard } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule/type";
+import { useGetMovieFromGenreQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
+import React from "react";
+import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { RecBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/RecBar";
 
 
 export const RecomedPanel: React.FC = () => {
 
-
-    const data = {
-        name: "Матрица", 
-        id: 301, 
-        preview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg",
-        rating: 8.5,
-        filsLength: 136,
-        year: 1999
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [cards, setCards] = useState<ICard[]>([data, data, data, data, data]);
-
-//     useEffect(() => {
-//     fetch("https://kinopoiskapiunofficial.tech/api/v2.2/films/301", {
-//     method: "GET",
-//     headers: {
-//         "X-API-KEY": "3fb1ca5b-4af2-42d7-a282-92da7dea890a",
-//         "Content-Type": "application/json",
-//     },
-// })
-//     .then(res => res.json())
-//     .then(json => {
-//         setCards([{
-//             name: json.nameRu, 
-//             id: json.kinopoiskId, 
-//             preview: json.posterUrlPreview,
-//             rating: json.ratingKinopoisk,
-//             filsLength: json.filmLength,
-//             year: json.year
-//         }]);
-//         console.log({
-//             name: json.nameRu, 
-//             id: json.kinopoiskId, 
-//             preview: json.posterUrlPreview,
-//             rating: json.ratingKinopoisk,
-//             filsLength: json.filmLength,
-//             year: json.year
-//         });
-//     })
-//     .catch(err => console.log(err));
-
-//     }, []);
-
+    const {data: data1, isLoading: isLoading1}  = useGetMovieFromGenreQuery({genre: 1});
+    const {data: data2, isLoading: isLoading2}  = useGetMovieFromGenreQuery({genre: 2});
+    const {data: data3, isLoading: isLoading3}  = useGetMovieFromGenreQuery({genre: 3});
 
     return (
         <div className="">
-            <RecBar cards={cards} headerTitle="Например боевики"/>
-            <RecBar cards={cards} headerTitle="Например боевики"/>
-            <RecBar cards={cards} headerTitle="Например боевики"/>
+            {isLoading1
+            ? <Text title="Loading..." size={TextSize.XL}/>
+            : <RecBar cards={data1?.items.slice(0,5)} headerTitle="Триллеры"/>
+            }
+            {isLoading2
+            ? <Text title="Loading..." size={TextSize.XL}/>
+            : <RecBar cards={data2?.items.slice(0,5)} headerTitle="Криминал"/>
+            }
+            {isLoading3
+            ? <Text title="Loading..." size={TextSize.XL}/>
+            : <RecBar cards={data3?.items.slice(0,5)} headerTitle="Драма"/>
+            }
         </div>
     );
 };

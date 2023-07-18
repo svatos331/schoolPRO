@@ -6,7 +6,7 @@
 }
 
 .img{
-    width: 100%;
+    width: 80%;
     height: 100px;
 }
 
@@ -25,9 +25,8 @@
 .headerInfo{
     justify-content: space-between;
     display: flex;
-    width: 35%;
-    margin-left: 70px;
     align-items: center;
+    width: 100%;
 }
 
 .txt{
@@ -35,6 +34,13 @@
     font-weight: bold;
     color: rgb(255, 255, 255);
 }
+
+.txtS{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
 
 .rating{
     padding: 10px;
@@ -45,7 +51,7 @@
 .info{
     position: absolute;
     top: 60%;
-    width: 35%;
+    width: 45%;
     left: 50px;
 }
 

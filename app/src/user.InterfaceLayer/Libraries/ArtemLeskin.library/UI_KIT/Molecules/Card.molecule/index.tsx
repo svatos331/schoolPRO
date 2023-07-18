@@ -13,12 +13,11 @@ export const Card: React.FC<CardProps> = (props: CardProps) => {
     const { card } = props;
 
     return (
-        <Link to={`/artemLeskin/movie/${card.id}`} style={{backgroundImage: `url(${card.preview})`}} className={cls.card}>
+        <Link to={`/artemLeskin/movie/${card.kinopoiskId}`} style={{backgroundImage: `url(${card.posterUrlPreview})`}} className={cls.card}>
             <div className={cls.shadow}>
-                <div className={cls.rating}>{card.rating}</div>
+                <div className={cls.rating}>{card.ratingKinopoisk}</div>
                 <div className={cls.info}>
-                    <Text title={card.name} size={TextSize.L}/>
-                    <Text title={`${card.year}г ${card.filsLength} мин`}/>
+                    <Text title={card.nameRu} size={TextSize.L}/>
                 </div>
             </div>
         </Link>

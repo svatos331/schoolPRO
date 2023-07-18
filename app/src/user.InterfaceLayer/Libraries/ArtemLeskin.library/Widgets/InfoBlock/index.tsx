@@ -12,6 +12,10 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
 
     const color = info.rating > 8?"green":info.rating > 6?"orange":"red";
 
+    
+    const ganre = info.genres.map((item:any) => {return item?.genre;}).join(", ");
+    const country = info.countries.map((item:any) => {return item?.country;}).join(", ");
+
     return (
         <div style={{backgroundImage: `url(${info.poster})`}} className={cls.block}>
             <div className={cls.shadow}>
@@ -20,10 +24,12 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
                     <div className={cls.headerInfo}>
                         <div className={cls.rating} style={{backgroundColor: color}}>{info.rating}</div>
                         <div className={cls.txt}>{info.year}</div>
-                        <div className={cls.txt}>{info.genres}</div>
+                        <div className={cls.txtS}>{ganre}</div>
                         <div className={cls.txt}>{`${info.ageLimits.split("age")[1]}+`}</div>
-                        <div className={cls.txt}>{info.countries}</div>
-                        <div className={cls.txt}>{info.filsLength}</div>
+                        <div className={cls.txtS}>{
+                           country
+                        }</div>
+                        <div className={cls.txt}>{info.filsLength + " мин"}</div>
                     </div>
                     <div className={cls.descriptoin}>
                         {info.description}

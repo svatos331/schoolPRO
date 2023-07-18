@@ -1,28 +1,32 @@
 import React from "react";
+// import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
+import { useGetAllMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
 import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
+import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 
 import cls from "./ListCard.module.css";
 
-const ListCard = () => {
-    const data = {
-        name: "Матрица", 
-        id: 301, 
-        preview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg",
-        rating: 8.5,
-        filsLength: 136,
-        year: 1999
-    };
-    const arr = [
-        data,data,data,data,data,data,data,data,data,data,data,data,
-        data,data,data,data,data,data,data,data,data,data,data,data
-    ];
+interface ListCardpProps {
+    type: string
+}
+
+const ListCard = ({type}:ListCardpProps) => {
+    const {data, isLoading}  = useGetAllMovieQuery({page: 1, type: type});
 
     return (
         <div className={cls.list}>
-            {arr.map((item, index) => 
-                <Card card={item} key={index}/>
-            )}
-            <Card card={data}/>
+        
+        {isLoading && 
+            <div style={{height: "90vh"}}>
+                <Text title="Loading..." size={TextSize.XL}/>
+            </div>
+        }
+        {data?.items?.map((item: any, index: number) => 
+            <Card
+                card={item} 
+                key={index}
+            />
+        )}
         </div>
     );
 };
