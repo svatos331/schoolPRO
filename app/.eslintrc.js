@@ -15,11 +15,12 @@ module.exports = {
 	overrides: [],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
-		ecmaVersion: "latest",
+		ecmaVersion: "13",
 		sourceType: "module",
 	},
 	plugins: ["react", "@typescript-eslint"],
 	rules: {
+		// "no-unused-vars": "off",
 		"max-lines": ["error", { max: 150, skipBlankLines: true }],
 		indent: "off",
 		"linebreak-style": [
@@ -40,7 +41,7 @@ module.exports = {
 		"react/jsx-first-prop-new-line": ["error", "multiline"],
 		// "import/no-unresolved": [2, { caseSensitive: false }],
 		"no-unused-vars": "off",
-		"@typescript-eslint/no-unused-vars": ["error"],
+		// "@typescript-eslint/no-unused-vars": ["error"],
 		"import/order": [
 			"error",
 			{

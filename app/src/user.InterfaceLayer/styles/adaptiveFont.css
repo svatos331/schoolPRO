@@ -1,0 +1,9 @@
+.fluid-fz-1 {
+  font-size: calc( 0.0055555556 * 100vw + 10.2222222222px );
+}
+
+.fluid-fz-2 {
+  font-size: calc( 0.0230769231 * 100vw + 1.4615384615px );
+}
+
+/*# sourceMappingURL=adaptiveFont.css.map */
