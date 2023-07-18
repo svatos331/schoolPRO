@@ -9,6 +9,7 @@ import CardData from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KI
 import CardDataOptions from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/CardDataOptions.molecule";
 import Activity from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/Activity.molecule";
 import CompComplexTask from "user.InterfaceLayer/Components/KirillKornilov.components.bll/ComplexTask.component.bll";
+import DateTime from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/DateTime.molecule";
 //import Component1 from "user.InterfaceLayer/Components/KirillKornilov.components.bll/Components1.component.bll";
 
 import "./style.css";
@@ -17,13 +18,8 @@ import "./style.css";
 
 const MainPage: FC = () => {
 
-
-
-
 	return 	(
-
 			<>
-			
 			<ComponentSideBarMain/>
 			
 			<div id='main-page'>
@@ -67,6 +63,14 @@ const MainPage: FC = () => {
 					</>
 					</div>
 					<div className="right-column">
+						<Card>
+
+							<CardData title="Такс такс такс">
+								<DateTime/>
+							</CardData>
+
+						</Card>
+						
 						<Card>
 							<>
 							<CardData title="Факт дня">
