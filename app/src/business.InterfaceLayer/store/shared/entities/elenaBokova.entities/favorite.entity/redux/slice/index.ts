@@ -2,37 +2,44 @@ import {createSlice} from "@reduxjs/toolkit";
 
 import reducerPaths from "../../../../../../reducerPaths";
 
-// export enum FavoriteEnum {
-//     id = "id",
-// }
-//
-// export interface FavoriteType {
-//     [FavoriteEnum.id]: string;
-// }
-//
-// export const initialState: FavoriteType = {
-//     [FavoriteEnum.id]: "",
-// };
+const items =
+    localStorage.getItem("favoriteItems")// @ts-ignore
+        ? JSON.parse(localStorage.getItem("favoriteItems"))
+        : [];
 
-export const initialState = []
+export enum FavoriteEnum {
+    favoriteItems = "favoriteItems",
+    favoriteAmount = "favoriteAmount"
+}
+export interface IFavoriteType {
+    [FavoriteEnum.favoriteItems]: any[];
+    [FavoriteEnum.favoriteAmount]: number;
+}
+export const initialState: IFavoriteType = {
+    [FavoriteEnum.favoriteItems]: items,
+    [FavoriteEnum.favoriteAmount]: items.length,
+};
 
 export const favoriteSlice = createSlice({
     name: reducerPaths.favorite,
     initialState: initialState,
     reducers: {
         toggleFavorite: (state, {payload: product}) => {
-            // @ts-ignore
-            const isExists = state.some(item => item.id === product.id)
+            const isExists = state.favoriteItems.some(item => item.id === product.id)
 
-            if (isExists) { // @ts-ignore
-                const index = state.findIndex(item => item.id === product.id)
+            if (isExists) {
+                const index = state.favoriteItems.findIndex(item => item.id === product.id)
                 if (index !== -1) {
-                    state.splice(index, 1)
+                    state.favoriteItems.splice(index, 1)
+                    state.favoriteAmount = state.favoriteItems.length
                 }
-            } else
-                { // @ts-ignore
-                    state.push(product)
-                }
+            } else {
+                state.favoriteItems.push(product)
+                state.favoriteAmount = state.favoriteItems.length
+            }
+
+            localStorage.setItem('favoriteItems', JSON.stringify(state.favoriteItems))
+            localStorage.setItem('favoriteAmount', JSON.stringify(state.favoriteAmount))
         }
     },
 });

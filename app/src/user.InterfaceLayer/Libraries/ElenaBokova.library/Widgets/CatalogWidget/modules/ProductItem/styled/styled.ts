@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import Colors from "../../../../constants/colors";
+import Colors from "../../../../../../../constants/colors";
 
 
-export const Item = styled.li`
+
+export const CatalogItem = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
