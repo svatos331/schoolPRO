@@ -1,18 +1,14 @@
 import React from "react";
 
-import cls from "./style/Option.module.css";
-
-interface OptionProps {
-    text: string;
-    value: string
-}
+import * as ST from "./style/style";
+import { OptionProps } from "./type/index";
 
 export const Option: React.FC<OptionProps> = (props: OptionProps) => {
     const { text, value } = props;
 
     return (
-        <option className={cls.option} value={value} selected={value===" "?true:false}>
+        <ST.Option value={value}>
             {text}
-        </option>
+        </ST.Option>
     );
 };

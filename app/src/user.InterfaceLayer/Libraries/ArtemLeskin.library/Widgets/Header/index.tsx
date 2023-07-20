@@ -4,18 +4,18 @@ import { Logo } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/A
 import { NavItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/NavItem";
 import { headerRoute } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Header/const";
 
-import cls from "./style/Header.module.css";
+import * as ST from "./style/style";
 
 export const Header: React.FC = () => {
 
     return (
-        <div className={cls.header}>
+        <ST.Header>
             <Link to={"/artemLeskin/"}>
                 <Logo/>
             </Link>
-            <div className={cls.navItems}>
+            <ST.NavItems>
                 {headerRoute.map(({link, text}) => <NavItem key={link} text={text} link={link}/>)}
-            </div>
-        </div>
+            </ST.NavItems>
+        </ST.Header>
     );
 };

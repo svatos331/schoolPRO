@@ -1,18 +1,14 @@
 import React  from "react";
 import { Option } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Option";
 
-import cls from "./style/Select.module.css";
-
-interface SelectProps {
-    textOptionList: string[];
-    valueOptionList: string[];
-}
+import * as ST from "./style/style";
+import { SelectProps } from "./type/index";
 
 export const Select: React.FC<SelectProps> = (props: SelectProps) => {
-    const {  textOptionList, valueOptionList } = props;
+    const {  textOptionList, valueOptionList, onChange } = props;
 
     return (
-        <select className={cls.select}>
+        <ST.Select defaultValue={valueOptionList[0]} onChange={(e) => onChange(e.target.value)}>
             {textOptionList.map((text, index) => (
                 <Option 
                     value={valueOptionList[index]} 
@@ -20,6 +16,6 @@ export const Select: React.FC<SelectProps> = (props: SelectProps) => {
                     key={valueOptionList[index]}
                 />
             ))}
-        </select>
+        </ST.Select>
     );
 };

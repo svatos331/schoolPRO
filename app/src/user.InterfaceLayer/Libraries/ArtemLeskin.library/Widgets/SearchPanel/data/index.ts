@@ -1,14 +1,14 @@
 
 export const genreDataTextList:string[] = [
-    "Все жанры","Мелодраммы","Ужасы","Приключения","Фанстастика","Семейные","Комедии"
+    "Все жанры","Мелодраммы","Драмма","Детектив","Криминал","Триллеры","Фантастика", "Авторское"
 ];
 
 export const genreDataValueList:string[] = [
-    " ","Мелодраммы","Ужасы","Приключения","Фанстастика","Семейные","Комедии"
+    " ","4","2","3","1","5","6", "999"
 ];
 
 export const ratingDataTextList:string[] = [
-    "Любой рейтинг","Больше 9","Больше 8","ПБольше 7","Больше 6","Больше 5"
+    "Любой рейтинг","Больше 9","Больше 8","Больше 7","Больше 6","Больше 5"
 ];
 
 export const ratingDataValueList:string[] = [
@@ -24,9 +24,9 @@ export const yearDataValueList:string[] = [
 ];
 
 export const sortDataTextList: string[] = [
-    "Рекомендуемые", "По рейтенгу", "По дате выхода"
+    "Рекомендуемые", "По рейтенгу", "По просмотрам","По дате выхода"
 ];
 
 export const sortDataValueList: string[] = [
-    " ", "sdf", "sd"
+    "RATING", "RATING", "NUM_VOTE" ,"YEAR"
 ];

@@ -21,3 +21,11 @@ export interface IMoviePage {
     countries: string[],
     genres: string[]
 }
+
+export interface CardProps {
+    card: ICard;
+}
+
+export interface RatingProps {
+    rat: string
+}
