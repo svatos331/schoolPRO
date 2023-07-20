@@ -1,33 +1,27 @@
 import React from "react";
-// import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
 import { useGetAllMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
-import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import CardList from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardList";
 
-import cls from "./ListCard.module.css";
 
 interface ListCardpProps {
-    type: string
+    type: string;
+    order: string;
+    ganre: string;
+    year: string;
+    rating: string
 }
 
-const ListCard = ({type}:ListCardpProps) => {
-    const {data, isLoading}  = useGetAllMovieQuery({page: 1, type: type});
+const ListCard = ({type, order, ganre, year, rating}:ListCardpProps) => {
 
     return (
-        <div className={cls.list}>
-        
-        {isLoading && 
-            <div style={{height: "90vh"}}>
-                <Text title="Loading..." size={TextSize.XL}/>
-            </div>
-        }
-        {data?.items?.map((item: any, index: number) => 
-            <Card
-                card={item} 
-                key={index}
-            />
-        )}
-        </div>
+        <CardList 
+            type={type}
+            useGetAllMovieQuery={useGetAllMovieQuery}
+            order={order}
+            ganre={ganre}
+            year={year}
+            rating={rating}    
+        />
     );
 };
 

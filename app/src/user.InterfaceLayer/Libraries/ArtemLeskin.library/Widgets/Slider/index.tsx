@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { SliderItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/SliderItem.molecule";
 import { sliderData } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Slider/data";
 
+import * as ST from "./style/style";
 import { ReactComponent as RRow } from "../../assets/icons/RightRow.svg";
 import { ReactComponent as LRow } from "../../assets/icons/LeftRow.svg";
-import cls from "./style/Slider.module.css";
 
 const Slider = () => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -18,15 +18,19 @@ const Slider = () => {
     };
 
     return (
-        <div className={cls.slider}>
+        <ST.Slider>
             <SliderItem slide={sliderData[activeSlide]}/>
-            <button className={cls.prevbtn} onClick={prevSlide}>
-                <LRow className={cls.icon}/>
-            </button>
-            <button className={cls.Nextbtn} onClick={nextSlide}>
-                <RRow className={cls.icon}/>
-            </button>
-        </div>
+            <ST.PrevBtn onClick={prevSlide}>
+                <ST.IconWrap>
+                    <LRow/>
+                </ST.IconWrap>
+            </ST.PrevBtn>
+            <ST.NextBtn onClick={nextSlide}>
+                <ST.IconWrap>
+                    <RRow/>
+                </ST.IconWrap>
+            </ST.NextBtn>
+        </ST.Slider>
     );
 };
 

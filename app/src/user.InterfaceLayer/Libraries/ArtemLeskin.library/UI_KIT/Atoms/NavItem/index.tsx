@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import cls from "./style/NavItem.module.css";
+import * as ST from "./style/style";
+import { NavItemProps } from "./type/index";
 
-interface NavItemProps {
-    link: string;
-    text: string;
-}
+
 
 export const NavItem: React.FC<NavItemProps> = (props: NavItemProps) => {
     const {link, text} = props;
 
     return (
-        <Link to={link} className={cls.navItem}>
-            {text}
-        </Link>
+        <ST.NavItem>
+            <Link to={link}>
+                {text}
+            </Link>
+        </ST.NavItem>
     );
 };

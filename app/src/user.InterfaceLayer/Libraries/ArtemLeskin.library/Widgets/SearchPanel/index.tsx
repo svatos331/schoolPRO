@@ -2,15 +2,17 @@ import React from "react";
 import { SearchModule } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/SearchPanel/modules/SearchModule";
 import SortModule from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/SearchPanel/modules/SortModule";
 
-import cls from "./style/SearchPanel.module.css";
+import {SrcPanel} from "./type/index";
+import * as ST from "./style/style";
 
 
-export const SearchPanel: React.FC = () => {
+export const SearchPanel: React.FC<SrcPanel> = (props: SrcPanel) => {
+    const {chGanre, chRating, chOrder, chYear} = props;
 
     return (
-        <div className={cls.SearchPanel}>
-            <SearchModule/>
-            <SortModule/>
-        </div>
+        <ST.SearchPanel>
+            <SearchModule chGanre={chGanre} chRating={chRating} chYear={chYear}/>
+            <SortModule chOrder={chOrder}/>
+        </ST.SearchPanel>
     );
 };

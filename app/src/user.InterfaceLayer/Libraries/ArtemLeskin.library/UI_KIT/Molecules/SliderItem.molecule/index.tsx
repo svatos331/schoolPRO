@@ -1,35 +1,27 @@
 import React, { useState } from "react";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
-import { ISliderItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Slider/types";
-import classNames from "classnames";
-import HoverVideoPlayer from "react-hover-video-player";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 
-import cls from "./style/SliderItem.module.css";
-
-interface SliderItemProps {
-    slide: ISliderItem;
-}
+import * as ST from "./style/style";
+import { SliderItemProps } from "./type/index";
 
 export const SliderItem: React.FC<SliderItemProps> = (props: SliderItemProps) => {
     const {slide} = props;
     const [isVideoActive, setIsVideoActive] = useState(false);
 
     return (
-        <div 
-            style={{backgroundImage: `url(${slide.preview})`}} 
-            className={cls.item}
+        <ST.Item
+            img={slide.preview}
             onMouseEnter={() => setIsVideoActive(true)}
             onMouseLeave={() => setIsVideoActive(false)}
         >
-            <Text title={slide.title} size={TextSize.XL} className={cls.title}/>
-            <div className={classNames(cls.wrap, { [cls.active]: isVideoActive })}>
-            <HoverVideoPlayer
-                className={classNames(cls.video)}
+            <ST.Title title={slide.title} size={TextSize.XL}/>
+            <ST.Wrap active={isVideoActive}>
+            <ST.Video
                 videoSrc={slide.video}
                 volume={0.25}
                 muted={false}
                 />
-            </div>
-        </div>
+            </ST.Wrap>
+        </ST.Item>
     );
 };
