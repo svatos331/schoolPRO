@@ -1,23 +1,49 @@
-import React from "react";
+import React, { FC } from "react";
 
 import Task from "../../UI_KIT/Molecules/Task.molecule";
+import TaskWidgetType from "./type";
+import CardDataOptions from "../../UI_KIT/Molecules/CardDataOptions.molecule";
 
-//const Widget1: FunctionComponent<Widget1Type> = ({ useGetTodoQuery }) => {
+// 	return <data from jsonplaceholder : {JSON.stringify(data)}
+// 			<Icon width={20} height={20} color="#FAFAFA" icon={Icons.House}  />
 
 
+export const TaskWidget: FC<TaskWidgetType> = (props) => {
+	const { useGetTodoQuery } = props;
+	
+	const { data , isLoading} = useGetTodoQuery();
+
+	if(isLoading)return <h1>Loading..</h1>;
 
 
-const Widget1 = () => {
-
-	//const { data } = useGetTodoQuery({ authToken: "", params: { id: "1" } });
-
-	return <>
-									{/* <Task text="Приготовить вкусный ужин" completed={false}/>
-									<Task text="Устранить засор в раковине" completed={false}/>
-									<Task text="Стирка белого белья" completed={false}/>
-									<Task text="Разморозить холодильник" completed={false}/> */}
-									
+	return <> 
+	<CardDataOptions title="Активные задачи" >
+		<div className="column-card">						
+		{data.map((user:any) => {
+			return user["categories"].map((category:any) => {
+				return category["tasks"].map((task:any) => 
+				{
+					if (!task["isComplete"])
+					return<Task key={task["id"]} text={task["task"]} completed={task["isComplete"]}/>;
+				});
+			});
+		})}
+		</div>
+	</CardDataOptions>
+	<CardDataOptions title="Завершённые задачи" >
+	<div className="column-card">			
+		{data.map((user:any) => {
+			return user["categories"].map((category:any) => {
+				return category["tasks"].map((task:any) => 
+				{
+					if (task["isComplete"])
+					return<Task key={task["id"]} text={task["task"]} completed={task["isComplete"]}/>;
+				});
+			});
+		})}
+	</div>
+	</CardDataOptions>
 	</>;
 };
 
-export default Widget1;
+export default TaskWidget;

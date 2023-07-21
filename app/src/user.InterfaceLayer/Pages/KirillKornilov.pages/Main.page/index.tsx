@@ -38,25 +38,6 @@ const MainPage: FC = () => {
 
 						<Card>
 						<>
-
-							{/* <CardDataOptions title="Активные задачи" >
-								<div className="tasks-list">
-									<Task text="Приготовить вкусный ужин" completed={false}/>
-									<Task text="Устранить засор в раковине" completed={false}/>
-									<Task text="Стирка белого белья" completed={false}/>
-									<Task text="Разморозить холодильник" completed={false}/>
-
-									 
-
-									<CompComplexTask/>
-								</div>	
-							</CardDataOptions>
-							<CardData title="Заверщённые задачи">
-								<div className="tasks-list">
-									<Task text="Полить цветы" completed={true}/>
-									<Task text="Вызвать сантехника" completed={true}/>
-								</div>
-							</CardData> */}
 							<CompComplexTask/>
 						</>
 						</Card>

@@ -1,5 +1,5 @@
-interface Widget1Type {
+interface TaskWidgetType {
 	useGetTodoQuery: any;
 }
 
-export default Widget1Type;
+export default TaskWidgetType;
