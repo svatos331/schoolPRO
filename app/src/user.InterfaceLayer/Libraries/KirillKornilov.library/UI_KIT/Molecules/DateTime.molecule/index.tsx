@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 import DateTimeContent from "../../Atoms/DataTimeContent.Atom";
 import { Icons } from "../../Atoms/Atom1/icons";
-
-import "./styled/style.css";
+import * as S from "./styled";
 
 
 const DateTime = () => {
@@ -31,10 +30,10 @@ const DateTime = () => {
     const date = `${datetime.getDate()} ${monthNames[datetime.getMonth()]} ${datetime.getFullYear()}`;
 
     return (
-        <div className='date-time' >
+        <S.date_time >
             <DateTimeContent title='На часах у нас' icon={Icons.Clock} datetime={time} />
             <DateTimeContent title='А сегодня у нас' icon={Icons.Calendar} datetime={date} />
-        </div>
+        </S.date_time>
     );
 
 };

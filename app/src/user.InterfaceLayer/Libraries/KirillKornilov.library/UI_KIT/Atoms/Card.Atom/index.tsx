@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import "./styled/style.css";
+import * as S from "./styled";
 
 interface ICard {
     children: JSX.Element
@@ -9,9 +9,9 @@ interface ICard {
 const Card:FC<ICard> = ({children}) => {
 
     return (
-        <div className="card">
+        <S.card>
             {children}
-        </div>
+        </S.card>
     );
 };
 
