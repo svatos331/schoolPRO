@@ -3,7 +3,7 @@ import ComponentSideBarMain from "user.InterfaceLayer/Components/KirillKornilov.
 //import Component1 from "../../../Components/KirillKornilov.components.bll/Components1.component.bll";
 // import { Component1 } from "test-lib";
 //import Task from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/Task.molecule";
-import MainHeader from "user.InterfaceLayer/Components/KirillKornilov.components.bll/HeaderMain.component.bll";
+import HeaderMain from "user.InterfaceLayer/Components/KirillKornilov.components.bll/HeaderMain.component.bll";
 import Card from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Card.Atom";
 import CardData from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/CardData.Atom";
 import CardDataOptions from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/CardDataOptions.molecule";
@@ -23,7 +23,7 @@ const MainPage: FC = () => {
 			<ComponentSideBarMain/>
 			
 			<div id='main-page'>
-				<MainHeader/>
+				<HeaderMain/>
 				<div className='columns'>
 					<div className='left-column'>
 					<>
