@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 import { Icon, Icons } from "../../Atoms/Atom1/icons";
+import * as S from "./styled";
 import CheckBox from "../../Atoms/Checkbox.Atom";
-
-import "./styled/style.css";
+//import "./styled/style.css";
 
 
 interface ITask {
@@ -12,23 +12,39 @@ interface ITask {
     completed:boolean
 }
 
+
 const Task:FC<ITask> = ({key ,text, completed}) => {
 
     return (
-        <div key={key} className={completed ? "task completed" : "task"}>
-            <div className='checkbox-box'>
+        // <div key={key} className={completed ? "task completed" : "task"}>
+        //     <div className='checkbox-box'>
+        //         <CheckBox checked={completed ? true : false}/>
+        //     </div>
+        //     <p>
+        //         {text}
+        //     </p>
+        //     <button className='btn'>
+        //         <Icon width={18} height={18} icon={Icons.Edit} color='#000' />
+        //     </button>
+        //     <button className='btn'>
+        //         <Icon width={18} height={18} icon={Icons.TrashBin} color='#F05454' />
+        //     </button>
+        // </div>
+
+        <S.task key={key} complet={completed?true:false} >
+            <S.checkbox_box complet={completed?true:false}>
                 <CheckBox checked={completed ? true : false}/>
-            </div>
-            <p>
-                {text}
-            </p>
-            <button className='btn'>
+            </S.checkbox_box>
+            
+                <p> {text}</p>
+                <S.btn>
                 <Icon width={18} height={18} icon={Icons.Edit} color='#000' />
-            </button>
-            <button className='btn'>
-                <Icon width={18} height={18} icon={Icons.TrashBin} color='#F05454' />
-            </button>
-        </div>
+                </S.btn>
+            <S.btn>
+            <Icon width={18} height={18} icon={Icons.TrashBin} color='#F05454' />
+               </S.btn>
+
+        </S.task>
     );
 };
 

@@ -1,8 +1,6 @@
 import React,{ FC } from "react";
 
-import "./styled/styled.css";
-
-
+import * as S from "./styled";
 import { Icons, Icon } from "../../Atoms/Atom1/icons";
 
 interface IButton { 
@@ -11,23 +9,20 @@ interface IButton {
     icon: boolean;
 }
 
-
-
-
 const Button: FC<IButton> = ({text, color, icon})=>{
     if(icon) return(
-        <button  style={{backgroundColor: color}}>
+        <S.button  color={color}>
             <div>
                 <Icon width={20} height={20} color="#FAFAFA" icon={Icons.RoundPlus} />
                 <p>
                     {text}
                 </p>
             </div>
-         </button>
+         </S.button>
     );
 
     return(
-        <button style={{backgroundColor:color}} >{text}</button>
+        <S.button color={color} >{text}</S.button>
     );
 
 };
