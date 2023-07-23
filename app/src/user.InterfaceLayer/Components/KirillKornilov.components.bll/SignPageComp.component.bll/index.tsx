@@ -5,16 +5,17 @@ import React from "react";
 // import { Icons,Icon } from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Atom1/icons";
 // import Avatar from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Avatar.Atom";
 //import HeaderMain
-import HeaderMainWidget from "user.InterfaceLayer/Libraries/KirillKornilov.library/Widgets/HeaderMain.widget";
 import { useGetGoodsQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useGetTodoQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/todo.entity/redux/api";
+import SignWidget from "user.InterfaceLayer/Libraries/KirillKornilov.library/Widgets/Sign.widget";
 
-
-const HeaderMain = () => {
+const SignPageComp = () => {
 
     return (
-        <HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} />
-    );
+      
+        <SignWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} />
+      
+     );
 };
 
-export default HeaderMain;
+export default SignPageComp;
