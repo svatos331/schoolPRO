@@ -1,3 +1,5 @@
-const test = {};
+interface ActivityType {
+	useGetActivityQuery: any;
+}
 
-export default test;
+export default ActivityType;

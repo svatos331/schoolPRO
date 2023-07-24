@@ -16,7 +16,7 @@ import FactWidget from "../Fact.widget";
 
 export const UserCategory = createContext(1);
 
-const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery, useGetTasksQuery,useGetObservationQuery,useGetFactQuery}) => {
+const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery, useGetTasksQuery,useGetObservationQuery,useGetFactQuery, useGetActivityQuery}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	//const { data } = useGetGoodsQuery();
 
@@ -42,7 +42,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 
 						<Card>
 							<CardDataOptions title="Успехи за неделю">
-								<Activity/>
+								<Activity useGetActivityQuery={useGetActivityQuery}/>
 							</CardDataOptions>
 						</Card>
 
@@ -70,11 +70,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 							<FactWidget useGetFactQuery={useGetFactQuery}/>
 
 							
-									{/* <p style={{margin:0}}>
-										Человек, который просыпается в 6 утра, по статистике,
-										закрывает все задачи к 18:30 вечера. 
-										Попробуем также :^| ?
-									</p> */}
+									
 							</CardData>
 						</Card>
 					</S.right_column>

@@ -46,7 +46,12 @@ export const goodsApi = createApi({
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
+		getActivity: build.query({
+			query: ({category_id,user_id}) => `activity/${user_id}/${category_id}`,
+			//provide0sTags: [`${reducerPaths.todo}TAG`],
+			//transformResponse: todoFromDtoServiceArray,
+		}),
 	}),
 });
 
-export const { useGetGoodsQuery,useGetCategoriesQuery, useGetTasksQuery, useGetObservationQuery, useGetFactQuery} = goodsApi;
+export const { useGetGoodsQuery,useGetCategoriesQuery, useGetTasksQuery, useGetObservationQuery, useGetFactQuery , useGetActivityQuery} = goodsApi;

@@ -40,6 +40,7 @@ type Task struct {
 type Activity struct {
 	Created   []int `json:"created"`
 	Completed []int `json:"completed"`
+	Deleted   []int `json:"deleted"`
 }
 
 type Observation struct {
@@ -92,10 +93,6 @@ var ctgry = []Category{
 		ID:     4,
 		UserID: 1,
 		Name:   "Спорт",
-	},	{
-		ID:     5,
-		UserID: 1,
-		Name:   "Health",
 	},
 	{
 		ID:     1,
@@ -736,8 +733,16 @@ func main() {
 		completed2 = append(completed2, rand.Intn(created2[i]))
 	}
 
-	acitvity = append(acitvity, Activity{Created: created1, Completed: completed1})
-	acitvity = append(acitvity, Activity{Created: created2, Completed: completed2})
+	var deleted1 []int
+	var deleted2 []int
+
+	for i := 0; i < 7; i++ {
+		deleted1 = append(deleted1, rand.Intn(5))
+		deleted2 = append(deleted2, rand.Intn(5))
+	}
+
+	acitvity = append(acitvity, Activity{Created: created1, Completed: completed1, Deleted: deleted1})
+	acitvity = append(acitvity, Activity{Created: created2, Completed: completed2, Deleted: deleted2})
 
 	r := Router()
 	fmt.Println("Starting the server on port 9000...")
