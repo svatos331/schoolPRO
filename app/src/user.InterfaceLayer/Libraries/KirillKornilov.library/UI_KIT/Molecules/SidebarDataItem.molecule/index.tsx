@@ -13,7 +13,8 @@ const SidebarDataItem: FC<ISidebarDataItem> = ({color, text, icon}) => {
 
     return (
         <S.sidebar_data_item>
-            <Icon width={18} height={18} color={color} icon={icon} />
+            
+            <Icon width={18} height={18} color={color} icon={icon}  />
             <p style={{color: color}}>{text}</p>
             <S.selector/>
         </S.sidebar_data_item>

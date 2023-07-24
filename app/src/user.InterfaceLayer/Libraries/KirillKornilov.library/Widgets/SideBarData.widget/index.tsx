@@ -1,4 +1,5 @@
-import React, { FunctionComponent} from "react";
+import React, { FunctionComponent, useContext} from "react";
+import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 //import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Logo from "../../UI_KIT/Molecules/Logo.molecule";
@@ -9,47 +10,48 @@ import SidebarDataWidgetType from "./type";
 
 //const userId = useContext(UserIdContext);
 //const SidebarDataWidget= () => {
-const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =(props: SidebarDataWidgetType )=>{
-    const {useGetCategoriesQuery} = props;
+const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCategoriesQuery, setCategory})=>{
+    //const {useGetCategoriesQuery} = props;
 
-    //alert(userId);
+    const userId= useContext(UserIdContext);
+	//alert(userId);
 
-    const {data , isLoading} = useGetCategoriesQuery(1);
+    const {data , isLoading} = useGetCategoriesQuery(userId);
     if (isLoading) return <h1>isLoading</h1>;
+
+    //const {setCategory}= props;
+
 
 
 	return (<S.side_bar_box>
-         
 
-         {data.map((user:any) => {
-            alert(`user_id=${user["user_id"]}  id=${user["id"]}`);
-			//return <li key={user["category_id"]}>{user["goal"]}</li>;
-					//return<Task key={task["id"]} text={task["task"]} completed={task["isComplete"]}/>;
-				// user.map((item:any)=>{
-                //         alert(item);
-                // })
-			
-		})}
-         
+
 		<Logo/>
 		 <>
             <S.data_name >Категории</S.data_name>
             <S.data_items>
-                <SidebarDataItem key={1} text="Дом" color="#000" icon={Icons.House}/>
-                <SidebarDataItem key={2}  text="Семья" color="#000" icon={Icons.Family}/>
-                <SidebarDataItem key={3}  text="Работа" color="#000" icon={Icons.Job}/>
-                <SidebarDataItem key={4} text="Спорт" color="#000" icon={Icons.Sport}/>
+                
+               <div key={1}  onClick={()=>setCategory(1)}> <SidebarDataItem text="Дом" color="#000" icon={Icons.House} />
+                </div>
+                <div key={2} onClick={()=>setCategory(2)}> 
+                <SidebarDataItem   text="Семья" color="#000" icon={Icons.Family} />
+                </div>
+                <div key={3} onClick={()=>setCategory(3)}> 
+                <SidebarDataItem   text="Работа" color="#000" icon={Icons.Job}  />
+                </div>
+                <div key={4} onClick={()=>setCategory(4)}> 
+                <SidebarDataItem  text="Спорт" color="#000" icon={Icons.Sport}  />
+                </div>
 
                 {data.map((user:any) => {
-                    if(user["id"]<4)return;
-                <SidebarDataItem key={user["id"]} text={user["name"]} color="#000" icon={Icons.Star} />;
-                //alert(`user_id=${user["user_id"]}  id=${user["id"]}`);
-                
-                
+                    if(user["id"]<=4)return;
 
-		        })}
-
-                <SidebarDataItem text="Добавить" color="#29A19C" icon={Icons.ReactPlus}/>
+                    return   (<div key={user["id"]} onClick={()=>setCategory(user["id"])}> 
+                    <SidebarDataItem text={user["name"]} color="#000" icon={Icons.Star} />
+                    </div>);
+                })}
+              
+                <SidebarDataItem text="Добавить" color="#29A19C" icon={Icons.ReactPlus}  />
                 
 
                 

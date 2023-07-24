@@ -92,6 +92,10 @@ var ctgry = []Category{
 		ID:     4,
 		UserID: 1,
 		Name:   "Спорт",
+	},	{
+		ID:     5,
+		UserID: 1,
+		Name:   "Health",
 	},
 	{
 		ID:     1,
