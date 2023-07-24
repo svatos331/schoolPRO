@@ -18,8 +18,10 @@ const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);
 
+
+
 root.render(
-	<React.StrictMode>
+	
 		<Provider store={store}>
 			<RouterProvider router={routers} />
 			{/* <div>Sad</div> */}
@@ -27,13 +29,6 @@ root.render(
 
 		</Provider>
 
-		
-		{/* <ToasterModalWindow>
-			<Toaster
-				position="bottom-left"
-				reverseOrder={false}
-			/>
-			
-		</ToasterModalWindow> */}
-	</React.StrictMode>
+	
+
 );

@@ -1,5 +1,5 @@
-interface Widget1Type {
-	useGetTodoQuery: any;
+interface SidebarDataWidgetType {
+	useGetCategoriesQuery: any;
 }
 
-export default Widget1Type;
+export default SidebarDataWidgetType;

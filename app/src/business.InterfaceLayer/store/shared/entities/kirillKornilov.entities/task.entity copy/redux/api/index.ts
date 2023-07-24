@@ -11,9 +11,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // 	params: { id: string };
 // }
 
-export const goodsApi = createApi({
+export const goApi = createApi({
 	//reducerPath: `${reducerPaths.todo}/api`,
-	reducerPath: "goodsApi",
+	reducerPath: "goApi",
 	baseQuery: fetchBaseQuery({
 		//baseUrl: process.env.REACT_APP_API_URL, 
 		baseUrl:"http://localhost:9000/api/"
@@ -21,17 +21,12 @@ export const goodsApi = createApi({
 	//tagTypes: [`${reducerPaths.todo}TAG`],
 
 	endpoints: (build) => ({
-		getGoods: build.query({
-			query: () => "category/1",
-			//providesTags: [`${reducerPaths.todo}TAG`],
-			//transformResponse: todoFromDtoServiceArray,
-		}),
 		getCategories: build.query({
-			query: (user_id:number) => `category/${user_id}`,
+			query: () => "category/1",
 			//providesTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
 	}),
 });
 
-export const { useGetGoodsQuery,useGetCategoriesQuery } = goodsApi;
+export const { useGetCategoriesQuery } = goApi;

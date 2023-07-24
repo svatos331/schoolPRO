@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent} from "react";
+//import { UserIdContext } from "user.InterfaceLayer/Pages/KirillKornilov.pages/Main.page";
 
 import MainWidgetType from "./type";
 import SidebarDataWidget from "../SideBarData.widget";
@@ -11,13 +12,17 @@ import CardData from "../../UI_KIT/Atoms/CardData.Atom";
 import DateTime from "../../UI_KIT/Molecules/DateTime.molecule";
 import * as S from "./styled";
 
+//const userId= useContext(UserIdContext);
 
-const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetGoodsQuery ,useGetTodoQuery}) => {
+
+
+const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { data } = useGetGoodsQuery();
+	//const { data } = useGetGoodsQuery();
 
 	return <>
-		<SidebarDataWidget/>
+
+		<SidebarDataWidget useGetCategoriesQuery={useGetCategoriesQuery}/>
 			<S.main_page>
 				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} />
  
@@ -58,6 +63,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetGoodsQuery ,useGe
 					</S.right_column>
 				</S.columns>
 			</S.main_page>
+	
 			</>;
 
 };
