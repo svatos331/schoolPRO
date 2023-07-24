@@ -3,7 +3,8 @@ enum RoutesPaths {
 	MAIN = "/",
 	DEFAULT = "",
 	SVYATOSLAV_ZHILIN = "/svyatoslavZhilin",
-	KIRILL_KORNILOV="/kirillKornilov",
+	KIRILL_KORNILOV="/kirillKornilov/",
+	SIGN="/kirillKornilov/sign",
 }
 
 export default RoutesPaths;
