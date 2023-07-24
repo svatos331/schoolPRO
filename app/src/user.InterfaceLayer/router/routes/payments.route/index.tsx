@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {Suspense} from "react";
+import React, {lazy, Suspense} from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {RouteObject} from "react-router-dom";
 
-import RoutesPaths from "../../routesPaths";
 import routesPaths from "../../routesPaths";
 import payments from "./payments";
 import BeforeAuthLayout from "../../../Layouts/payments.layouts/BeforeAuth.layout";
@@ -11,9 +11,8 @@ import Loader from "../../../Components/general.components/Loader";
 import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
-import OTPPage from "../../../Pages/payments.pages/OTP.page";
-import Colors from "../../../constants/colors";
-import HomePage from "../../../Pages/payments.pages/Home.page";
+import Colors from "../../../constants/colors/index";
+import BalanceBlock from "../../../Components/payments.components.bll/BallanceBlock.component.bll";
 // import RoutesPaths from "../../routesPaths";
 // import Error from "../../../Components/general.components/Error";
 // import MainLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
@@ -24,10 +23,13 @@ import HomePage from "../../../Pages/payments.pages/Home.page";
 // 	() => import("../../../Pages/payments.pages/LaunchScreen.page")
 // );
 //
-// const MainPage = lazy(
-// 	() => import("../../../Pages/payments.pages/Main.page")
-// );
+const OTPPage = lazy(
+	() => import("../../../Pages/payments.pages/OTP.page/index")
+);
+const HomePage = lazy(
+	() => import("../../../Pages/payments.pages/Home.page")
 
+);
 const paymentsRoutes: RouteObject[] = [
 	{
 		path: payments.AUTH,
@@ -65,7 +67,7 @@ const paymentsRoutes: RouteObject[] = [
 			},
 
 			{
-				path: RoutesPaths.NOT_FOUND,
+				path: routesPaths.NOT_FOUND,
 				element: <div>страницы нет</div>,
 			},
 		],
@@ -114,17 +116,29 @@ const paymentsRoutes: RouteObject[] = [
 		errorElement: <Error/>,
 		children:[
 			{
-				path: `/${RoutesPaths.MAIN}`,
+				path: `/${routesPaths.MAIN}`,
 				element: <HomePage/>,
+				children:[
+					{
+						path:`/${routesPaths.MAIN}`,
+						element:<BalanceBlock/>
+
+					},
+					{
+						path:`${routesPaths.NOT_FOUND}`,
+						element:<BalanceBlock/>
+
+					}
+				]
 			},
 			{
-				path: RoutesPaths.NOT_FOUND,
+				path: routesPaths.NOT_FOUND,
 				element: <div>страницы нет</div>,
 			},
 		]
 	},
 	{
-		path: RoutesPaths.NOT_FOUND,
+		path: routesPaths.NOT_FOUND,
 		element: <div>страницы нет</div>,
 	},
 ];

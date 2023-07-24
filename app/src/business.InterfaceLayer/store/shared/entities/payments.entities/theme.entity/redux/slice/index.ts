@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 import reducerPaths from "../../../../../../reducerPaths";
-import Colors from "../../../../../../../../user.InterfaceLayer/constants/colors";
+import Colors from "../../../../../../../../user.InterfaceLayer/constants/colors/index";
 
 export enum IThemeEnum {
 	curcolor="curcolor"

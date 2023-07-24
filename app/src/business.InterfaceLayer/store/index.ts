@@ -6,18 +6,22 @@ import { todoReducer } from "./shared/entities/svyatoslavZhilin.entities/todo.en
 import reducerPaths from "./reducerPaths";
 import {themeReducer} from "./shared/entities/payments.entities/theme.entity/redux/slice";
 import {sidebarReducer} from "./shared/entities/payments.entities/sidebar.entity/redux/slice";
+import {paymentsApi} from "./shared/entities/payments.entities/payments.entity/redux/api";
 
 const allSliceReducersReducer = combineReducers({
 	[todoApi.reducerPath]: todoApi.reducer,
+	[paymentsApi.reducerPath]: paymentsApi.reducer,
 	[reducerPaths.todo]: todoReducer,
+
 	[reducerPaths.theme]: themeReducer,
 	[reducerPaths.sidebar]: sidebarReducer,
+
 });
 
 export const store = configureStore({
 	reducer: allSliceReducersReducer,
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(todoApi.middleware),
+		getDefaultMiddleware().concat(todoApi.middleware).concat(paymentsApi.middleware),
 });
 
 setupListeners(store.dispatch);

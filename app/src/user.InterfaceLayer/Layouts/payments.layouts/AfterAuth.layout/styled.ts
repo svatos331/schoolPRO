@@ -1,6 +1,6 @@
 import {styled} from "styled-components";
 
-import Colors from "../../../constants/colors";
+import Colors from "../../../constants/colors/index";
 import {
     ITheme
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";

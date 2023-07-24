@@ -15,6 +15,11 @@
   box-sizing: border-box;
 }
 
+.p-sidebar {
+  background-color: white !important;
+  padding: 20px;
+}
+
 .f-center {
   justify-content: center;
   align-items: center;

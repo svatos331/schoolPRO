@@ -6,10 +6,10 @@ import {useAppDispatch} from "../../../../business.InterfaceLayer/store/services
 import {
     themeActions
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
-import Colors from "../../../constants/colors";
+import Colors from "../../../constants/colors/index";
 
 const CheckAuth = () => {
-    const {keycloak} = useKeycloak();
+    // const {keycloak} = useKeycloak();
     const navigate = useNavigate();
     const dispath = useAppDispatch();
     const {changeTheme} = themeActions;

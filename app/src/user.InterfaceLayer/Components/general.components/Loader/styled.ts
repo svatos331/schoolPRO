@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import {styled} from "styled-components";
 
-import Colors from "../../../constants/colors";
+import Colors from "../../../constants/colors/index";
 
 export const Loader = styled.div`
 	font-weight: 600;

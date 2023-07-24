@@ -2,7 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Colors from "../../../../../../constants/colors";
+import Colors from "../../../../constants/colors/index";
 
 export interface IButtonProps  {
  border?:string,

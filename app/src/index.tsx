@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {Toaster} from "react-hot-toast";
 import Keycloak from "keycloak-js";
-import {ReactKeycloakProvider, useKeycloak} from "@react-keycloak/web";
+import {ReactKeycloakProvider} from "@react-keycloak/web";
 
 import {store} from "./business.InterfaceLayer/store";
 import mainRouter from "./user.InterfaceLayer/router";
@@ -16,9 +16,9 @@ import "user.InterfaceLayer/styles/default.css";
 import "user.InterfaceLayer/styles/global.scss";
 import "user.InterfaceLayer/styles/scrollbar.css";
 import "user.InterfaceLayer/styles/fonts.scss";
-// import "primereact/resources/themes/arya-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import LaunchScreenPage from "./user.InterfaceLayer/Pages/payments.pages/LaunchScreen.page";
+import {useAppDispatch} from "./business.InterfaceLayer/store/services/hooks/redux";
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);
@@ -28,28 +28,16 @@ const keycloakSetting = {
     clientId: "claimapi"
 };
 const keycloak = new Keycloak(keycloakSetting);
-const initOptions = { pkceMethod: "S256", onLoad:"login-required" };
-const loadingComponent = (
-    <div className='text-blue-700' />
-);
+const initOptions = {pkceMethod: "S256", onLoad: "login-required"};
 
-const handleOnEvent = async (event: any, error:any) => {
-    if (event === "onAuthSuccess") {
+const handleOnEvent = async (event: any, error: any) => {
+    if (event === "onAuthSuccess" || event === "onAuthRefreshSuccess") {
         // eslint-disable-next-line no-console
-        console.log(keycloak.authenticated);
+        localStorage.setItem("auth", JSON.stringify(keycloak.tokenParsed));
         // eslint-disable-next-line no-console
-        console.log(keycloak.token);
-        // if (keycloak.authenticated) {
-        //     let response = await chatApi.getUserExtrasMe(keycloak.token);
-        //     if (response.status === 404) {
-        //         const userExtra = { avatar: keycloak.tokenParsed!.preferred_username }
-        //         response = await chatApi.saveUserExtrasMe(keycloak.token, userExtra)
-        //         console.log('UserExtra created for ' + keycloak.tokenParsed!.preferred_username)
-        //     }
-        //     //@ts-ignore
-        //     keycloak['avatar'] = response.data.avatar
-        }
-    };
+        console.log("refreshed");
+    }
+};
 
 root.render(
     <ReactKeycloakProvider
@@ -62,7 +50,7 @@ root.render(
 
         <Provider store={store}>
 
-                <RouterProvider router={routers}/>
+            <RouterProvider router={routers}/>
         </Provider>
         <ToasterModalWindow>
             <Toaster
@@ -71,6 +59,5 @@ root.render(
             />
         </ToasterModalWindow>
 
-     </ReactKeycloakProvider>
-
+    </ReactKeycloakProvider>
 );

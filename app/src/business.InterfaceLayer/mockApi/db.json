@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "balance": 1153,
+      "id": "supervisor"
+    },
+    {
+      "id": "support",
+      "balance": 31160
+    }
+  ]
+}
