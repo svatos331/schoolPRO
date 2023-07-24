@@ -13,6 +13,7 @@ import DateTime from "../../UI_KIT/Molecules/DateTime.molecule";
 import * as S from "./styled";
 import ObserveWidget from "../Observe.widget";
 import FactWidget from "../Fact.widget";
+import GraphLineWidget from "../GraphLine.widget";
 
 export const UserCategory = createContext(1);
 
@@ -72,6 +73,12 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 							
 									
 							</CardData>
+
+						</Card>
+						<Card>
+						<CardData title="График успеваемости">
+						<GraphLineWidget useGetActivityQuery={useGetActivityQuery}/>
+						</CardData>
 						</Card>
 					</S.right_column>
 				</S.columns>
