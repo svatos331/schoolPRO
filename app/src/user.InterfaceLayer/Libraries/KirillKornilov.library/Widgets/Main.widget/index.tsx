@@ -11,16 +11,19 @@ import TaskWidget from "../Task.widget";
 import CardData from "../../UI_KIT/Atoms/CardData.Atom";
 import DateTime from "../../UI_KIT/Molecules/DateTime.molecule";
 import * as S from "./styled";
-
+import ObserveWidget from "../Observe.widget";
+import FactWidget from "../Fact.widget";
 
 export const UserCategory = createContext(1);
 
-const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery, useGetTasksQuery}) => {
+const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery, useGetTasksQuery,useGetObservationQuery,useGetFactQuery}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	//const { data } = useGetGoodsQuery();
 
 	//const userId= useContext(UserIdContext);
 	//alert(userId);
+	
+
 	
 	const [category,setCategory] = useState(1);
 
@@ -56,20 +59,22 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 						</CardData>
 					</Card>
 					<Card>
-						<CardData title="Наблюдение">			
-									<p style={{margin:0}}>
-										Больше всего задач вы <a href="#">создаете</a> в Понедельник<br/><br/>
-										Больше всего задач вы завершаете во Вторник
-									</p>		
+						<CardData title="Наблюдение">		
+
+						<ObserveWidget  useGetObservationQuery={useGetObservationQuery}/>
+
 						</CardData>
 					</Card>
 						<Card>
 							<CardData title="Факт дня">
-									<p style={{margin:0}}>
+							<FactWidget useGetFactQuery={useGetFactQuery}/>
+
+							
+									{/* <p style={{margin:0}}>
 										Человек, который просыпается в 6 утра, по статистике,
 										закрывает все задачи к 18:30 вечера. 
 										Попробуем также :^| ?
-									</p>
+									</p> */}
 							</CardData>
 						</Card>
 					</S.right_column>

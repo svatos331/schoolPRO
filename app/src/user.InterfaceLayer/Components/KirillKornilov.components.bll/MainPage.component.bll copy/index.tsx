@@ -4,6 +4,8 @@ import { useGetGoodsQuery } from "business.InterfaceLayer/store/shared/entities/
 import { useGetTodoQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/todo.entity/redux/api";
 import { useGetCategoriesQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useGetTasksQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { useGetObservationQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { useGetFactQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 
 export const UserIdContext = createContext(0);
 
@@ -16,8 +18,10 @@ const ComponentMainPage = () => {
 	useGetGoodsQuery={useGetGoodsQuery} 
 	useGetTodoQuery={useGetTodoQuery}  
 	useGetCategoriesQuery={useGetCategoriesQuery} 
-	useGetTasksQuery={useGetTasksQuery}/>;
-	</UserIdContext.Provider>
+	useGetTasksQuery={useGetTasksQuery}
+	useGetObservationQuery={useGetObservationQuery}
+	useGetFactQuery={useGetFactQuery}
+	/></UserIdContext.Provider>
 	</>;
 	
 };

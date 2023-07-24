@@ -3,6 +3,8 @@ interface MainWidgetType {
 	useGetTodoQuery:any;
 	useGetCategoriesQuery:any;
 	useGetTasksQuery:any;
+	useGetObservationQuery:any;
+	useGetFactQuery:any;
 }
 
 export default MainWidgetType;

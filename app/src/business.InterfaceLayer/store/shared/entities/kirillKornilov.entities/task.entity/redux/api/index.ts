@@ -36,7 +36,17 @@ export const goodsApi = createApi({
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
+		getObservation: build.query({
+			query: ({category_id,user_id}) => `observation/${user_id}/${category_id}`,
+			//provide0sTags: [`${reducerPaths.todo}TAG`],
+			//transformResponse: todoFromDtoServiceArray,
+		}),
+		getFact: build.query({
+			query: () => "fact",
+			//provide0sTags: [`${reducerPaths.todo}TAG`],
+			//transformResponse: todoFromDtoServiceArray,
+		}),
 	}),
 });
 
-export const { useGetGoodsQuery,useGetCategoriesQuery, useGetTasksQuery} = goodsApi;
+export const { useGetGoodsQuery,useGetCategoriesQuery, useGetTasksQuery, useGetObservationQuery, useGetFactQuery} = goodsApi;
