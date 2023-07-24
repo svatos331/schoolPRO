@@ -21,8 +21,7 @@ const AfterAuthLayout: FC<{ children? : JSX.Element, bgc?:ITheme}> = ({bgc,child
 		<ST.AfterAuthLayout bgc={bgc} curcolor={curcolor}>
 			<DeviceDataWidget/>
 			<main>
-				{children}
-				{children ? null : <Outlet/>}
+				{children ? children : <Outlet/>}
 			</main>
 		</ST.AfterAuthLayout>
 	);

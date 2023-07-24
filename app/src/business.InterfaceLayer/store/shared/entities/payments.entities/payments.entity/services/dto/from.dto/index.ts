@@ -1,12 +1,12 @@
-export interface ITodoDTO {
+export interface IUserDTO {
 	id: string;
-	name: string;
+	balance: string;
 }
 
-export const todoFromDtoServiceArray = (props: any):ITodoDTO => {
+export const userFromDtoServiceArray = (props: any):IUserDTO => {
 	return props;
 };
 
-export const todoFromDtoServiceObject = (props: any) => {
+export const userFromDtoServiceObject = (props: any) => {
 	return props;
 };

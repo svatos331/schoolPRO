@@ -3,13 +3,10 @@ import React, {FC} from "react";
 import {Avatar} from "primereact/avatar";
 
 import ava from "../../../assets/icons/ava.svg";
-import * as ST from "../../../../../Pages/payments.pages/Home.page/styled";
 
-const UserLogo :FC = () => {
+const UserLogo :FC<{ image? : string }> = ({image}) => {
     return (
-        <ST.Logo>
-            <Avatar image={ava} size="xlarge" shape="circle" />
-        </ST.Logo>
+            <Avatar style={!image?{border:"1px solid black"}:{}} image={image?image:ava} size="xlarge" shape="circle" />
     );
 };
 

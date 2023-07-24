@@ -1,12 +1,118 @@
 {
   "users": [
     {
-      "balance": 1153,
-      "id": "supervisor"
+      "balance": 1713,
+      "id": "supervisor",
+      "cards": [
+        {
+          "balance": "1713",
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        },
+        {
+          "balance": "1713",
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        }
+      ],
+      "transactions": [
+        {
+          "type": "Shopping",
+          "date": "21 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Medicine",
+          "date": "02 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Sport",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Shopping",
+          "date": "28 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Travel",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "123"
+        },
+        {
+          "type": "Medicine",
+          "date": "18 March 2021, 8:30pm",
+          "sum": "48"
+        },
+        {
+          "type": "To Support",
+          "date": "23 July 2023, 8:30pm",
+          "sum": "48"
+        }
+      ]
     },
     {
       "id": "support",
-      "balance": 31160
+      "balance": 30600,
+      "cards": [
+        {
+          "balance": "1713",
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        },
+        {
+          "balance": "1713",
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        }
+      ],
+      "transactions": [
+        {
+          "type": "Shopping",
+          "date": "21 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Medicine",
+          "date": "02 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Sport",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Shopping",
+          "date": "28 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Travel",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "123"
+        },
+        {
+          "type": "Medicine",
+          "date": "18 March 2021, 8:30pm",
+          "sum": "48"
+        },
+        {
+          "type": "To Supervisor",
+          "date": "23 July 2023, 8:30pm",
+          "sum": "48"
+        }
+      ]
     }
   ]
 }

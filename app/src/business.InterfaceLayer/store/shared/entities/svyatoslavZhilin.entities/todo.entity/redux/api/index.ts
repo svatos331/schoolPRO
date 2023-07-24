@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import reducerPaths from "../../../../../../reducerPaths";
 import url from "../../services/url";
 import httpMethods from "../../../../../http/httpMethods";
-import { todoFromDtoServiceArray } from "../../services/dto/from.dto";
 import validateStatus from "../../../../../../services/utils/validateStatus";
+import {todoFromDtoServiceArray} from "../../services/dto/from.dto";
 
 export interface Props {
 	authToken: string;

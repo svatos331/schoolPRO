@@ -33,7 +33,7 @@ const initOptions = {pkceMethod: "S256", onLoad: "login-required"};
 const handleOnEvent = async (event: any, error: any) => {
     if (event === "onAuthSuccess" || event === "onAuthRefreshSuccess") {
         // eslint-disable-next-line no-console
-        localStorage.setItem("auth", JSON.stringify(keycloak.tokenParsed));
+        localStorage.setItem("auth", JSON.stringify(keycloak.token));
         // eslint-disable-next-line no-console
         console.log("refreshed");
     }

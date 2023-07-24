@@ -12,7 +12,8 @@ import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import BalanceBlock from "../../../Components/payments.components.bll/BallanceBlock.component.bll";
+import BalanceBlockComponent from "../../../Components/payments.components.bll/BallanceBlock.component.bll";
+import CardsPage from "../../../Pages/payments.pages/Cards.page";
 // import RoutesPaths from "../../routesPaths";
 // import Error from "../../../Components/general.components/Error";
 // import MainLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
@@ -118,18 +119,12 @@ const paymentsRoutes: RouteObject[] = [
 			{
 				path: `/${routesPaths.MAIN}`,
 				element: <HomePage/>,
-				children:[
-					{
-						path:`/${routesPaths.MAIN}`,
-						element:<BalanceBlock/>
-
-					},
-					{
-						path:`${routesPaths.NOT_FOUND}`,
-						element:<BalanceBlock/>
-
-					}
-				]
+				index:true
+			},
+			{
+				path: `/${routesPaths.CARDS}`,
+				element: <CardsPage/>,
+				index:true
 			},
 			{
 				path: routesPaths.NOT_FOUND,

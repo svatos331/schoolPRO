@@ -12,7 +12,7 @@ import {
 const SideBarWidget :FC<ISideBarWidgetProps>= ({children}) => {
     const dispath = useAppDispatch();
     const isOpen = useAppSelector(state => state.sidebar.isOpen);
-    const {close} = sidebarActions;
+    const {close, pickOpen} = sidebarActions;
 
     return (<ST.SideBarWidgetWrapper>
         <Sidebar  visible={isOpen} onHide={() => dispath(close())}>

@@ -7,6 +7,8 @@ import {
 export const DeviceDataWidgetWrapper = styled.header<{curcolor:ITheme}>`
   display: flex;
   padding: 5px;
+  max-width: 950px;
+  
   width: 100%;
   flex-direction: row;
   justify-content: space-between;

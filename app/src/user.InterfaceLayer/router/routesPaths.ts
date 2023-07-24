@@ -4,6 +4,7 @@ enum RoutesPaths {
 	DEFAULT = "",
 	"SIGNIN"="signin",
 	"SIGNUP"="signup",
+	"CARDS"="cards",
 }
 
 export default RoutesPaths;

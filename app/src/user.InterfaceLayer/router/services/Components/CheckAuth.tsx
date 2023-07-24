@@ -7,8 +7,17 @@ import {
     themeActions
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
 import Colors from "../../../constants/colors/index";
+import {
+    sidebarActions
+} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/sidebar.entity/redux/slice";
 
 const CheckAuth = () => {
+    const {close} = sidebarActions;
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(close());
+    }, [window.location.href]);
     // const {keycloak} = useKeycloak();
     const navigate = useNavigate();
     const dispath = useAppDispatch();

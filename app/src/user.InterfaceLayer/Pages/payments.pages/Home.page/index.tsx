@@ -11,9 +11,12 @@ import {
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/sidebar.entity/redux/slice";
 import SideBarWidget from "../../../Components/general.components/sideBar";
 import SideBarContentWidget from "../../../Libraries/payments.library/Widgets/sideBarContent";
-import {
-    useGetBalanceQuery
-} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
+import Typography_Montserrat_Normal
+    from "../../../Libraries/payments.library/UI_KIT/Molecules/Typographies/Montserrat/Normal";
+import EFontClasses from "../../../constants/fontsClasses";
+import Colors from "../../../constants/colors";
+import BalanceBlockComponent from "../../../Components/payments.components.bll/BallanceBlock.component.bll";
+import HomePageTitleComponent from "../../../Components/payments.components.bll/HomePageTitle.component.bll";
 
 const HomePage: FC = () => {
     const dispatch = useAppDispatch();
@@ -22,31 +25,17 @@ const HomePage: FC = () => {
     // @ts-ignore
     // const {keycloak} = useKeycloak();
     // eslint-disable-next-line no-console
-    const {data} = useGetBalanceQuery();
+    // eslint-disable-next-line no-console
 
     return (
         <ST.HomePageWrapper>
             <SideBarWidget>
                 <SideBarContentWidget/>
             </SideBarWidget>
-            <ST.Menu>
-
-                <Button
-                    onClick={() => {
-                        // eslint-disable-next-line no-console
-                        dispatch(open());
-                    }}
-                    text={
-                        <IconElement src={menuLogo}/>
-                    }
-                />
-
-            </ST.Menu>
-            <main>
-                <Outlet/>
-            </main>
-
-
+            <HomePageTitleComponent/>
+            <ST.Main>
+                <BalanceBlockComponent/>
+            </ST.Main>
         </ST.HomePageWrapper>
     );
 };

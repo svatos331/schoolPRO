@@ -2,6 +2,7 @@
 const jwt = require("jsonwebtoken");
 // eslint-disable-next-line import/order
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const extractClaimFromJWT = (token, claim) => {
     try {
 
@@ -28,7 +29,6 @@ const isTokenValid = (expirationDate) => {
 const isSupport = (role) => role === "SUPPORT";
 const isSupervisor = (role) => {
     // eslint-disable-next-line no-console
-    console.log(role);
 
     return role === "SUPERVISOR";
 };
@@ -42,7 +42,7 @@ const isProductionEnv = true;
 //делать фейковые запросы или нет
 // process.env.NODE_ENV === 'production';
 const server = jsonServer.create();
-
+server.use(cors());
 // For mocking the POST request, POST request won't make any changes to the DB in production environment
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
@@ -63,6 +63,7 @@ server.use((req, res, next) => {
         if (!(isAccessByRole)) {
             return res.status(403).json({error: "User not found"});
         }
+
         next();
     } catch (e) {
         return res.status(401).json({error: "Unauthorized: Invalid token"});
