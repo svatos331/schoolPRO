@@ -9,7 +9,7 @@ const FactWidget: FunctionComponent<FactWidgetType> = ({ useGetFactQuery }) => {
 	//alert(`fact ${data}`);
 	if(isLoading)return <h1>Loading..</h1>;
 	
-
+	
 
 	return <>
 			<p>{data["fact"]}</p>
