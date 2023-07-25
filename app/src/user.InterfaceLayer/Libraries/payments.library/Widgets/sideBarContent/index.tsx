@@ -18,6 +18,8 @@ import {
 const SideBarContentWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>> }>= ({getMe}) => {
     const {keycloak} = useKeycloak();
     const {data : baseInfo, isLoading} = getMe({});
+    // eslint-disable-next-line no-console
+    console.log(baseInfo?.src);
 
     return (<ST.SideBarContentWidgetWrapper>
         <ST.Header>

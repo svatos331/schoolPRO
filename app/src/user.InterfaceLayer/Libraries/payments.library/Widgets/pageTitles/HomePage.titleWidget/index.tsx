@@ -13,7 +13,7 @@ import Colors from "../../../../../constants/colors";
 import EFontClasses from "../../../../../constants/fontsClasses";
 import UserLogo from "../../../UI_KIT/Molecules/UserLogo";
 const HomePageTitleWidget :FC<IHomePageTitleWidgetProps>= ({openFunc, getMe}) => {
-    const {data:user} = getMe({});
+    const {data:user, isLoading} = getMe({});
 
     return (
         <ST.Menu>
@@ -27,7 +27,7 @@ const HomePageTitleWidget :FC<IHomePageTitleWidgetProps>= ({openFunc, getMe}) =>
                     icon={menuLogo}
 
                 />
-                <UserLogo/>
+                <UserLogo image = {user?.src??undefined} isLoading = {isLoading}/>
 
             </ST.MenuHeader>
             <ST.MenuTitle>

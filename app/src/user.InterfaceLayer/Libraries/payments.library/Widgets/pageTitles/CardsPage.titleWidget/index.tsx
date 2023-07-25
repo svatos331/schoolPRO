@@ -13,8 +13,12 @@ import Colors from "../../../../../constants/colors";
 import EFontClasses from "../../../../../constants/fontsClasses";
 import UserLogo from "../../../UI_KIT/Molecules/UserLogo";
 import {ICardsPageTitleWidgetDefaultProps} from "./const";
-const CardsPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title}) => {
+import {
+    useGetBaseInfoAboutMeQuery
+} from "../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
+const CardsPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title, getMe}) => {
     const navigate = useNavigate();
+    const {data : userBaseData, isLoading} = useGetBaseInfoAboutMeQuery({});
 
     return (
         <ST.Menu>
@@ -30,7 +34,7 @@ const CardsPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title}) => {
                     icon={menuLogo}
 
                 />
-                <UserLogo/>
+                <UserLogo isLoading = {isLoading} image = {userBaseData?.src??undefined}/>
 
             </ST.MenuHeader>
             <ST.MenuTitle>

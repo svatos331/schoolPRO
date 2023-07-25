@@ -9,16 +9,15 @@ import {IUserLogoProps} from "./type";
 const UserLogo :FC<IUserLogoProps> = ({image, isLoading}) => {
     // eslint-disable-next-line no-console
     console.log(isLoading);
-    const view = () => {
-            return <Avatar style={!image?{border:"1px solid black"}:{}} image={image?image:ava} size="xlarge" shape="circle" />;
-            
+    // const view = () => {
+    //         return <Avatar style={!image?{border:"1px solid black"}:{}} image={image?image:ava} size="xlarge" shape="circle" />;
+    //
+    //
+    //     return <ProgressSpinner/>;
+    // };
 
-        return <ProgressSpinner/>;
-    };
-
-    return <>
-        {view}
-    </> ;
+           return !isLoading? <Avatar style={!image?{border:"1px solid black"}:{}} image={image?image:ava} size="xlarge" shape="circle" /> : <ProgressSpinner/>;
+    ;
 };
 UserLogo.defaultProps = {
     isLoading:false

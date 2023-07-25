@@ -8,7 +8,8 @@ import arrow from "../../../Libraries/payments.library/assets/icons/arrow/nonstr
 import Colors from "../../../constants/colors/index";
 import {CheckBalance} from "../../../Pages/payments.pages/Home.page/styled";
 import {
-     useGetMeQuery
+    useGetBaseInfoAboutMeQuery,
+    useGetMeQuery
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
 import BalanceBlock from "../../../Libraries/payments.library/Widgets/ballanceBlock";
 import EFontClasses from "../../../constants/fontsClasses";
@@ -27,7 +28,7 @@ const HomePageTitleComponent = () => {
     const {pickOpen} = sidebarActions;
 
     return (
-        <HomePageTitleWidget openFunc = {() => dispatch(pickOpen())} getMe={useGetMeQuery} />
+        <HomePageTitleWidget openFunc = {() => dispatch(pickOpen())} getMe={useGetBaseInfoAboutMeQuery} />
     );
 };
 

@@ -4,8 +4,11 @@ import {QueryDefinition} from "@reduxjs/toolkit/query";
 import {
   IUserDTO
 } from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
+import {
+  IBaseInfoUserDTO
+} from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
 
 export type IHomePageTitleWidgetProps = {
   openFunc:() => void,
-  getMe : UseQuery<QueryDefinition<any, any, any, IUserDTO>>
+  getMe : UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>>
 };
