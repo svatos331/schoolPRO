@@ -3,19 +3,27 @@ import {styled} from "styled-components";
 
 
 import {
-     useGetMeQuery
+    useGetBaseInfoAboutAllQuery, useGetBaseInfoAboutMeQuery,
+    usePutMoneyMutation
 } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
-import CardsBlock from "../../../Libraries/payments.library/Widgets/cardsBlock";
 import PaymentBlock from "../../../Libraries/payments.library/Widgets/paymentBlock";
 
 
 
 const PaymentBlockComponent = () => {
 
+    const selectedUserIdSelector = (state:any) => state.payments.selectedUserId;
+    const paySumSelector = (state:any) => state.payments.paySum;
 
     return (
         <>
-            <PaymentBlock getMe={useGetMeQuery}/>
+            <PaymentBlock
+                paySumSelector={paySumSelector}
+                selectedUserIdSelector = {selectedUserIdSelector}
+                putMoney = {usePutMoneyMutation}
+                getUsers = {useGetBaseInfoAboutAllQuery}
+                getMe={useGetBaseInfoAboutMeQuery}
+            />
         </>
     );
 };

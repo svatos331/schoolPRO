@@ -23,9 +23,8 @@ export const InputCard = styled.div`
   flex-direction: column;
   gap: 20px;
   input{
-    font-family: ${EFontFamily.PTSAN};
     line-height: 60px;
-    font-weight: bold;
+    font-weight: bold !important;
     text-align: center;
     border-bottom: 1px solid ${Colors.BLACK} !important;
   }

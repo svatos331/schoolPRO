@@ -7,6 +7,8 @@ enum reducerPaths {
 	payments_transactions = "payments_transactions",
 	payments_balance = "payments_balance",
 	put_money = "put_money",
+	"baseUserInfoArray"="baseUserInfoArray",
+	"baseInfoAboutMe" = "baseInfoAboutMe"
 
 }
 

@@ -2,7 +2,7 @@ import {styled} from "styled-components";
 
 import Colors from "../../../constants/colors";
 export const PaymentBlock = styled.div`
-    max-width: 800px;
+  max-width: 800px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,28 @@ export const PaymentBlock = styled.div`
   gap: 20px;
   margin: 0 auto;
   margin-top: 50px;
+
+  & .p-toast-message {
+    padding: 20px;
+    border: 2px solid red;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: rgba(190, 117, 117, 0.33) !important;
+
+  }
+
+  .p-toast-message-success {
+    background-color: rgba(18, 134, 3, 0.4) !important;
+    border: 2px solid #015212;
+
+  }
+
+  .p-toast-message-error {
+    background-color: rgba(190, 117, 117, 0.33) !important;
+    border: 2px solid red;
+  }
+
 `;
 export const Input = styled.div`
   display: flex;
@@ -34,7 +56,8 @@ export const Input = styled.div`
   input{
     border: 0 !important;
     position: relative;
-    
+    font-weight: bold;
+    font-size: 25px !important;
     // border-bottom: 1px solid ${Colors.GRAY} !important;
     text-align: center;
   }

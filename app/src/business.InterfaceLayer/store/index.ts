@@ -7,6 +7,7 @@ import reducerPaths from "./reducerPaths";
 import {themeReducer} from "./shared/entities/payments.entities/theme.entity/redux/slice";
 import {sidebarReducer} from "./shared/entities/payments.entities/sidebar.entity/redux/slice";
 import {paymentsApi} from "./shared/entities/payments.entities/payments.entity/redux/api";
+import {paymentsReducer} from "./shared/entities/payments.entities/payments.entity/redux/slice";
 
 const allSliceReducersReducer = combineReducers({
 	[todoApi.reducerPath]: todoApi.reducer,
@@ -14,6 +15,7 @@ const allSliceReducersReducer = combineReducers({
 	[reducerPaths.todo]: todoReducer,
 
 	[reducerPaths.theme]: themeReducer,
+	[reducerPaths.payments]: paymentsReducer,
 	[reducerPaths.sidebar]: sidebarReducer,
 
 });

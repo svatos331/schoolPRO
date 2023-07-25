@@ -103,7 +103,25 @@ server.get("/me", (req, res) => {
     return res.json(user);
 
 });
-server.post("/payFromMeTo/:id", (req, res) => {
+server.get("/baseInfoAboutMe", (req, res) => {
+    const token = req.headers.authorization.substring(7);
+    const id = extractClaimFromJWT(token, "preferred_username");
+    const user = router.db.get("users").find((user) => user.id == (id)).value();
+
+    return res.json({src:user.src, name:user.name, id:user.id, balance:user.balance});
+
+});
+server.get("/public/users", (req, res) => {
+    const users = router.db.get("users").map(({src,name,id}) => ({
+        src,name,id
+    }));
+
+    return res.json(users);
+
+});
+server.post("/payFromMeTo", (req, res) => {
+    const userId = req.query.id;
+
     let {balance} = req.body;
     balance = parseInt(balance);
 
@@ -116,7 +134,7 @@ server.post("/payFromMeTo/:id", (req, res) => {
     const meId = extractClaimFromJWT(token, "preferred_username");
 
     const me = router.db.get("users").find((user) => user.id == (meId)).value();
-    const user = router.db.get("users").find((user) => user.id == (req.params.id)).value();
+    const user = router.db.get("users").find((user) => user.id == userId).value();
     if (balance > me.balance) {
         res.status(404, "недостаточно средств");
 
@@ -125,7 +143,8 @@ server.post("/payFromMeTo/:id", (req, res) => {
     me.balance = parseInt(me.balance) - balance;
     user.balance = parseInt(user.balance) + balance;
     router.db.write();
-    return res.json(user);
+
+    return res.json({balance:user.balance, id:user.id, meBalance : me.balance});
 });
 server.use(jsonServer.bodyParser);
 

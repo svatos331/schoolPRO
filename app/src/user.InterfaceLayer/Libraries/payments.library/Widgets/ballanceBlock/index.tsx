@@ -15,9 +15,12 @@ import * as ST from "./styled/index";
 import {
     useGetMeQuery
 } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
+import {
+    IBaseInfoUserDTO
+} from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
 
 
-const BalanceBlock :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBalanceUserResponse>> }>= ({getMe}) => {
+const BalanceBlock :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>> }>= ({getMe}) => {
 
 
     return (

@@ -16,7 +16,8 @@ enum Colors {
 	LIGHTPURPLE = "#f56eef",
 	GRAY = "#B9B9B9",
 	BLUE_THEME_GRADIENT="linear-gradient(#4960F9 100%, #1937FE 100%)",
-	SHADOWBLUE="#B6BFFF"
+	SHADOWBLUE="#B6BFFF",
+	BLUEGRAY="#F5F6FA"
 }
 
 export default Colors;

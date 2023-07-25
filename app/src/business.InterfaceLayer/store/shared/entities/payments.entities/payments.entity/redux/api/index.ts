@@ -3,7 +3,6 @@ import {useKeycloak} from "@react-keycloak/web";
 
 import reducerPaths from "../../../../../../reducerPaths";
 import httpMethods from "../../../../../http/httpMethods";
-import url from "../../../../svyatoslavZhilin.entities/todo.entity/services/url";
 import validateStatus from "../../../../../../services/utils/validateStatus";
 import {
     balanceFromUser,
@@ -11,6 +10,8 @@ import {
     transactionsFromUser,
     userFromDtoServiceArray
 } from "../../services/dto/from.dto";
+import {transformFromBaseInfoDTO, transformFromBaseInfoDTOArray} from "../../userBaseInfo.entity/services/dto/from.dto";
+import url from "../../services/url";
 
 const updateToken = () => {
     const {keycloak} = useKeycloak();
@@ -53,12 +54,12 @@ export type IPutMoneyProps = {
 export const paymentsApi = createApi({
     reducerPath: `${reducerPaths.payments}/api`,
     baseQuery: baseQueryWithReauth,
-    tagTypes: [`${reducerPaths.payments}TAG`,`${reducerPaths.put_money}TAG`, `${reducerPaths.payments_balance}TAG`, `${reducerPaths.payments_transactions}TAG`,`${reducerPaths.payments_cards}TAG`],
+    tagTypes: [`${reducerPaths.baseInfoAboutMe}TAG`, `${reducerPaths.baseUserInfoArray}TAG`,`${reducerPaths.payments}TAG`,`${reducerPaths.put_money}TAG`, `${reducerPaths.payments_balance}TAG`, `${reducerPaths.payments_transactions}TAG`,`${reducerPaths.payments_cards}TAG`],
     endpoints: (builder) => ({
         getMe: builder.query({
             query: () => {
                 return {
-                    url: "/me",
+                    url: url.me,
                     method: httpMethods.GET,
                     validateStatus,
                 };
@@ -70,7 +71,7 @@ export const paymentsApi = createApi({
         getBalance: builder.query({
             query: () => {
                 return {
-                    url: "/me",
+                    url: url.me,
                     method: httpMethods.GET,
                     validateStatus,
                 };
@@ -82,7 +83,7 @@ export const paymentsApi = createApi({
         getCards: builder.query({
             query: () => {
                 return {
-                    url: "/me",
+                    url: url.me,
                     method: httpMethods.GET,
                     validateStatus,
                 };
@@ -94,7 +95,7 @@ export const paymentsApi = createApi({
         getTransactions: builder.query({
             query: () => {
                 return {
-                    url: "/me",
+                    url: url.me,
                     method: httpMethods.GET,
                     validateStatus,
                 };
@@ -103,10 +104,34 @@ export const paymentsApi = createApi({
             providesTags: [`${reducerPaths.payments_transactions}TAG`],
             transformResponse: transactionsFromUser,
         }),
+        getBaseInfoAboutMe: builder.query({
+            query: () => {
+                return {
+                    url: url.baseInfoAboutMe,
+                    method: httpMethods.GET,
+                    validateStatus,
+                };
+
+            },
+            providesTags: [`${reducerPaths.baseInfoAboutMe}TAG`],
+            transformResponse: transformFromBaseInfoDTO,
+        }),
+        getBaseInfoAboutAll: builder.query({
+            query: () => {
+                return {
+                    url: url.publicUsersInfo,
+                    method: httpMethods.GET,
+                    validateStatus,
+                };
+
+            },
+            providesTags: [`${reducerPaths.baseUserInfoArray}TAG`],
+            transformResponse: transformFromBaseInfoDTOArray,
+        }),
         putMoney: builder.mutation<any, IPutMoneyProps>({
             query: ({params, balance}) => {
                 return {
-                    url: "/payFromMeTo",
+                    url: url.payFromMeTo,
                     method: httpMethods.POST,
                     validateStatus,
                     params,
@@ -114,12 +139,12 @@ export const paymentsApi = createApi({
                 };
 
             },
-            invalidatesTags: [`${reducerPaths.put_money}TAG`],
+            invalidatesTags: [`${reducerPaths.baseUserInfoArray}TAG`, `${reducerPaths.baseInfoAboutMe}TAG`],
             transformResponse: balanceFromUser,
         }),
     }),
 
 
 });
-export const { useGetMeQuery, usePutMoneyMutation,useGetBalanceQuery } = paymentsApi;
+export const { useGetBaseInfoAboutAllQuery,  useGetMeQuery, useGetBaseInfoAboutMeQuery, usePutMoneyMutation,useGetBalanceQuery } = paymentsApi;
 

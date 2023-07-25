@@ -1,7 +1,9 @@
 {
   "users": [
     {
-      "balance": 1713,
+      "src": "https://i.yapx.cc/PWwHk.jpg",
+      "balance": 131434,
+      "name": "Артемий Билибобо",
       "id": "supervisor",
       "cards": [
         {
@@ -58,8 +60,69 @@
       ]
     },
     {
+      "src": "https://i.yapx.cc/PWwHk.jpg",
+      "balance": 63368,
+      "name": "Михалайооо БубульГуморович",
+      "id": "verificator",
+      "cards": [
+        {
+          "balance": 3232,
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        },
+        {
+          "balance": 0,
+          "type": "Company",
+          "createDate": "01/2020",
+          "number": "1234123412342134",
+          "bank": "masterCard"
+        }
+      ],
+      "transactions": [
+        {
+          "type": "Shopping",
+          "date": "21 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Medicine",
+          "date": "02 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Sport",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Shopping",
+          "date": "28 March 2021, 8:30pm",
+          "sum": "120"
+        },
+        {
+          "type": "Travel",
+          "date": "30 March 2021, 8:30pm",
+          "sum": "123"
+        },
+        {
+          "type": "Medicine",
+          "date": "18 March 2021, 8:30pm",
+          "sum": "48"
+        },
+        {
+          "type": "To Support",
+          "date": "23 July 2023, 8:30pm",
+          "sum": "48"
+        }
+      ]
+    },
+    {
+      "src": "https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-46.jpg",
+      "name": "Акакий Обрин",
       "id": "support",
-      "balance": 30600,
+      "balance": 99800,
       "cards": [
         {
           "balance": "1713",

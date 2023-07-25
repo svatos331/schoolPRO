@@ -17,9 +17,15 @@ import {
     IBalanceUserResponse,
     IUserDTO
 } from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
+import {
+    IBaseInfoUserDTO
+} from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
+import {
+    useGetBalanceQuery
+} from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
 
-const BalanceWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBalanceUserResponse>> }>= ({getMe}) => {
-    const {data:userData} = getMe({});
+const BalanceWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>> }>= ({getMe}) => {
+    const {data:userData ={"balance":0, id :""}} = getMe({});
 
     return (<ST.BallanceWidgetWrapper>
         <ST.Info className="d-f">
