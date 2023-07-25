@@ -7,12 +7,17 @@ interface IButton {
     text: string;
     color: string;
     icon: boolean;
+    onClick?: any;
 }
 
-const Button: FC<IButton> = ({text, color, icon})=>{
+const Button: FC<IButton> = ({text, color, icon ,onClick})=>{
     if(icon) return(
         <S.button  color={color}>
-            <div>
+            <div
+            onClick={(e)=>{
+                e.preventDefault();
+                onClick();
+            }}>
                 <Icon width={20} height={20} color="#FAFAFA" icon={Icons.RoundPlus} />
                 <p>
                     {text}
@@ -22,7 +27,11 @@ const Button: FC<IButton> = ({text, color, icon})=>{
     );
 
     return(
-        <S.button color={color} >{text}</S.button>
+        <S.button color={color} >
+            <div onClick={onClick}>
+            {text}
+            </div>
+            </S.button>
     );
 
 };

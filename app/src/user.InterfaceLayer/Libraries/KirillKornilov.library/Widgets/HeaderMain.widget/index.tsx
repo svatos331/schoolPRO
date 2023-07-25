@@ -7,7 +7,7 @@ import * as S from "./styled";
 import HeaderMainType from "./type";
 
 
-const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({ useGetGoodsQuery ,useGetTodoQuery}) => {
+const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({ useGetGoodsQuery ,useGetTodoQuery ,setVisible}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { data } = useGetGoodsQuery();
 
@@ -16,7 +16,7 @@ const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({ useGetGoodsQuery 
 
 
 	return   <S.main_header>
-	<Button text='Новая задача' color='#29A19C' icon={true}/>
+	<Button text='Новая задача' color='#29A19C' icon={true} onClick={()=>setVisible(true)}/>
 	<S.theme_button>
 		<Icon width={24} height={24} color='#bbbcb9' icon={Icons.Moon}/>
 	</S.theme_button>

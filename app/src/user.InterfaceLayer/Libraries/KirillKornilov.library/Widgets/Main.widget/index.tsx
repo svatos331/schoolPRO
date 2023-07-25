@@ -29,6 +29,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 	
 	const [category,setCategory] = useState(1);
 
+	const [visible,setVisible] = useState(false);
+
 	//alert(`Cater${category}`);
 	
 	return <>
@@ -37,9 +39,10 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 
 		<SidebarDataWidget useGetCategoriesQuery={useGetCategoriesQuery} setCategory={setCategory}/>
 			<S.main_page>
-				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} />
+
+				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} setVisible={setVisible} />
  
-				<ModalWindowWidget useGetTodoQuery={useGetTodoQuery}/>
+				<ModalWindowWidget useGetTodoQuery={useGetTodoQuery} useGetCategoriesQuery={useGetCategoriesQuery} visible={visible} setVisible={setVisible} />
 
 				<S.columns>
 					<S.left_column>

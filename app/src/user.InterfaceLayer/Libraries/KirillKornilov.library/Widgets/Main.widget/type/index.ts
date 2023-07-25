@@ -6,6 +6,7 @@ interface MainWidgetType {
 	useGetObservationQuery:any;
 	useGetFactQuery:any;
 	useGetActivityQuery:any;
+	
 }
 
 export default MainWidgetType;
