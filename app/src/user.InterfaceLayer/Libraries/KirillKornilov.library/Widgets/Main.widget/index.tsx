@@ -14,6 +14,7 @@ import * as S from "./styled";
 import ObserveWidget from "../Observe.widget";
 import FactWidget from "../Fact.widget";
 import GraphLineWidget from "../GraphLine.widget";
+import ModalWindowWidget from "../ModalWindow.widget";
 
 export const UserCategory = createContext(1);
 
@@ -38,6 +39,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 			<S.main_page>
 				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} />
  
+				<ModalWindowWidget useGetTodoQuery={useGetTodoQuery}/>
+
 				<S.columns>
 					<S.left_column>
 
