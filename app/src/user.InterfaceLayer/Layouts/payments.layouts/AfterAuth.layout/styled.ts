@@ -7,6 +7,7 @@ import {
 
 export const AfterAuthLayout = styled.div<{curcolor?:ITheme, bgc? : ITheme}>`
   min-height: 100vh;
+  padding-bottom: 2px;
   //padding: 0 26px;
   display: flex;
   max-width: 950px;

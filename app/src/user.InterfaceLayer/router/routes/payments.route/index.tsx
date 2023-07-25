@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {lazy, Suspense} from "react";
+import React, { lazy, Suspense } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {RouteObject} from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 
 import routesPaths from "../../routesPaths";
 import payments from "./payments";
@@ -14,6 +14,8 @@ import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout"
 import Colors from "../../../constants/colors/index";
 import CardsPage from "../../../Pages/payments.pages/Cards.page";
 import PaymentPage from "../../../Pages/payments.pages/Payment.page";
+import ProfilePage from "../../../Pages/payments.pages/Profile.page";
+import MainPage from "../../../Pages/payments.pages/Main.page";
 
 // const CardsPage = lazy(
 // 	() => import("../../../Pages/payments.pages/Cards.page")
@@ -21,40 +23,39 @@ import PaymentPage from "../../../Pages/payments.pages/Payment.page";
 const OTPPage = lazy(
 	() => import("../../../Pages/payments.pages/OTP.page/index")
 );
-const HomePage = lazy(
-	() => import("../../../Pages/payments.pages/Home.page")
-);
+const HomePage = lazy(() => import("../../../Pages/payments.pages/Home.page"));
 const paymentsRoutes: RouteObject[] = [
+	//domens
 	{
 		path: payments.AUTH,
-		element: <BeforeAuthLayout/>,
-		errorElement: <Error/>,
+		element: <BeforeAuthLayout />,
+		errorElement: <Error />,
 		children: [
 			{
-				path:`/${payments.AUTH}`,
+				path: `/${payments.AUTH}`,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<WelcomeAuth/>
+						<WelcomeAuth />
 					</Suspense>
 				),
 				errorElement: <Error />,
 			},
 			{
-				path:payments.SIGNIN,
+				path: payments.SIGNIN,
 				index: true,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<AuthWidget title={"Sign in"}/>
+						<AuthWidget title={"Sign in"} />
 					</Suspense>
 				),
 				errorElement: <Error />,
 			},
 			{
-				path:payments.SIGNUP,
+				path: payments.SIGNUP,
 				index: true,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<AuthWidget title={"Sign up"}/>
+						<AuthWidget title={"Sign up"} />
 					</Suspense>
 				),
 				errorElement: <Error />,
@@ -67,68 +68,72 @@ const paymentsRoutes: RouteObject[] = [
 		],
 	},
 	{
-		path:`/${payments.AUTH}`,
-		element: <AfterAuthLayout/>,
+		path: `/${payments.AUTH}`,
+		element: <AfterAuthLayout />,
 		errorElement: <Error />,
-		children:[
+		children: [
 			{
-				index:true,
+				index: true,
 				path: `${payments.OTP}`,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<OTPPage/>
+						<OTPPage />
 					</Suspense>
 				),
 			},
-
-
 		],
-
 	},
 	{
-		path:`/${payments.AUTH}/${payments.CREATINPROFILE}`,
-		element: <AfterAuthLayout/>,
+		path: `/${payments.AUTH}/${payments.CREATINPROFILE}`,
+		element: <AfterAuthLayout />,
 		errorElement: <Error />,
-		children:[
+		children: [
 			{
-				index:true,
+				index: true,
 				path: `/${payments.AUTH}/${payments.CREATINPROFILE}`,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<div>1</div>
+						<Error />
 					</Suspense>
 				),
 			},
-
-
 		],
-
 	},
 	{
 		path: routesPaths.MAIN,
-		element: <AfterAuthLayout bgc={Colors.WHITE}/>,
-		errorElement: <Error/>,
-		children:[
+		element: <AfterAuthLayout bgc={Colors.WHITE} />,
+		errorElement: <Error />,
+		children: [
 			{
 				path: `/${routesPaths.MAIN}`,
-				element: <HomePage/>,
-				index:true
+				element: <HomePage />,
+				index: true,
 			},
 			{
 				path: `/${routesPaths.CARDS}`,
-				element: <CardsPage/>,
-				index:true
+				element: <CardsPage />,
+				index: true,
 			},
 			{
 				path: `/${routesPaths.PAYMENT}`,
-				element: <PaymentPage/>,
-				index:true
+				element: <PaymentPage />,
+				index: true,
+			},
+			{
+				path: `/${routesPaths.PROFILE}`,
+				element: <ProfilePage />,
+				index: true,
+			},
+			{
+				path: "/main",
+				element: <MainPage />,
+				index: true,
 			},
 			{
 				path: routesPaths.NOT_FOUND,
 				element: <div>страницы нет</div>,
 			},
-		]
+		],
 	},
 	{
 		path: routesPaths.NOT_FOUND,

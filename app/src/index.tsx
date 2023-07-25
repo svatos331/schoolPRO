@@ -27,6 +27,7 @@ const keycloakSetting = {
     realm: "claimapi",
     clientId: "claimapi"
 };
+//в general с готовымыи конфигами
 const keycloak = new Keycloak(keycloakSetting);
 const initOptions = {pkceMethod: "S256", onLoad: "login-required"};
 
