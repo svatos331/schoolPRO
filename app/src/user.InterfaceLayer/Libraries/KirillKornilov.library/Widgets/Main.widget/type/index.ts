@@ -7,6 +7,7 @@ interface MainWidgetType {
 	useGetFactQuery:any;
 	useGetActivityQuery:any;
 	useAddTasksMutation:any;
+	useDeleteTasksMutation:any;
 	
 }
 

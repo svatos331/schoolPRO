@@ -8,6 +8,7 @@ import { useGetObservationQuery } from "business.InterfaceLayer/store/shared/ent
 import { useGetFactQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useGetActivityQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useAddTasksMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { useDeleteTasksMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 
 export const UserIdContext = createContext(0);
 
@@ -25,6 +26,7 @@ const ComponentMainPage = () => {
 	useGetFactQuery={useGetFactQuery}
 	useGetActivityQuery={useGetActivityQuery}
 	useAddTasksMutation={useAddTasksMutation}
+	useDeleteTasksMutation={useDeleteTasksMutation}
 	/></UserIdContext.Provider>
 	</>;
 	

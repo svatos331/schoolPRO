@@ -26,7 +26,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	 useGetObservationQuery,
 	 useGetFactQuery, 
 	 useGetActivityQuery, 
-	 useAddTasksMutation
+	 useAddTasksMutation,
+	 useDeleteTasksMutation
 	}) => {
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -64,7 +65,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						</Card>
 
 							<Card>
-								<TaskWidget useGetTodoQuery={useGetGoodsQuery} useGetTasksQuery={useGetTasksQuery}/>
+								<TaskWidget useGetTodoQuery={useGetGoodsQuery} useGetTasksQuery={useGetTasksQuery} useDeleteTasksMutation={useDeleteTasksMutation}/>
 							</Card>
 
 					</S.left_column>

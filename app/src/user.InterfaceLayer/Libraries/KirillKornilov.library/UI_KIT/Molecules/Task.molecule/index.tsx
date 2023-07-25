@@ -9,11 +9,21 @@ import CheckBox from "../../Atoms/Checkbox.Atom";
 interface ITask {
     key: React.Key,
     text:string,
-    completed:boolean
+    completed:boolean,
+    handleDeleteTask?:any
 }
 
 
-const Task:FC<ITask> = ({key ,text, completed}) => {
+const Task:FC<ITask> = ({key ,text, completed,handleDeleteTask}) => {
+
+
+    //const [deleteTask]=useDeleteTasksMutation();
+
+    // const handleDeleteTask= async (id)=>{
+    //     await deleteTask(id )
+    // }
+
+
 
     return (
         // <div key={key} className={completed ? "task completed" : "task"}>
@@ -41,7 +51,9 @@ const Task:FC<ITask> = ({key ,text, completed}) => {
                 <Icon width={18} height={18} icon={Icons.Edit} color='#000' />
                 </S.btn>
             <S.btn>
+                <div onClick={handleDeleteTask}>
             <Icon width={18} height={18} icon={Icons.TrashBin} color='#F05454' />
+                </div>
                </S.btn>
 
         </S.task>
