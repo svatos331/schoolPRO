@@ -17,7 +17,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({useGetTasksQuery,useDeleteTasksM
 	 const [deleteTask]=useDeleteTasksMutation();
 
 	const handleDelete =async (id:number)=>{
-		//await deleteTask({user_id: useContext(UserIdContext),category_id:useContext(UserCategory),task_id: id});
+		await deleteTask(id);
 		alert(id);
 	};
 

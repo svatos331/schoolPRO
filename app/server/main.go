@@ -528,9 +528,9 @@ func PostTask(w http.ResponseWriter, r *http.Request) {
 
 // Everything related for deleting task
 
-func DeleteTaskById(tsks *[]Task, user_id int, category_id int, task_id int) {
+func DeleteTaskById(tsks *[]Task, task_id int) {
 	for i := 0; i < len(*tsks); i++ {
-		if (*tsks)[i].ID == task_id && (*tsks)[i].CategoryID == category_id && (*tsks)[i].UserID == user_id {
+		if (*tsks)[i].ID == task_id {
 			(*tsks) = append((*tsks)[:i], (*tsks)[i+1:]...)
 		}
 	}
@@ -543,17 +543,17 @@ func DeleteTask(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	user_id, err := strconv.Atoi(params["user_id"])
+	// user_id, err := strconv.Atoi(params["user_id"])
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	category_id, err := strconv.Atoi(params["category_id"])
+	// category_id, err := strconv.Atoi(params["category_id"])
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	task_id, err := strconv.Atoi(params["task_id"])
 
@@ -561,8 +561,9 @@ func DeleteTask(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	DeleteTaskById(&tsks, user_id, category_id, task_id)
+//DeleteTaskById(&tsks, user_id, category_id, task_id)
 
+	DeleteTaskById(&tsks, task_id)
 	json.NewEncoder(w).Encode(task_id)
 }
 
@@ -715,7 +716,7 @@ func Router() *mux.Router {
 
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
-	router.HandleFunc("/api/task/{user_id}/{category_id}/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/task/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
 	return router
 }
 

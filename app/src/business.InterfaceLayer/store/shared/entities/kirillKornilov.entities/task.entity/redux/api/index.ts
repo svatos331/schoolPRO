@@ -68,8 +68,8 @@ export const goodsApi = createApi({
 		}),
 
 		deleteTasks: build.mutation({
-			query: ({user_id,category_id,task_id}) => ({
-				url: `task/${user_id}/${category_id}/${task_id}`,
+			query: (task_id) => ({
+				url: `task/${task_id}`,
 				method: "DELETE",
 			//	mode: "no-cors",
 				//prepareHeaders:(headers:any)=>{
