@@ -7,12 +7,12 @@ import * as ST from "./styled";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {ICardsPageTitleWidgetProps} from "./type";
 import Button from "../../../UI_KIT/Atoms/Button";
-import menuLogo from "../../../assets/icons/arrow/straght/Left-Arrow.svg";
+import leftArraw from "../../../assets/icons/arrow/straght/Left-Arrow.svg";
 import Typography_Montserrat_Normal from "../../../UI_KIT/Molecules/Typographies/Montserrat/Normal";
 import Colors from "../../../../../constants/colors";
 import EFontClasses from "../../../../../constants/fontsClasses";
-import UserLogo from "../../../UI_KIT/Molecules/UserLogo";
-import {ICardsPageTitleWidgetDefaultProps} from "./const";
+import {IPaymentPageTitleWidgetDefaultProps} from "./const";
+import IconElement from "../../../UI_KIT/Atoms/IconElement";
 const PaymentPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title}) => {
     const navigate = useNavigate();
 
@@ -27,23 +27,23 @@ const PaymentPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title}) => {
                         // eslint-disable-next-line no-console
                     }}
                     hasIcon={true}
-                    icon={menuLogo}
+                    text={<IconElement style={{width:"15px"}} src={leftArraw}/>}
 
                 />
-                <UserLogo/>
 
             </ST.MenuHeader>
             <ST.MenuTitle>
                 <Typography_Montserrat_Normal
                     color={Colors.WHITE}
-                    className={EFontClasses.MainTextMont24_28_413_900}
+                    className={EFontClasses.SecondaryTextPTSanBold15_18_413_900}
                     text={title??""}
                 />
 
             </ST.MenuTitle>
 
+
         </ST.Menu>
     );
 };
-PaymentPageTitleWidget.defaultProps = ICardsPageTitleWidgetDefaultProps;
+PaymentPageTitleWidget.defaultProps = IPaymentPageTitleWidgetDefaultProps;
 export default PaymentPageTitleWidget;

@@ -40,13 +40,20 @@ const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
     return res;
 };
 
+export type IPutMoneyProps = {
+    params : {
+        id: string
+    },
+    balance:number
+};
+
 
 
 // // // Создаем API с middleware
 export const paymentsApi = createApi({
     reducerPath: `${reducerPaths.payments}/api`,
     baseQuery: baseQueryWithReauth,
-    tagTypes: [`${reducerPaths.payments}TAG`, `${reducerPaths.payments_balance}TAG`, `${reducerPaths.payments_transactions}TAG`,`${reducerPaths.payments_cards}TAG`],
+    tagTypes: [`${reducerPaths.payments}TAG`,`${reducerPaths.put_money}TAG`, `${reducerPaths.payments_balance}TAG`, `${reducerPaths.payments_transactions}TAG`,`${reducerPaths.payments_cards}TAG`],
     endpoints: (builder) => ({
         getMe: builder.query({
             query: () => {
@@ -96,9 +103,23 @@ export const paymentsApi = createApi({
             providesTags: [`${reducerPaths.payments_transactions}TAG`],
             transformResponse: transactionsFromUser,
         }),
+        putMoney: builder.mutation<any, IPutMoneyProps>({
+            query: ({params, balance}) => {
+                return {
+                    url: "/payFromMeTo",
+                    method: httpMethods.POST,
+                    validateStatus,
+                    params,
+                    body:{balance}
+                };
+
+            },
+            invalidatesTags: [`${reducerPaths.put_money}TAG`],
+            transformResponse: balanceFromUser,
+        }),
     }),
 
 
 });
-export const { useGetMeQuery,useGetBalanceQuery } = paymentsApi;
+export const { useGetMeQuery, usePutMoneyMutation,useGetBalanceQuery } = paymentsApi;
 

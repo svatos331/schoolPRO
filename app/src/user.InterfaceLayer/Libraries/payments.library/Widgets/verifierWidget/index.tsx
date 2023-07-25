@@ -43,7 +43,7 @@ const VerifierWidget :FC<IVerifierWidgetProps>= ({setIsWaiting,isLockedSubmitBtn
                 <label htmlFor="phoneInput" className="lbl">
                     <Typography_PTSan_Normal color={Colors.GRAY} className={EFontClasses.SecondaryTextPTSanBold15_18_413_900} text={"Enter your Number"}/>
                 </label>
-                <InputMask className={EFontClasses.MainTextPTSanBold19_21_413_900} style={{border:0}} name="phoneInput" value={phone} onChange={(e:InputMaskChangeEvent) => setPhone(e?.target?.value??"")} mask={"+7(999) 999 99 99"}  maxLength={16}   prefix={"+"} />
+                <InputMask tooltip={"div"} className={EFontClasses.MainTextPTSanBold19_21_413_900} name="phoneInput" value={phone} onChange={(e:InputMaskChangeEvent) => setPhone(e?.target?.value??"")} mask={"+7(999) 999 99 99"}  maxLength={16}   prefix={"+"} />
         </ST.InputCard>
         <PrimaryButton
             onClick={() => {

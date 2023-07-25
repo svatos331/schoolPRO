@@ -12,7 +12,7 @@ width: 100%;
   //padding: 0 20px;
   align-items: center;
   div{
-    align-items: center;
+    //align-items: center;
   }
   position: relative;
   

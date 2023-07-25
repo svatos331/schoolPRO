@@ -26,6 +26,7 @@ export const userFromDtoServiceArray = (props: any):IUserDTO => {
 export const balanceFromUser = (response : IBalanceUserResponse) => {
 	return {id:response.id, balance : response.balance};
 };
+
 export const cardsFromUser = (response : IBalanceUserResponse) => {
 	return {id:response.id, balance : response.balance};
 };

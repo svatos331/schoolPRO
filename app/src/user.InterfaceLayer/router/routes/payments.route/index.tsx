@@ -13,6 +13,7 @@ import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth
 import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
 import CardsPage from "../../../Pages/payments.pages/Cards.page";
+import PaymentPage from "../../../Pages/payments.pages/Payment.page";
 
 // const CardsPage = lazy(
 // 	() => import("../../../Pages/payments.pages/Cards.page")
@@ -116,6 +117,11 @@ const paymentsRoutes: RouteObject[] = [
 			{
 				path: `/${routesPaths.CARDS}`,
 				element: <CardsPage/>,
+				index:true
+			},
+			{
+				path: `/${routesPaths.PAYMENT}`,
+				element: <PaymentPage/>,
 				index:true
 			},
 			{
