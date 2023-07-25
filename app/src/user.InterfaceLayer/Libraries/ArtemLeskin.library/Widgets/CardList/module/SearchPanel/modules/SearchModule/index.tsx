@@ -1,7 +1,7 @@
 import React from "react";
 import { Select } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Select.molecule";
-import { genreDataTextList, genreDataValueList, ratingDataTextList, ratingDataValueList, yearDataTextList, yearDataValueList } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/SearchPanel/data";
 
+import { genreDataTextList, genreDataValueList, ratingDataTextList, ratingDataValueList, yearDataTextList, yearDataValueList } from "../../data/index";
 import { SrcModule } from "../../type/index";
 import * as ST from "../../style/style";
 

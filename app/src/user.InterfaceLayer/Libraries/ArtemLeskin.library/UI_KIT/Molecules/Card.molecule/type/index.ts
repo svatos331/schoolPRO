@@ -26,6 +26,3 @@ export interface CardProps {
     card: ICard;
 }
 
-export interface RatingProps {
-    rat: string
-}

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { movieFromDtoService, movieFromGenreDtoService, movieSimilarsDtoService } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/services/dto/from.dto";
+import { movieAutorDtoService, movieFromDtoService, movieFromGenreDtoService, movieSimilarsDtoService } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/services/dto/from.dto";
 
 import reducerPaths from "../../../../../../reducerPaths";
 import url from "../../services/url";
@@ -64,6 +64,7 @@ export const movieApi = createApi({
 				validateStatus,
 			}),
 			providesTags: [`${reducerPaths.movie}TAG`],
+			transformResponse: movieAutorDtoService
 		}),
         getMovieFromGenre: build.query<any, PropsGenre>({
 			query: ({parament}) => ({

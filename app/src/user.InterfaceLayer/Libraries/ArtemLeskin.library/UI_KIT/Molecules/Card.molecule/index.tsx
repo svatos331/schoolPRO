@@ -11,9 +11,7 @@ export const Card: React.FC<CardProps> = (props: CardProps) => {
         <ST.Card to={`/artemLeskin/movie/${card.kinopoiskId}`} style={{backgroundImage: `url(${card.posterUrlPreview})`}}>
             <ST.Shadow>
                 {card.ratingKinopoisk &&
-                    <ST.Rating rat={card.ratingKinopoisk+""}>
-                        {card.ratingKinopoisk}
-                    </ST.Rating>
+                    <ST.Rating rating={card?.ratingKinopoisk+""}/>
                 }
                 <ST.Info>
                     <Text title={card.nameRu} size={TextSize.L}/>

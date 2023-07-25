@@ -7,7 +7,7 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({id}: InfoProps) => {
-    useGetOneMovieQuery({id});
+    // useGetOneMovieQuery({id});
 
     return (    
         <InfoBlock

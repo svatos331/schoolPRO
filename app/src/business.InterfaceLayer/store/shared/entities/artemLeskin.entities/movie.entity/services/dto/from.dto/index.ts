@@ -48,3 +48,10 @@ export const movieFromGenreDtoService = (props: any):ICard[] => {
 export const movieSimilarsDtoService = (props: any):ICard[] => {
 	return props?.items.slice(0,5).map((item: any) => movieSimilarItemDtoService(item));
 };
+
+export const movieAutorDtoService = (props: any) => {
+    return {
+        items: props.items || props,
+        totalPages: props.totalPages || 1,
+    };
+};
