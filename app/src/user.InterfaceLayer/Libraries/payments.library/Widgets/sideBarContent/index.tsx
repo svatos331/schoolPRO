@@ -3,22 +3,25 @@
 import React, {FC} from "react";
 import {useKeycloak} from "@react-keycloak/web";
 import {NavLink} from "react-router-dom";
+import {UseQuery} from "@reduxjs/toolkit/dist/query/react/buildHooks";
+import {QueryDefinition} from "@reduxjs/toolkit/query";
 
 import logout from "../../assets/icons/Logout2.svg";
 import * as ST from "./styled";
 import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import UserLogo from "../../UI_KIT/Molecules/UserLogo";
 import {
-    sidebarActions
-} from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/sidebar.entity/redux/slice";
+    IBaseInfoUserDTO
+} from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SideBarContentWidget :FC= () => {
+const SideBarContentWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>> }>= ({getMe}) => {
     const {keycloak} = useKeycloak();
+    const {data : baseInfo, isLoading} = getMe({});
 
     return (<ST.SideBarContentWidgetWrapper>
         <ST.Header>
-            <UserLogo/>
+            <UserLogo isLoading = {isLoading} image = {baseInfo?.src??undefined}/>
         </ST.Header>
         <ST.Menu>
             <NavLink  to={"/payment"}>Payment</NavLink>
