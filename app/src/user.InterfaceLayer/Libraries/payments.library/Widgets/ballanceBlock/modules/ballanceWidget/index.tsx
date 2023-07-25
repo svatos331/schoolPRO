@@ -14,10 +14,11 @@ import Colors from "../../../../../../constants/colors";
 import IconElement from "../../../../UI_KIT/Atoms/IconElement";
 import diagram from "../../../../assets/icons/mainIcon/ballanceDiagram.svg";
 import {
+    IBalanceUserResponse,
     IUserDTO
 } from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
 
-const BalanceWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IUserDTO>> }>= ({getMe}) => {
+const BalanceWidget :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBalanceUserResponse>> }>= ({getMe}) => {
     const {data:userData} = getMe({});
 
     return (<ST.BallanceWidgetWrapper>

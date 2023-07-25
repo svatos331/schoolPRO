@@ -12,24 +12,16 @@ import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import BalanceBlockComponent from "../../../Components/payments.components.bll/BallanceBlock.component.bll";
 import CardsPage from "../../../Pages/payments.pages/Cards.page";
-// import RoutesPaths from "../../routesPaths";
-// import Error from "../../../Components/general.components/Error";
-// import MainLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
-// import payments from "./payments";
-// import Loader from "../../../Components/general.components/Loader";
-//
-// const LastPage = lazy(
-// 	() => import("../../../Pages/payments.pages/LaunchScreen.page")
+
+// const CardsPage = lazy(
+// 	() => import("../../../Pages/payments.pages/Cards.page")
 // );
-//
 const OTPPage = lazy(
 	() => import("../../../Pages/payments.pages/OTP.page/index")
 );
 const HomePage = lazy(
 	() => import("../../../Pages/payments.pages/Home.page")
-
 );
 const paymentsRoutes: RouteObject[] = [
 	{

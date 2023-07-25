@@ -7,6 +7,7 @@ enum EFontClasses {
     MainTextPTSan20_24_413_900 = "MainTextPTSan20_24_413_900",
     MainTextPTSanBold19_21_413_900 = "MainTextPTSanBold19_21_413_900",
     SecondaryTextPTSanBold15_18_413_900 = "SecondaryTextPTSanBold15_18_413_900",
+    SecondaryText14_16_413_900 = "SecondaryText14_16_413_900"
 
 }
 

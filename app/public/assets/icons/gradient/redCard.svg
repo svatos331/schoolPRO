@@ -1,0 +1,18 @@
+<svg width="178" height="118" viewBox="0 0 178 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_416_218" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="178" height="118">
+<rect width="178" height="118" rx="29.5895" fill="url(#paint0_linear_416_218)"/>
+</mask>
+<g mask="url(#mask0_416_218)">
+<ellipse cx="54.6796" cy="48.1163" rx="65.1503" ry="64.1553" fill="url(#paint1_linear_416_218)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_416_218" x1="0" y1="0" x2="176.091" y2="130.318" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8787"/>
+<stop offset="1" stop-color="#C16A6A"/>
+</linearGradient>
+<linearGradient id="paint1_linear_416_218" x1="-33.157" y1="-2.29149" x2="81.1786" y2="128.911" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F78C8C" stop-opacity="0"/>
+<stop offset="1" stop-color="#F78C8C"/>
+</linearGradient>
+</defs>
+</svg>

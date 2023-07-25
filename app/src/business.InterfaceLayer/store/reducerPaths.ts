@@ -3,7 +3,9 @@ enum reducerPaths {
 	theme = "theme",
 	sidebar="sidebar",
 	payments="payments",
-	auth = "auth"
+	payments_cards = "payments_cards",
+	payments_transactions = "payments_transactions",
+	payments_balance = "payments_balance",
 
 }
 

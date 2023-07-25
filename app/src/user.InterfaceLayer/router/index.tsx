@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy} from "react";
 import { RouteObject } from "react-router-dom";
 
 // import paymentsRoutes from "./routes/payments.route";
@@ -9,9 +9,11 @@ import Error from "../Components/general.components/Error";
 import AfterAuthLayout from "../Layouts/payments.layouts/AfterAuth.layout";
 import OTPPage from "../Pages/payments.pages/OTP.page";
 import paymentsRoutes from "./routes/payments.route";
-import CheckAuth from "./services/Components/CheckAuth";
+// import CheckAuth from "./services/Components/CheckAuth";
 // import LaunchScreen from "../Pages/payments.pages/LaunchScreen.page";
-
+const CheckAuth = lazy(
+	() => import("./services/Components/CheckAuth")
+);
 const mainRouter: RouteObject[] = [
 	{
 		path: RoutesPaths.MAIN,

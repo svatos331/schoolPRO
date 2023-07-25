@@ -1,6 +1,6 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {FC} from "react";
+import React, {FC, startTransition} from "react";
 import {useNavigate} from "react-router-dom";
 
 import * as ST from "./styled";
@@ -21,7 +21,9 @@ const CardsPageTitleWidget :FC<ICardsPageTitleWidgetProps>= ({title}) => {
             <ST.MenuHeader>
                 <Button
                     onClick={() => {
-                        navigate("/");
+                        startTransition(() => {
+                            navigate("/");
+                        });
                         // eslint-disable-next-line no-console
                     }}
                     hasIcon={true}

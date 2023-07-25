@@ -5,7 +5,12 @@ import reducerPaths from "../../../../../../reducerPaths";
 import httpMethods from "../../../../../http/httpMethods";
 import url from "../../../../svyatoslavZhilin.entities/todo.entity/services/url";
 import validateStatus from "../../../../../../services/utils/validateStatus";
-import {userFromDtoServiceArray} from "../../services/dto/from.dto";
+import {
+    balanceFromUser,
+    cardsFromUser,
+    transactionsFromUser,
+    userFromDtoServiceArray
+} from "../../services/dto/from.dto";
 
 const updateToken = () => {
     const {keycloak} = useKeycloak();
@@ -41,7 +46,7 @@ const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
 export const paymentsApi = createApi({
     reducerPath: `${reducerPaths.payments}/api`,
     baseQuery: baseQueryWithReauth,
-    tagTypes: [`${reducerPaths.payments}TAG`],
+    tagTypes: [`${reducerPaths.payments}TAG`, `${reducerPaths.payments_balance}TAG`, `${reducerPaths.payments_transactions}TAG`,`${reducerPaths.payments_cards}TAG`],
     endpoints: (builder) => ({
         getMe: builder.query({
             query: () => {
@@ -55,9 +60,45 @@ export const paymentsApi = createApi({
             providesTags: [`${reducerPaths.payments}TAG`],
             transformResponse: userFromDtoServiceArray,
         }),
+        getBalance: builder.query({
+            query: () => {
+                return {
+                    url: "/me",
+                    method: httpMethods.GET,
+                    validateStatus,
+                };
+
+            },
+            providesTags: [`${reducerPaths.payments_transactions}TAG`],
+            transformResponse: balanceFromUser,
+        }),
+        getCards: builder.query({
+            query: () => {
+                return {
+                    url: "/me",
+                    method: httpMethods.GET,
+                    validateStatus,
+                };
+
+            },
+            providesTags: [`${reducerPaths.payments_cards}TAG`],
+            transformResponse: cardsFromUser,
+        }),
+        getTransactions: builder.query({
+            query: () => {
+                return {
+                    url: "/me",
+                    method: httpMethods.GET,
+                    validateStatus,
+                };
+
+            },
+            providesTags: [`${reducerPaths.payments_transactions}TAG`],
+            transformResponse: transactionsFromUser,
+        }),
     }),
 
 
 });
-export const { useGetMeQuery } = paymentsApi;
+export const { useGetMeQuery,useGetBalanceQuery } = paymentsApi;
 

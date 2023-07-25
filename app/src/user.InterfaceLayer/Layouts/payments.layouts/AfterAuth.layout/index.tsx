@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, startTransition, useTransition} from "react";
 import {Outlet} from "react-router-dom";
 
 import * as ST from "./styled";

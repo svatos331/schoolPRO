@@ -6,6 +6,7 @@ import {QueryDefinition} from "@reduxjs/toolkit/query";
 import arrow from "../../assets/icons/arrow/nonstraingt/SmallArrow.svg";
 import BalanceWidget from "./modules/ballanceWidget";
 import {
+    IBalanceUserResponse,
     IUserDTO
 } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
 import {CheckBalance} from "../../../../Pages/payments.pages/Home.page/styled";
@@ -16,7 +17,7 @@ import {
 } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
 
 
-const BalanceBlock :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IUserDTO>> }>= ({getMe}) => {
+const BalanceBlock :FC<{ getMe: UseQuery<QueryDefinition<any, any, any, IBalanceUserResponse>> }>= ({getMe}) => {
 
 
     return (
