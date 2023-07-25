@@ -1,7 +1,7 @@
 import React from "react";
-import { SearchModule } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/SearchPanel/modules/SearchModule";
-import SortModule from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/SearchPanel/modules/SortModule";
 
+import { SearchModule } from "./modules/SearchModule";
+import SortModule from "./modules/SortModule";
 import {SrcPanel} from "./type/index";
 import * as ST from "./style/style";
 

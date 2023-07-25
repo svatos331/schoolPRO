@@ -5,22 +5,16 @@ import CardList from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/
 
 interface ListCardpProps {
     type: string;
-    order: string;
     ganre: string;
-    year: string;
-    rating: string
 }
 
-const ListCard = ({type, order, ganre, year, rating}:ListCardpProps) => {
+const ListCard = ({type,ganre}:ListCardpProps) => {
 
     return (
         <CardList 
             type={type}
             useGetAllMovieQuery={useGetAllMovieQuery}
-            order={order}
             ganre={ganre}
-            year={year}
-            rating={rating}    
         />
     );
 };

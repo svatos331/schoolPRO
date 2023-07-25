@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import RatingComponent from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Rating";
 
 export const Block = styled.div`
     width: 100%;
@@ -27,11 +28,11 @@ export const HeaderInfo = styled.div`
     justify-content: space-between;
     display: flex;
     align-items: center;
+    padding-top: 10px;
     width: 100%;
 `;
 
-export const Rating = styled.div`
-    padding: 10px;
+export const Rating = styled(RatingComponent)`
     font-weight: bold;
     border-radius: 5px;
 `;

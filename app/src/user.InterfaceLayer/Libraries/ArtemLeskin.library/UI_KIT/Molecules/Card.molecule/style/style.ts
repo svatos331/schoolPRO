@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-import { RatingProps } from "../type/index";
+import RatingComponent from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Rating";
 
 export const Card = styled(Link)`
     width: 250px;
@@ -13,6 +12,13 @@ export const Card = styled(Link)`
     cursor: pointer;
 
 `;
+
+export const Rating = styled(RatingComponent)`
+    position: absolute;
+    color: red;
+    left: 20px;
+`;
+
 
 
 export const Shadow = styled.div`
@@ -32,16 +38,7 @@ export const Shadow = styled.div`
     }
 `;
 
-export const Rating = styled.div<RatingProps>`
-    position: absolute;
-    top: 20px;
-    border-radius: 5px;
-    left: 20px;
-    padding: 10px;
-    font-weight: bold;
-    color: white;
-    background-color: ${(props) => (Number(props.rat) > 8?"green":Number(props.rat) > 6?"orange":"red")};
-`;
+
 
 export const Info = styled.div`
     align-items: center;
