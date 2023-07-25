@@ -8,9 +8,12 @@ import ModalWindowWidgetType from "./type";
 
 import "./styled/style.css";
 
-const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ useGetTodoQuery, visible, setVisible ,useGetCategoriesQuery}) => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const {dataddd} = useGetTodoQuery();
+const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ 
+	 visible, 
+	 setVisible,
+	 useGetCategoriesQuery,
+	 useAddTasksMutation
+	}) => {
 
 	const datetime = new  Date();
 
@@ -23,6 +26,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ useGetTod
 
 
 	const userId= useContext(UserIdContext);
+	
 	//alert(userId);
 	const [value,setValue] = useState("2");
 	const [valueCategory,setValueCategory] = useState("1");
@@ -30,11 +34,30 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ useGetTod
 	const [valueGoal,setValueGoal] = useState("");
     //const userCategory = useContext(UserCategory);
 
+
+	const [addTask] = useAddTasksMutation();
+
     const {data , isLoading} = useGetCategoriesQuery(userId);
 
     if (isLoading) return <h1>isLoading</h1>;
 
 	
+const handleAddTask= async ()=>{
+	 await addTask ({
+		"category_id":Number(valueCategory),
+		"user_id":Number(userId),
+		"goal":valueGoal,
+		"is_completed":false,
+		"deadline":`${valueDate}T00:00:00Z`,
+		"priority":Number(value),
+	}
+);
+
+	// [{"id":1,"category_id":1,"user_id":1,"goal":"Полить цветы",
+	// "is_completed":false,"deadline":"2002-05-11T00:00:00Z","priority":0}
+
+};
+
 	//alert(data);
 
 		return (
@@ -50,7 +73,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ useGetTod
 				<div className='modal-task-name'>
 					<p>Что нужно сделать?</p>
 					<input type="text" value={valueGoal} onChange={(e)=>setValueGoal(e.target.value)}/>
-					
+
 				</div>
 				<div className='modal-parameters'>
 					<div>
@@ -113,7 +136,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({ useGetTod
 					<Button text='Отменить' color='#F05454' icon={false} onClick={()=>setVisible(false)}/>
 					<div>
 						<Button text='Сохранить как шаблон' color='#29A19C' icon={false} />
-						<Button text='Добавить' color='#29A19C' icon={false}/>
+						<Button text='Добавить' color='#29A19C' icon={false} onClick={handleAddTask}/>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 interface ModalWindowWidgetType {
-	useGetTodoQuery: any;
+	useAddTasksMutation: any;
 	useGetCategoriesQuery:any;
 	visible: boolean;
 	setVisible: any;

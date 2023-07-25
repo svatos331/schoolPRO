@@ -496,9 +496,12 @@ func NewTaskId(tsks []Task) int {
 }
 
 func PostTask(w http.ResponseWriter, r *http.Request) {
+	
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
+
+	fmt.Println(" POST here...")
 
 	var tsk Task
 	json.NewDecoder(r.Body).Decode(&tsk)
@@ -711,7 +714,7 @@ func Router() *mux.Router {
 	// router.HandleFunc("/api/category/{user_id}/{category_id}", DeleteCategory).Methods("DELETE", "OPTIONS")
 
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
-	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
 	router.HandleFunc("/api/task/{user_id}/{category_id}/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
 	return router
 }

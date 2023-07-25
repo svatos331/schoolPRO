@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+
 //import reducerPaths from "../../../../../../reducerPaths";
 //import url from "../../services/url";
 //import httpMethods from "../../../../../http/httpMethods";
@@ -16,7 +17,12 @@ export const goodsApi = createApi({
 	reducerPath: "goodsApi",
 	baseQuery: fetchBaseQuery({
 		//baseUrl: process.env.REACT_APP_API_URL, 
-		baseUrl:"http://localhost:9000/api/"
+		baseUrl:"http://localhost:9000/api/", 
+		// prepareHeaders:(headers,{getState})=>{
+		// 	headers.set("Access-Control-Allow-Origin","*");
+
+		// 	return headers;
+		// }
 	}),
 	//tagTypes: [`${reducerPaths.todo}TAG`],
 
@@ -36,6 +42,28 @@ export const goodsApi = createApi({
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
+		addTasks: build.mutation({
+			query: (body) => ({
+				//url:`task/${user_id}/${category_id}`,
+				url: `task/${body["user_id"]}/${body["category_id"]}`,
+				//`task/${user_id}/${category_id}`
+				method: "POST",
+				mode: "no-cors",
+				body,
+				prepareHeaders:(headers:any)=>{
+					
+				headers.set("Accept", "application/json");
+				headers.set("Access-Control-Allow-Origin","*");
+				
+				return headers;
+				}
+			})
+
+			// w.Header().Set("Accept", "application/json")
+			// w.Header().Set("Access-Control-Allow-Origin", "*")
+			//provide0sTags: [`${reducerPaths.todo}TAG`],
+			//transformResponse: todoFromDtoServiceArray,
+		}),
 		getObservation: build.query({
 			query: ({category_id,user_id}) => `observation/${user_id}/${category_id}`,
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
@@ -51,7 +79,16 @@ export const goodsApi = createApi({
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
+
 	}),
 });
 
-export const { useGetGoodsQuery,useGetCategoriesQuery, useGetTasksQuery, useGetObservationQuery, useGetFactQuery , useGetActivityQuery} = goodsApi;
+export const { 
+	useGetGoodsQuery,
+	useGetCategoriesQuery,
+	 useGetTasksQuery,
+	  useGetObservationQuery,
+	   useGetFactQuery , 
+	   useGetActivityQuery,
+		useAddTasksMutation
+	} = goodsApi;

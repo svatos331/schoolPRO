@@ -18,7 +18,17 @@ import ModalWindowWidget from "../ModalWindow.widget";
 
 export const UserCategory = createContext(1);
 
-const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, useGetGoodsQuery ,useGetTodoQuery, useGetTasksQuery,useGetObservationQuery,useGetFactQuery, useGetActivityQuery}) => {
+const MainWidget: FunctionComponent<MainWidgetType> = ({ 
+	 useGetCategoriesQuery,
+	 useGetGoodsQuery,
+	 useGetTodoQuery, 
+	 useGetTasksQuery,
+	 useGetObservationQuery,
+	 useGetFactQuery, 
+	 useGetActivityQuery, 
+	 useAddTasksMutation
+	}) => {
+
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	//const { data } = useGetGoodsQuery();
 
@@ -42,7 +52,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({ useGetCategoriesQuery, 
 
 				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} setVisible={setVisible} />
  
-				<ModalWindowWidget useGetTodoQuery={useGetTodoQuery} useGetCategoriesQuery={useGetCategoriesQuery} visible={visible} setVisible={setVisible} />
+				<ModalWindowWidget useAddTasksMutation={useAddTasksMutation} useGetCategoriesQuery={useGetCategoriesQuery}  visible={visible} setVisible={setVisible} />
 
 				<S.columns>
 					<S.left_column>
