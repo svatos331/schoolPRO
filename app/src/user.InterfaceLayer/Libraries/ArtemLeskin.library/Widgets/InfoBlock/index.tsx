@@ -28,11 +28,11 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
                     <ST.HeaderInfo>
                         <ST.Rating rating={info.rating}/>
                         <ST.TxtContainer>
-                            <Text title={info.year}/>
-                            <Text title={ganre}/>
-                            <Text title={`${info.ageLimits.split("age")[1]}+`}/>
-                            <Text title={country}/>
-                            <Text title={info.filsLength + " мин"}/>
+                            <ST.Txt title={info.year}/>
+                            <ST.Txt title={ganre}/>
+                            <ST.Txt title={`${info.ageLimits.split("age")[1]}+`}/>
+                            <ST.Txt title={country}/>
+                            <ST.Txt title={info.filsLength + " мин"}/>
                         </ST.TxtContainer>
                     </ST.HeaderInfo>
                     <ST.Description>

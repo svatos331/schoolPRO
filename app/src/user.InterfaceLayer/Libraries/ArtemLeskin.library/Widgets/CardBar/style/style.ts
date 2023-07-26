@@ -6,4 +6,8 @@ export const Bar = styled.div`
 
 export const CardList = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 426px) {
+        justify-content: center;
+    }
 `;

@@ -15,3 +15,7 @@ export const Load = styled.div`
 export const Pagination = styled(PaginationBar)`
     margin: 0 auto;
 `;
+
+export const Container = styled.div`
+    display: block;
+`;

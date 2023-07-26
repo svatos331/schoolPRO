@@ -13,12 +13,19 @@ export const Item = styled.div<ItemProps>`
     border-radius: 20px;
     background-size: cover;
     background-position: center;
+    @media (max-width: 426px) {
+        height: 40vh;
+    }
 `;
 
 export const Title = styled(Text)`
     position: absolute;
     left: 100px;
     bottom: 50px;
+    @media (max-width: 426px) {
+        left: 10px;
+        bottom: 10px;
+    }
 `;
 
 export const Video = styled(HoverVideoPlayer)`
