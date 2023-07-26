@@ -11,15 +11,22 @@ export const TaskWidget: FC<TaskWidgetType> = ({useGetTasksQuery,useDeleteTasksM
 	//const {query} 
 
 
-	const { data , isLoading} = useGetTasksQuery({user_id: useContext(UserIdContext),category_id:useContext(UserCategory)});
+	 const { data , isLoading, refetch} = useGetTasksQuery({user_id: useContext(UserIdContext),category_id:useContext(UserCategory)});
+
 
 	 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 	 const [deleteTask]=useDeleteTasksMutation();
+	 
 
 	const handleDelete =async (id:number)=>{
 		await deleteTask(id);
-		alert(id);
+		//alert(id);
+		refetch();
+
+		
 	};
+
+
 
 	if(isLoading)return <h1>Loading..</h1>;
 

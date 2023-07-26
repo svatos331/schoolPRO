@@ -17,20 +17,20 @@ type User struct {
 	Name      string `json:"name"`
 	Avatar    string `json:"avatar"`
 	Email     string `json:"email"`
-	Password  string `json:"password"`
+	Password  string `json:"-"`
 	IsPremium bool   `json:"is_premium"`
 }
 
 type Category struct {
 	ID     int    `json:"id"`
-	UserID int    `json:"user_id"`
+	UserID int    `json:"-"`
 	Name   string `json:"name"`
 }
 
 type Task struct {
 	ID          int       `json:"id"`
-	CategoryID  int       `json:"category_id"`
-	UserID      int       `json:"user_id"`
+	CategoryID  int       `json:"-"`
+	UserID      int       `json:"-"`
 	Goal        string    `json:"goal"`
 	IsCompleted bool      `json:"is_completed"`
 	Deadline    time.Time `json:"deadline"`
@@ -58,7 +58,7 @@ var users = []User{
 	{
 		ID:        1,
 		Name:      "Emily",
-		Avatar:    "icon",
+		Avatar:    "avatar.png",
 		Email:     "emily25@gmail.com",
 		Password:  "rlytoughpass",
 		IsPremium: false,
@@ -429,7 +429,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	id, err := strconv.Atoi(params["id"])
+	id, err := strconv.Atoi(params["user_id"])
 
 	if err != nil {
 		panic(err)
@@ -442,6 +442,66 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(user)
+}
+
+// Everything related for toggling premium for user by id
+
+func TogglePremiumById(usrs *[]User, id int) {
+	for i := 0; i < len(*usrs); i++ {
+		if (*usrs)[i].ID == id {
+			(*usrs)[i].IsPremium = !(*usrs)[i].IsPremium
+		}
+	}
+}
+
+func TogglePremium(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "PATCH")
+
+	params := mux.Vars(r)
+
+	user_id, err := strconv.Atoi(params["user_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	TogglePremiumById(&users, user_id)
+	json.NewEncoder(w).Encode(user_id)
+}
+
+// Everything related for editing user by id
+
+func EditUserById(usrs *[]User, usr User, user_id int) {
+	for i := 0; i < len(*usrs); i++ {
+		if (*usrs)[i].ID == user_id {
+			(*usrs)[i].Avatar = usr.Avatar
+			(*usrs)[i].Name = usr.Name
+			(*usrs)[i].Email = usr.Email
+		}
+	}
+}
+
+func EditUser(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "PUT")
+
+	var usr User
+	json.NewDecoder(r.Body).Decode(&usr)
+
+	params := mux.Vars(r)
+
+	user_id, err := strconv.Atoi(params["user_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	EditUserById(&users, usr, user_id)
+
+	json.NewEncoder(w).Encode(user_id)
 }
 
 // Everything related for getting tasks
@@ -480,7 +540,7 @@ func GetTasks(w http.ResponseWriter, r *http.Request) {
 
 // Everything related for posting task
 
-func PostTaskByIds(tsks *[]Task, tsk Task, user_id int, category_id int) {
+func PostTaskByIds(tsks *[]Task, tsk Task) {
 	*tsks = append(*tsks, tsk)
 }
 
@@ -496,12 +556,10 @@ func NewTaskId(tsks []Task) int {
 }
 
 func PostTask(w http.ResponseWriter, r *http.Request) {
-	
+
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-
-	fmt.Println(" POST here...")
 
 	var tsk Task
 	json.NewDecoder(r.Body).Decode(&tsk)
@@ -521,7 +579,10 @@ func PostTask(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	PostTaskByIds(&tsks, tsk, user_id, category_id)
+	tsk.UserID = user_id
+	tsk.CategoryID = category_id
+
+	PostTaskByIds(&tsks, tsk)
 
 	json.NewEncoder(w).Encode(tsk)
 }
@@ -543,17 +604,32 @@ func DeleteTask(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	// user_id, err := strconv.Atoi(params["user_id"])
+	task_id, err := strconv.Atoi(params["task_id"])
 
-	// if err != nil {
-	// 	panic(err)
-	// }
+	if err != nil {
+		panic(err)
+	}
 
-	// category_id, err := strconv.Atoi(params["category_id"])
+	DeleteTaskById(&tsks, task_id)
+	json.NewEncoder(w).Encode(task_id)
+}
 
-	// if err != nil {
-	// 	panic(err)
-	// }
+// Everything related for toggling task
+
+func ToggleTaskById(tsks *[]Task, task_id int) {
+	for i := 0; i < len(*tsks); i++ {
+		if (*tsks)[i].ID == task_id {
+			(*tsks)[i].IsCompleted = !(*tsks)[i].IsCompleted
+		}
+	}
+}
+
+func ToggleTask(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "PATCH")
+
+	params := mux.Vars(r)
 
 	task_id, err := strconv.Atoi(params["task_id"])
 
@@ -561,9 +637,38 @@ func DeleteTask(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-//DeleteTaskById(&tsks, user_id, category_id, task_id)
+	ToggleTaskById(&tsks, task_id)
+	json.NewEncoder(w).Encode(task_id)
+}
 
-	DeleteTaskById(&tsks, task_id)
+// Everything related for editing task
+
+func EditTaskById(tsks *[]Task, tsk Task, task_id int) {
+	for i := 0; i < len(*tsks); i++ {
+		if (*tsks)[i].ID == task_id {
+			(*tsks)[i] = tsk
+		}
+	}
+}
+
+func EditTask(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "PUT")
+
+	var tsk Task
+	json.NewDecoder(r.Body).Decode(&tsk)
+
+	params := mux.Vars(r)
+
+	task_id, err := strconv.Atoi(params["task_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	EditTaskById(&tsks, tsk, task_id)
+
 	json.NewEncoder(w).Encode(task_id)
 }
 
@@ -675,6 +780,8 @@ func GetObservation(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(obsr)
 }
 
+// Everything related for getting categories
+
 func GetCategoriesById(ctgrys []Category, user_id int) []Category {
 	categories := []Category{}
 	for i := 0; i < len(ctgrys); i++ {
@@ -701,22 +808,99 @@ func GetCategories(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(GetCategoriesById(ctgry, user_id))
 }
 
+// Everything related for posting categories
+
+func PostCategoryById(ctgrys *[]Category, ctgry Category) {
+	*ctgrys = append(*ctgrys, ctgry)
+}
+
+func NewCategoryId(ctgrys []Category) int {
+	new := 0
+	for i := 0; i < len(ctgrys); i++ {
+		if ctgrys[i].ID > new {
+			new = ctgrys[i].ID
+		}
+	}
+	new++
+	return new
+}
+
+func PostCategory(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+
+	var nctgry Category
+	json.NewDecoder(r.Body).Decode(&nctgry)
+	nctgry.ID = NewCategoryId(ctgry)
+
+	params := mux.Vars(r)
+
+	user_id, err := strconv.Atoi(params["user_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	nctgry.UserID = user_id
+
+	PostCategoryById(&ctgry, nctgry)
+
+	json.NewEncoder(w).Encode(nctgry)
+}
+
+// Everything related for deleting categories
+
+func DeleteCategoriesById(ctgrys *[]Category, category_id int) {
+	for i := 0; i < len(*ctgrys); i++ {
+		if (*ctgrys)[i].ID == category_id {
+			*ctgrys = append((*ctgrys)[:i], (*ctgrys)[i+1:]...)
+		}
+	}
+}
+
+func DeleteCategory(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Accept", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+
+	params := mux.Vars(r)
+
+	category_id, err := strconv.Atoi(params["category_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	if category_id > 4 {
+		DeleteCategoriesById(&ctgry, category_id)
+
+		json.NewEncoder(w).Encode(category_id)
+	}
+
+}
+
 func Router() *mux.Router {
 
 	router := mux.NewRouter()
-	router.HandleFunc("/api/user/{id}", GetUser).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/user/{user_id}", GetUser).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/togglePremium/{user_id}", TogglePremium).Methods("PATCH", "OPTIONS") // Testing required
+	router.HandleFunc("/api/editUser/{user_id}", EditUser).Methods("PUT", "OPTIONS")             // Testing required
 
 	router.HandleFunc("/api/activity/{user_id}/{category_id}", GetActivity).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/fact", GetFact).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/observation/{user_id}/{category_id}", GetObservation).Methods("GET", "OPTIONS")
 
 	router.HandleFunc("/api/category/{user_id}", GetCategories).Methods("GET", "OPTIONS")
-	// router.HandleFunc("/api/category/{user_id}/{category_id}", PostCategory).Methods("POST", "OPTIONS")
-	// router.HandleFunc("/api/category/{user_id}/{category_id}", DeleteCategory).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/category/{user_id}", PostCategory).Methods("POST", "OPTIONS")         // Testing required
+	router.HandleFunc("/api/category/{category_id}", DeleteCategory).Methods("DELETE", "OPTIONS") // Testing required
 
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
 	router.HandleFunc("/api/task/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("PATCH", "OPTIONS") // Testing required
+	router.HandleFunc("/api/editTask/{task_id}", EditTask).Methods("PUT", "OPTIONS")       // Testing required
 	return router
 }
 

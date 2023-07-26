@@ -7,13 +7,16 @@ import * as S from "./styled";
 import HeaderMainType from "./type";
 
 
-const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({ useGetGoodsQuery ,useGetTodoQuery ,setVisible}) => {
+const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({useGetUserQuery, useGetGoodsQuery ,useGetTodoQuery ,setVisible}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { data } = useGetGoodsQuery();
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { data2 } = useGetTodoQuery();
+	const { data:todo } = useGetTodoQuery();
 
+	const {data: userInfo,isLoading: userInfoLoading} = useGetUserQuery(1);
+
+	if(userInfoLoading)return <h2>Loading...</h2>;
 
 	return   <S.main_header>
 	<Button text='Новая задача' color='#29A19C' icon={true} onClick={()=>setVisible(true)}/>
@@ -21,8 +24,8 @@ const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({ useGetGoodsQuery 
 		<Icon width={24} height={24} color='#bbbcb9' icon={Icons.Moon}/>
 	</S.theme_button>
 	<S.user_card>
-		<p>Хорошего дня, username</p>
-		<Avatar img={require("../../assets/icons/avatar.png")} diameter={44}/>
+		<p>Хорошего дня, {userInfo["name"]}</p>
+		<Avatar img={require(`../../assets/icons/${userInfo["avatar"]}`)} diameter={44}/>
 		
 		<S.toggle_button>
 			&gt;

@@ -27,7 +27,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	 useGetFactQuery, 
 	 useGetActivityQuery, 
 	 useAddTasksMutation,
-	 useDeleteTasksMutation
+	 useDeleteTasksMutation,
+	 useGetUserQuery
 	}) => {
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -51,9 +52,9 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 		<SidebarDataWidget useGetCategoriesQuery={useGetCategoriesQuery} setCategory={setCategory}/>
 			<S.main_page>
 
-				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} setVisible={setVisible} />
+				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} setVisible={setVisible} useGetUserQuery={useGetUserQuery} />
  
-				<ModalWindowWidget useAddTasksMutation={useAddTasksMutation} useGetCategoriesQuery={useGetCategoriesQuery}  visible={visible} setVisible={setVisible} />
+				<ModalWindowWidget  useAddTasksMutation={useAddTasksMutation} useGetCategoriesQuery={useGetCategoriesQuery}  visible={visible} setVisible={setVisible} />
 
 				<S.columns>
 					<S.left_column>

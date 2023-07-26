@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-
 //import reducerPaths from "../../../../../../reducerPaths";
 //import url from "../../services/url";
 //import httpMethods from "../../../../../http/httpMethods";
@@ -14,11 +13,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const goodsApi = createApi({
 	//reducerPath: `${reducerPaths.todo}/api`,
-	reducerPath: "goodsApi",	
-	tagTypes:["Tasks"],
+	reducerPath: "goodsApi",
+	tagTypes: ["Tasks"],
 	baseQuery: fetchBaseQuery({
-		//baseUrl: process.env.REACT_APP_API_URL, 
-		baseUrl:"http://localhost:9000/api/", 
+		//baseUrl: process.env.REACT_APP_API_URL,
+		baseUrl: "http://localhost:9000/api/",
 		// prepareHeaders:(headers,{getState})=>{
 		// 	headers.set("Access-Control-Allow-Origin","*");
 
@@ -35,12 +34,12 @@ export const goodsApi = createApi({
 			//transformResponse: todoFromDtoServiceArray,
 		}),
 		getCategories: build.query({
-			query: (user_id:number) => `category/${user_id}`,
+			query: (user_id: number) => `category/${user_id}`,
 			//providesTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
 		getTasks: build.query({
-			query: ({category_id,user_id}) => `task/${user_id}/${category_id}`,
+			query: ({ category_id, user_id }) => `task/${user_id}/${category_id}`,
 			// providesTags: (result)=> result
 			// ?[
 			// 	...result.map(({ id:any })=>({type:"Tasks", id:any })),
@@ -56,22 +55,21 @@ export const goodsApi = createApi({
 				method: "POST",
 				mode: "no-cors",
 				body,
-				prepareHeaders:(headers:any)=>{
-				headers.set("Accept", "application/json");
-				headers.set("Access-Control-Allow-Origin","*");
+				prepareHeaders: (headers: any) => {
+					headers.set("Accept", "application/json");
+					headers.set("Access-Control-Allow-Origin", "*");
 
-				return headers;
-				}
+					return headers;
+				},
 			}),
-			invalidatesTags:[{type: "Tasks",id: "LIST"}]
-
+			invalidatesTags: [{ type: "Tasks", id: "LIST" }],
 		}),
 
 		deleteTasks: build.mutation({
 			query: (task_id) => ({
 				url: `task/${task_id}`,
 				method: "DELETE",
-			//	mode: "no-cors",
+				//	mode: "no-cors",
 				//prepareHeaders:(headers:any)=>{
 				// headers.set("Accept", "application/json");
 				// headers.set("Access-Control-Allow-Origin","*");
@@ -80,11 +78,11 @@ export const goodsApi = createApi({
 				// }
 			}),
 			//invalidatesTags:[{type: "Tasks",id: "LIST"}]
-
 		}),
 
 		getObservation: build.query({
-			query: ({category_id,user_id}) => `observation/${user_id}/${category_id}`,
+			query: ({ category_id, user_id }) =>
+				`observation/${user_id}/${category_id}`,
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
@@ -94,21 +92,24 @@ export const goodsApi = createApi({
 			//transformResponse: todoFromDtoServiceArray,
 		}),
 		getActivity: build.query({
-			query: ({category_id,user_id}) => `activity/${user_id}/${category_id}`,
+			query: ({ category_id, user_id }) => `activity/${user_id}/${category_id}`,
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
 		}),
-
+		getUser: build.query({
+			query: (user_id)=>`user/${user_id}`,
+		})
 	}),
 });
 
-export const { 
+export const {
 	useGetGoodsQuery,
 	useGetCategoriesQuery,
-	 useGetTasksQuery,
-	  useGetObservationQuery,
-	   useGetFactQuery , 
-	   useGetActivityQuery,
-		useAddTasksMutation,
-		useDeleteTasksMutation
-	} = goodsApi;
+	useGetTasksQuery,
+	useGetObservationQuery,
+	useGetFactQuery,
+	useGetActivityQuery,
+	useAddTasksMutation,
+	useDeleteTasksMutation,
+	useGetUserQuery
+} = goodsApi;
