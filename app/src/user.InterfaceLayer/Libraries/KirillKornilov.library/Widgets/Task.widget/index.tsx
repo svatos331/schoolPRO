@@ -9,7 +9,9 @@ import CardDataOptions from "../../UI_KIT/Molecules/CardDataOptions.molecule";
 export const TaskWidget: FC<TaskWidgetType> = ({
 	useGetTasksQuery,
 	useDeleteTasksMutation,
-	useToggleTaskMutation
+	useToggleTaskMutation,
+	
+	setVisible,
 }) => {
 	// const { useGetTodoQuery } = props;
 	//const {query}
@@ -37,6 +39,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 		refetch();
 	};
 
+
 	if (isLoading) return <h1>Loading..</h1>;
 
 	return (
@@ -52,6 +55,8 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 									completed={task["is_completed"]}
 									handleDeleteTask={() => handleDelete(Number(task["id"]))}
 									handleToggle={() => handleToggle(task["id"])}
+									onSetTaskEdit={()=>setVisible({  task:task,visible:true})}
+									
 								/>
 							);
 					})}
@@ -67,6 +72,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 									text={task["goal"]}
 									completed={task["is_completed"]}
 									handleToggle={() => handleToggle(task["id"])}
+									
 								/>
 							);
 					})}

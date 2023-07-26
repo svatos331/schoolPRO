@@ -108,6 +108,21 @@ export const goodsApi = createApi({
 			}),
 			
 		}),
+		editTask: build.mutation({
+			query: (body) => ({
+				url: `editTask/${body["category_id"]}/${body["task_id"]}`,
+				method: "PUT",
+				mode: "no-cors",
+				body,
+				prepareHeaders: (headers: any) => {
+					headers.set("Accept", "application/json");
+					headers.set("Access-Control-Allow-Origin", "*");
+
+					return headers;
+				},
+			}),
+		//	invalidatesTags: [{ type: "Tasks", id: "LIST" }],
+		}),
 
 	}),
 });
@@ -122,5 +137,6 @@ export const {
 	useAddTasksMutation,
 	useDeleteTasksMutation,
 	useGetUserQuery,
-	useToggleTaskMutation
+	useToggleTaskMutation,
+	useEditTaskMutation
 } = goodsApi;

@@ -15,8 +15,10 @@ import ObserveWidget from "../Observe.widget";
 import FactWidget from "../Fact.widget";
 import GraphLineWidget from "../GraphLine.widget";
 import ModalWindowWidget from "../ModalWindow.widget";
+import EditModalWindowWidget from "../EditModalWindow.widget";
 
 export const UserCategory = createContext(1);
+
 
 const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useGetCategoriesQuery,
@@ -29,7 +31,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useAddTasksMutation,
 	useDeleteTasksMutation,
 	useGetUserQuery,
-	useToggleTaskMutation
+	useToggleTaskMutation,
+	useEditTaskMutation,
 }) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	//const { data } = useGetGoodsQuery();
@@ -41,6 +44,11 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 
 	const [visible, setVisible] = useState(false);
 
+	const [visibleEdit, setVisibleEdit] = useState({task:{},visible:false});
+	//const [taskEdit, setTaskEdit] = useState(1);
+
+	
+	
 	//alert(`Cater${category}`);
 
 	return (
@@ -64,6 +72,18 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						visible={visible}
 						setVisible={setVisible}
 					/>
+			
+
+					<EditModalWindowWidget
+						useEditTaskMutation={useEditTaskMutation}
+						useGetCategoriesQuery={useGetCategoriesQuery}
+						visible={visibleEdit["visible"]}
+						setVisible={setVisibleEdit}
+						//taskEdit={taskEdit}
+						task={visibleEdit["task"]}
+						
+						
+					/>
 
 					<S.columns>
 						<S.left_column>
@@ -79,6 +99,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 									useGetTodoQuery={useGetGoodsQuery}
 									useGetTasksQuery={useGetTasksQuery}
 									useDeleteTasksMutation={useDeleteTasksMutation}
+									
+									setVisible={setVisibleEdit}
 								/>
 							</Card>
 						</S.left_column>
@@ -108,6 +130,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 							</Card>
 						</S.right_column>
 					</S.columns>
+
+				
 				</S.main_page>
 			</UserCategory.Provider>
 		</>

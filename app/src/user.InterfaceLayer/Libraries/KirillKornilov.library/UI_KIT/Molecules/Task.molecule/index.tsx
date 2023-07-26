@@ -11,6 +11,8 @@ interface ITask {
 	completed: boolean;
 	handleDeleteTask?: any;
 	handleToggle?: any;
+	onSetTaskEdit?:any;
+	
 }
 
 const Task: FC<ITask> = ({
@@ -19,6 +21,8 @@ const Task: FC<ITask> = ({
 	completed,
 	handleDeleteTask,
 	handleToggle,
+	onSetTaskEdit
+
 }) => {
 	return (
 		<S.task
@@ -34,7 +38,7 @@ const Task: FC<ITask> = ({
 			</S.checkbox_box>
 
 			<p onClick={handleToggle} > {text}</p>
-			<S.btn>
+			<S.btn onClick={onSetTaskEdit}>
 				<Icon
 					width={18}
 					height={18}

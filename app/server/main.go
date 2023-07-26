@@ -669,6 +669,14 @@ func EditTask(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
+	category_id, err := strconv.Atoi(params["category_id"])
+
+	if err != nil {
+		panic(err)
+	}
+
+	
+	tsk.CategoryID=category_id
 
 	EditTaskById(&tsks, tsk, task_id)
 
@@ -903,7 +911,7 @@ func Router() *mux.Router {
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
 	router.HandleFunc("/api/task/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
 	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("PATCH", "OPTIONS") // Testing required
-	router.HandleFunc("/api/editTask/{task_id}", EditTask).Methods("PUT", "OPTIONS")       // Testing required
+	router.HandleFunc("/api/editTask/{category_id}/{task_id}", EditTask).Methods("PUT", "OPTIONS")       // Testing required
 	return router
 }
 
