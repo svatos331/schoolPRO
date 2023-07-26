@@ -15,6 +15,10 @@ export const PrevBtn = styled.button`
     border-radius: 10px;
     background-color: rgb(214, 214, 214);
 
+    @media (max-width: 426px) {
+        left: 10px;
+    }
+
     &:hover{
         scale: 1.05
     }
@@ -29,6 +33,10 @@ export const NextBtn = styled.button`
     background-color: rgb(214, 214, 214);
     transition: all 0.3s ease;
 
+    @media (max-width: 426px) {
+        right: 10px;
+    }
+
     &:hover{
         scale: 1.05
     }
@@ -38,5 +46,12 @@ export const IconWrap = styled.div`
     svg {
         width: 50px;
         height: 50px;
+    }
+
+    @media (max-width: 426px) {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 `;

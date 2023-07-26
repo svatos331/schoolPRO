@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { SearchPanel } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardList/module/SearchPanel";
 
+import * as ST from "./style/style";
 import List from "./module/List/index";
 import { ListCardpProps } from "./type/index";
 
@@ -44,10 +45,10 @@ const CardList = ({type,useGetAllMovieQuery, ganre: gvalue }:ListCardpProps) => 
     };
 
     return (
-        <>
+        <ST.Container>
             <SearchPanel chGanre={changeGanre} chOrder={changeOrder} chRating={changeRating} chYear={changeYear}/>
             <List data={data} isLoading={isLoading} page={page} func={func}/>
-        </>
+        </ST.Container>
     );
 };
 
