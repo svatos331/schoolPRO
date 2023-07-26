@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState , createContext} from "react";
+import React, { FunctionComponent, useState, createContext } from "react";
 //import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import MainWidgetType from "./type";
@@ -18,92 +18,100 @@ import ModalWindowWidget from "../ModalWindow.widget";
 
 export const UserCategory = createContext(1);
 
-const MainWidget: FunctionComponent<MainWidgetType> = ({ 
-	 useGetCategoriesQuery,
-	 useGetGoodsQuery,
-	 useGetTodoQuery, 
-	 useGetTasksQuery,
-	 useGetObservationQuery,
-	 useGetFactQuery, 
-	 useGetActivityQuery, 
-	 useAddTasksMutation,
-	 useDeleteTasksMutation,
-	 useGetUserQuery
-	}) => {
-
+const MainWidget: FunctionComponent<MainWidgetType> = ({
+	useGetCategoriesQuery,
+	useGetGoodsQuery,
+	useGetTodoQuery,
+	useGetTasksQuery,
+	useGetObservationQuery,
+	useGetFactQuery,
+	useGetActivityQuery,
+	useAddTasksMutation,
+	useDeleteTasksMutation,
+	useGetUserQuery,
+	useToggleTaskMutation
+}) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	//const { data } = useGetGoodsQuery();
 
 	//const userId= useContext(UserIdContext);
 	//alert(userId);
-	
 
-	
-	const [category,setCategory] = useState(1);
+	const [category, setCategory] = useState(1);
 
-	const [visible,setVisible] = useState(false);
+	const [visible, setVisible] = useState(false);
 
 	//alert(`Cater${category}`);
-	
-	return <>
 
-	<UserCategory.Provider value={category}>
+	return (
+		<>
+			<UserCategory.Provider value={category}>
+				<SidebarDataWidget
+					useGetCategoriesQuery={useGetCategoriesQuery}
+					setCategory={setCategory}
+				/>
+				<S.main_page>
+					<HeaderMainWidget
+						useGetGoodsQuery={useGetGoodsQuery}
+						useGetTodoQuery={useGetTodoQuery}
+						setVisible={setVisible}
+						useGetUserQuery={useGetUserQuery}
+					/>
 
-		<SidebarDataWidget useGetCategoriesQuery={useGetCategoriesQuery} setCategory={setCategory}/>
-			<S.main_page>
+					<ModalWindowWidget
+						useAddTasksMutation={useAddTasksMutation}
+						useGetCategoriesQuery={useGetCategoriesQuery}
+						visible={visible}
+						setVisible={setVisible}
+					/>
 
-				<HeaderMainWidget useGetGoodsQuery={useGetGoodsQuery} useGetTodoQuery={useGetTodoQuery} setVisible={setVisible} useGetUserQuery={useGetUserQuery} />
- 
-				<ModalWindowWidget  useAddTasksMutation={useAddTasksMutation} useGetCategoriesQuery={useGetCategoriesQuery}  visible={visible} setVisible={setVisible} />
-
-				<S.columns>
-					<S.left_column>
-
-						<Card>
-							<CardDataOptions title="Успехи за неделю">
-								<Activity useGetActivityQuery={useGetActivityQuery}/>
-							</CardDataOptions>
-						</Card>
-
+					<S.columns>
+						<S.left_column>
 							<Card>
-								<TaskWidget useGetTodoQuery={useGetGoodsQuery} useGetTasksQuery={useGetTasksQuery} useDeleteTasksMutation={useDeleteTasksMutation}/>
+								<CardDataOptions title="Успехи за неделю">
+									<Activity useGetActivityQuery={useGetActivityQuery} />
+								</CardDataOptions>
 							</Card>
 
-					</S.left_column>
+							<Card>
+								<TaskWidget
+									useToggleTaskMutation={useToggleTaskMutation}
+									useGetTodoQuery={useGetGoodsQuery}
+									useGetTasksQuery={useGetTasksQuery}
+									useDeleteTasksMutation={useDeleteTasksMutation}
+								/>
+							</Card>
+						</S.left_column>
 
-					<S.right_column>
-					<Card>
-						<CardData title="Такс такс такс">
-							<DateTime/>
-						</CardData>
-					</Card>
-					<Card>
-						<CardData title="Наблюдение">		
-
-						<ObserveWidget  useGetObservationQuery={useGetObservationQuery}/>
-
-						</CardData>
-					</Card>
-						<Card>
-							<CardData title="Факт дня">
-							<FactWidget useGetFactQuery={useGetFactQuery}/>
-
-							
-									
-							</CardData>
-
-						</Card>
-						<Card>
-						<CardData title="График успеваемости">
-						<GraphLineWidget useGetActivityQuery={useGetActivityQuery}/>
-						</CardData>
-						</Card>
-					</S.right_column>
-				</S.columns>
-			</S.main_page>
+						<S.right_column>
+							<Card>
+								<CardData title="Такс такс такс">
+									<DateTime />
+								</CardData>
+							</Card>
+							<Card>
+								<CardData title="Наблюдение">
+									<ObserveWidget
+										useGetObservationQuery={useGetObservationQuery}
+									/>
+								</CardData>
+							</Card>
+							<Card>
+								<CardData title="Факт дня">
+									<FactWidget useGetFactQuery={useGetFactQuery} />
+								</CardData>
+							</Card>
+							<Card>
+								<CardData title="График успеваемости">
+									<GraphLineWidget useGetActivityQuery={useGetActivityQuery} />
+								</CardData>
+							</Card>
+						</S.right_column>
+					</S.columns>
+				</S.main_page>
 			</UserCategory.Provider>
-			</>;
-
+		</>
+	);
 };
 
 export default MainWidget;

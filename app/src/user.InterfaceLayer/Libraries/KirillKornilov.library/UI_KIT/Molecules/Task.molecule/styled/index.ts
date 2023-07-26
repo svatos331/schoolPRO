@@ -6,16 +6,26 @@ interface taskProps{
 }
 export const btn = styled.button`
 
-    background-color: transparent;
+        background-color: transparent;
         display: flex;
         align-items: center;
         border: none;
         cursor: pointer;
         padding: 0;
         
+        `;
+export const checkbox_box = styled.div<taskProps>`
+
+    width: 0;
+    transform: translateX(-20px);
+    transition: 0.25s;
+
 `;
 export const task = styled.div<taskProps>`
-    padding: 15px 25px;
+
+    
+    width: 100%;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -25,41 +35,38 @@ export const task = styled.div<taskProps>`
     border-radius: 10px;
     cursor: pointer;
     transition: 0.25s;
-    
-    & button{
-            opacity: 0;
-    transition: 0.25s;
+
+    &:hover ${checkbox_box} {
+        width: 20px;
+        transform: translateX(0);
+
     }
+
+    & button {
+            opacity: 0;
+            transition: 0.25s;
+    }
+
     &:hover button {
     opacity: 1;
+    }
 
- 
     & p{
         margin: 0;
     flex: 1;
     }
-}
+       
 
     ${(props) =>props.complet && css`
        & p {
         text-decoration: line-through;
        }
-       & button {
+       & ${btn} {
         visibility: hidden;
        }
-      
-}
+        
     `};
 
-    `;
-    export const checkbox_box = styled.div<taskProps>`
-
-        width: 0;
-        transform: translateX(-20px);
-        transition: 0.25s;
-        &:hover  {
-            width: 20px;
-            transform: translateX(0);
     `;
 // color: ${props=>props.color||"white"};
 // .task {

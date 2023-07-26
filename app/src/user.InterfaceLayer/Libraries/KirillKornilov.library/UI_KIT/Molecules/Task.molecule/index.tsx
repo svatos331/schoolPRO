@@ -10,13 +10,18 @@ interface ITask {
 	text: string;
 	completed: boolean;
 	handleDeleteTask?: any;
+	handleToggle?:any;
 }
 
-const Task: FC<ITask> = ({ key, text, completed, handleDeleteTask }) => {
+const Task: FC<ITask> = ({ key, text, completed, handleDeleteTask ,handleToggle}) => {
+
+
+	
 
 	return (
 
-		<S.task
+		<S.task 
+			onClick={handleToggle}
 			key={key}
 			complet={completed ? true : false}>
 			<S.checkbox_box complet={completed ? true : false}>

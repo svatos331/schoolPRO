@@ -10,6 +10,7 @@ import { useGetActivityQuery } from "business.InterfaceLayer/store/shared/entiti
 import { useAddTasksMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useDeleteTasksMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useGetUserQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { useToggleTaskMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 
 export const UserIdContext = createContext(0);
 
@@ -29,6 +30,7 @@ const ComponentMainPage = () => {
 	useAddTasksMutation={useAddTasksMutation}
 	useDeleteTasksMutation={useDeleteTasksMutation}
 	useGetUserQuery={useGetUserQuery}
+	useToggleTaskMutation={useToggleTaskMutation}
 	/></UserIdContext.Provider>
 	</>;
 	

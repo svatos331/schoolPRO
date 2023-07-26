@@ -98,7 +98,17 @@ export const goodsApi = createApi({
 		}),
 		getUser: build.query({
 			query: (user_id)=>`user/${user_id}`,
-		})
+		}),
+
+		toggleTask: build.mutation({
+			query: (task_id) => ({
+				url: `toggleTask/${task_id}`,
+				method: "PATCH",
+				
+			}),
+			
+		}),
+
 	}),
 });
 
@@ -111,5 +121,6 @@ export const {
 	useGetActivityQuery,
 	useAddTasksMutation,
 	useDeleteTasksMutation,
-	useGetUserQuery
+	useGetUserQuery,
+	useToggleTaskMutation
 } = goodsApi;

@@ -9,7 +9,7 @@ interface MainWidgetType {
 	useAddTasksMutation:any;
 	useDeleteTasksMutation:any;
 	useGetUserQuery:any;
-	
+	useToggleTaskMutation:any;
 }
 
 export default MainWidgetType;
