@@ -51,3 +51,12 @@ export const Description = styled.div`
     margin-top: 15px;
     margin-left: 70px;
 `;
+
+export const TxtContainer = styled.div`
+    display: flex;
+    height: 40px;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 80px;
+    align-items: center;
+`;

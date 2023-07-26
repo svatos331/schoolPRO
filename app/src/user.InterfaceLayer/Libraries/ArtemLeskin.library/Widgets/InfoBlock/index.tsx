@@ -1,5 +1,6 @@
 import React from "react";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { InfoBlockProps } from "./type/index";
@@ -11,8 +12,8 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
 
     const {data: info, isLoading} = useGetOneMovieQuery({id});
     
-    const ganre = info?.genres.map((item:any) => {return item?.genre;}).join(", ");
-    const country = info?.countries.map((item:any) => {return item?.country;}).join(", ");
+    const ganre = info?.genres?.map((item:any) => {return item?.genre;}).join(", ");
+    const country = info?.countries?.map((item:any) => {return item?.country;}).join(", ");
 
     
 
@@ -26,11 +27,13 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
                     {info.logoUrl && <ST.Img src={info.logoUrl} alt={info.name} />}
                     <ST.HeaderInfo>
                         <ST.Rating rating={info.rating}/>
-                        <ST.Txt>{info.year}</ST.Txt>
-                        <ST.TxtArr>{ganre}</ST.TxtArr>
-                        <ST.Txt>{`${info.ageLimits.split("age")[1]}+`}</ST.Txt>
-                        <ST.TxtArr>{country}</ST.TxtArr>
-                        <ST.Txt>{info.filsLength + " мин"}</ST.Txt>
+                        <ST.TxtContainer>
+                            <Text title={info.year}/>
+                            <Text title={ganre}/>
+                            <Text title={`${info.ageLimits.split("age")[1]}+`}/>
+                            <Text title={country}/>
+                            <Text title={info.filsLength + " мин"}/>
+                        </ST.TxtContainer>
                     </ST.HeaderInfo>
                     <ST.Description>
                         {info.description}

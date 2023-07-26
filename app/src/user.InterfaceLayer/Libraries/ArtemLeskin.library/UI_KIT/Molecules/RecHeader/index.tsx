@@ -1,5 +1,6 @@
 import React from "react";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import { ReactComponent as Row } from "../../../assets/icons/RightRow.svg";
 import { RecHeaderProps } from "./type/index";

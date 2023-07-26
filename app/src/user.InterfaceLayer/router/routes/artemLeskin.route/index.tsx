@@ -8,7 +8,6 @@ import Loader from "../../../Components/general.components/Loader";
 import artemLeskinRoutesPaths from "./artemLeskin.routesPaths";
 import { MainPage } from "../../../Pages/ArtemLeskin.pages/Main.page";
 import { MoviePage } from "../../../Pages/ArtemLeskin.pages/Movie.page";
-import { ActorPage } from "../../../Pages/ArtemLeskin.pages/Actor.page";
 import { ListPage } from "../../../Pages/ArtemLeskin.pages/List.page";
 import { CreatePage } from "../../../Pages/ArtemLeskin.pages/Create.page";
 
@@ -34,15 +33,6 @@ const artemLeskinRoutes: RouteObject[] = [
 				element: (
 					<Suspense fallback={<Loader />}>
 						<ListPage/>
-					</Suspense>
-				),
-				errorElement: <Error />,
-			},
-			{
-				path: `${artemLeskinRoutesPaths.ACTOR}:id`,
-				element: (
-					<Suspense fallback={<Loader />}>
-						<ActorPage/>
 					</Suspense>
 				),
 				errorElement: <Error />,

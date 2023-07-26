@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Info from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/Info.component.bll";
 import SimilarPanel from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/SimilarPanel.component.bll";
 
-import cls from "./MoviePage.module.css";
+import * as ST from "../style/style";
 
 
 
@@ -11,12 +11,12 @@ const MoviePage: React.FC = () => {
     const {id} = useParams();
 
     return (
-        <div className={cls.page}>
+        <ST.Page>
             <Info id={id || ""}/>
-            <div className={cls.container}>
+            <ST.Container>
                 <SimilarPanel id={id || ""}/>
-            </div>
-        </div>
+            </ST.Container>
+        </ST.Page>
     );
 };
 
