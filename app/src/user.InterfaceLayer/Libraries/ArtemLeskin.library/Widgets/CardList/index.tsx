@@ -44,10 +44,10 @@ const CardList = ({type,useGetAllMovieQuery, ganre: gvalue }:ListCardpProps) => 
     };
 
     return (
-        <div className="">
+        <>
             <SearchPanel chGanre={changeGanre} chOrder={changeOrder} chRating={changeRating} chYear={changeYear}/>
             <List data={data} isLoading={isLoading} page={page} func={func}/>
-        </div>
+        </>
     );
 };
 

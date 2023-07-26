@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { SliderItemProps } from "./type/index";

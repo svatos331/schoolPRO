@@ -11,11 +11,11 @@ const PaginationBar: React.FC<IPaginationBar> = (props: IPaginationBar) => {
         <ST.List>
             {Array.from({length: count}).map((item, index) => {
                 return <PaginationBtn 
-                        value={index + 1} 
-                        func={func} 
-                        active={Number(index + 1) === current}
-                        key={index + 1}
-                        />;
+                    value={index + 1} 
+                    func={func} 
+                    active={Number(index + 1) === current}
+                    key={index + 1}
+                    />;
             })}
         </ST.List>
     );

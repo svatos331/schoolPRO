@@ -1,5 +1,6 @@
 import React from "react";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { AdviceCardProps } from "./type/index";
@@ -7,9 +8,7 @@ import { AdviceCardProps } from "./type/index";
 
 
 export const AdviceCard: React.FC<AdviceCardProps> = (props: AdviceCardProps) => {
-    const { link, text, children, func } = props;
-
-        func({page: 1, type: "FILM"});
+    const { link, text, children } = props;
 
     return (
         <ST.Card to={link}>

@@ -1,37 +1,12 @@
 import React from "react";
-import classNames from "classnames";
 
-import cls from "./style/Text.module.css";
-
-export enum TextTheme{
-    PRIMARY = "primary",
-    ERROR = "error"
-}
-
-export enum TextSize{
-    M = "size_m",
-    L = "size_l",
-    XL = "size_xl"
-}
-
-export enum TextAlign{
-    CENTER = "center",
-    LEFT = "left",
-    RIGHT = "right",
-}
+import * as ST from "./style/style";
+import { TextProps, TextTheme, TextAlign, TextSize } from "./type/index";
 
 
-interface TextProps {
-    className?: string;
-    title?: string;
-    text?: string;
-    theme?: TextTheme;
-    align?: TextAlign
-    size?: TextSize;
-}
 
 const Text: React.FC<TextProps> = (props: TextProps) => {
-    const { 
+    const {
         className,
         text,
         title,
@@ -40,17 +15,26 @@ const Text: React.FC<TextProps> = (props: TextProps) => {
         size = TextSize.M,
     } = props;
 
-    const mods= {
-        [cls[theme]]: true,
-        [cls[align]]: true,
-        [cls[size]]: true,
-    };
 
     return (
-        <div className={classNames(cls.text, mods, [className])}>
-            {title && <p className={classNames(cls.title, {[cls[size]]:true}, [])}>{title}</p>}
-            {text && <p className={classNames(cls.text, {[cls[size]]:true}, [])}>{text}</p>}
-        </div>
+        <ST.Container className={className}>
+            {title && 
+            <ST.Title 
+                color={theme} 
+                align={align} 
+                size={size}
+                >
+                    {title}
+            </ST.Title>}
+            {text && 
+            <ST.Text
+                color={theme} 
+                align={align} 
+                size={size}
+                >
+                    {text}
+            </ST.Text>}
+        </ST.Container>
     );
 };
 
