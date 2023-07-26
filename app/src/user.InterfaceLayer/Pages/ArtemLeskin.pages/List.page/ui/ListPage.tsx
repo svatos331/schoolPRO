@@ -1,10 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import ListCard from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/ListCard.component.bll";
+import PageTitle from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/PageTitle";
 
-import * as ST from "./style/style";
-import cls from "./ListPage.module.css";
+import * as ST from "../style/style";
 
 const ListPage: React.FC = () => {
     const a = useParams();
@@ -13,10 +12,8 @@ const ListPage: React.FC = () => {
 
     return (
         <ST.Container>
-            <Text 
+            <PageTitle
                 title={id === "series"?"Сериалы":"Фильмы"} 
-                className={cls.title}
-                size={TextSize.XL}
             />
             <ListCard 
                 type={id === "series"?"TV_SERIES":"FILM"}

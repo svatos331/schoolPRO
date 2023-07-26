@@ -4,19 +4,19 @@ import { AdviceBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Wid
 import { RecomedPanel } from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/RecomendationPanel.component.bll";
 import { useGetAllMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
 
-import cls from "./MainPage.module.css";
+import * as ST from "../style/style";
 
 
 const MainPage: React.FC = () => {
 
     return (
-        <div className={cls.page}>
-            <div className={cls.container}>
+        <ST.Page>
+            <ST.Container>
                 <Slider/>
                 <AdviceBar useGetAllMovieQuery={useGetAllMovieQuery}/>
                 <RecomedPanel/>
-            </div>
-        </div>
+            </ST.Container>
+        </ST.Page>
     );
 };
 

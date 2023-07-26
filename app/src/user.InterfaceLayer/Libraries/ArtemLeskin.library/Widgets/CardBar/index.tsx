@@ -2,7 +2,8 @@ import React from "react";
 import { RecHeaader } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/RecHeader";
 import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
 import { ICard } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule/type";
-import Text, { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
+import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { CardBarProps } from "./type/index";
