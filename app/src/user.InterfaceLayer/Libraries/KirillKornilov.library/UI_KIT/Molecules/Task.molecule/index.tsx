@@ -10,25 +10,30 @@ interface ITask {
 	text: string;
 	completed: boolean;
 	handleDeleteTask?: any;
-	handleToggle?:any;
+	handleToggle?: any;
 }
 
-const Task: FC<ITask> = ({ key, text, completed, handleDeleteTask ,handleToggle}) => {
-
-
-	
-
+const Task: FC<ITask> = ({
+	key,
+	text,
+	completed,
+	handleDeleteTask,
+	handleToggle,
+}) => {
 	return (
-
-		<S.task 
+		<S.task
 			onClick={handleToggle}
 			key={key}
-			complet={completed ? true : false}>
-			<S.checkbox_box complet={completed ? true : false}>
+			complet={completed ? true : false}
+		>
+			<S.checkbox_box
+				complet={completed ? true : false}
+				
+			>
 				<CheckBox checked={completed ? true : false} />
 			</S.checkbox_box>
 
-			<p> {text}</p>
+			<p onClick={handleToggle} > {text}</p>
 			<S.btn>
 				<Icon
 					width={18}
@@ -37,15 +42,13 @@ const Task: FC<ITask> = ({ key, text, completed, handleDeleteTask ,handleToggle}
 					color="#000"
 				/>
 			</S.btn>
-			<S.btn>
-				<div onClick={handleDeleteTask}>
-					<Icon
-						width={18}
-						height={18}
-						icon={Icons.TrashBin}
-						color="#F05454"
-					/>
-				</div>
+			<S.btn onClick={handleDeleteTask}>
+				<Icon
+					width={18}
+					height={18}
+					icon={Icons.TrashBin}
+					color="#F05454"
+				/>
 			</S.btn>
 		</S.task>
 	);

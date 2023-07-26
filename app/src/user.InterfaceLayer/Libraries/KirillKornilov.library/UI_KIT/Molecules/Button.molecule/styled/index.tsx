@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const button = styled.button`
+
 padding: 10px 25px;
 border: none;
 border-radius: 8px;
@@ -16,5 +17,6 @@ background-color:${(props)=>props.color};
 };
 & p{
     margin: 0;
+    margin-left: 1vw;
 }
 `; 

@@ -629,6 +629,8 @@ func ToggleTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "PATCH")
 
+
+
 	params := mux.Vars(r)
 
 	task_id, err := strconv.Atoi(params["task_id"])
@@ -638,6 +640,7 @@ func ToggleTask(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ToggleTaskById(&tsks, task_id)
+	fmt.Println("Patch $d",task_id)
 	json.NewEncoder(w).Encode(task_id)
 }
 
