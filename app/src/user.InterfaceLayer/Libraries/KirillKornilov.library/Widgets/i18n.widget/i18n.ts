@@ -14,10 +14,37 @@ i18n
 	resources:{
 		ru:{
 			translation:{
-				"sidebar":{
-					"categories":"Категории",
-				
-				}
+				sidebar:{
+					categories:"Категории",
+					home: "Дом",
+					family:"Семья",
+					job:"Работа",
+					sport:"Спорт",
+					add:"Добавить",
+					exit:"Выйти"
+				},
+				header:{
+					newtask:"Новая задача",
+					greetings:"Удачного дня"
+				},
+				weekAchievements:{
+					title:"Недельные успехи",
+					created: "Создано",
+					done: "Завершено",
+					deleted:"Удалено",
+					tasks:"Задачи",
+				},
+				activeTask:"Активные задачи",
+				completedTask:"Завершённые задачи",
+				timer:{
+					title:"Такс такс такс",
+					onWatch:"На часах",
+					onDay:"Сегодня у нас",
+				},
+				observation:"Наблюдения",
+				dayFact:"Факт дня",
+
+				chart:"Прогресс график",
 			}
 		},
 		en:{
