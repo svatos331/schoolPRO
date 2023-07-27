@@ -31,8 +31,6 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 
 	const [editTask] = useEditTaskMutation();
 
-
-
 	const { data, isLoading } = useGetCategoriesQuery(userId);
 
 	if (isLoading) return <h1>isLoading</h1>;
@@ -80,8 +78,6 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 							value={valueCategory}
 							onChange={(e) => setValueCategory(e.target.value)}
 						>
-							{/* <option value="" disabled selected>Выбрать</option>
-							<option value="Template">Template</option> */}
 
 							{data.map((user: any) => {
 								return (

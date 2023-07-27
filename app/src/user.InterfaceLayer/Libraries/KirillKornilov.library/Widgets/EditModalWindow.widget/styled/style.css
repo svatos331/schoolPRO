@@ -1,4 +1,4 @@
-.modal-window {
+/* .modal-window {
     width: 700px;
     height: 350px;
     padding: 20px;
@@ -81,7 +81,7 @@
     gap: 10px;
 }
 
-/* */
+/////
 
 .sd-container {
     position: relative;
@@ -103,7 +103,7 @@
     background: transparent;
 }
 
-/**/
+////
 
 .modal-base {
     top: 0;
@@ -117,4 +117,4 @@
     justify-content: center;
     z-index: 1;
     
-}
+} */
