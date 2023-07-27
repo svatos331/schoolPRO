@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState, createContext } from "react";
+import { useTranslation } from "react-i18next";
 //import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import MainWidgetType from "./type";
@@ -16,6 +17,8 @@ import FactWidget from "../Fact.widget";
 import GraphLineWidget from "../GraphLine.widget";
 import ModalWindowWidget from "../ModalWindow.widget";
 import EditModalWindowWidget from "../EditModalWindow.widget";
+import ProfileWidget from "../Profile.widget";
+import "../i18n.widget/i18n";
 
 export const UserCategory = createContext(1);
 
@@ -34,11 +37,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useToggleTaskMutation,
 	useEditTaskMutation,
 }) => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	//const { data } = useGetGoodsQuery();
-
-	//const userId= useContext(UserIdContext);
-	//alert(userId);
+	
+	const {t} =useTranslation();
 
 	const [category, setCategory] = useState(1);
 
@@ -94,13 +94,13 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						<S.left_column>
 
 							<S.container_hide hide={!visibleProfile?"none":"flex"} >
-							<>ddd</>
+							<ProfileWidget/>
 							</S.container_hide>
 
 							<S.container_hide hide={visibleProfile?"none":"flex"} >
 
 							<Card>
-								<CardDataOptions title="Успехи за неделю">
+								<CardDataOptions title={t("weekAchievements.title")}>
 									<Activity useGetActivityQuery={useGetActivityQuery} />
 								</CardDataOptions>
 							</Card>
@@ -113,6 +113,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 									useDeleteTasksMutation={useDeleteTasksMutation}
 									
 									setVisible={setVisibleEdit}
+									// {t("sidebar.categories")}
 								/>
 							</Card>
 							</S.container_hide>
@@ -120,24 +121,24 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 
 						<S.right_column>
 							<Card>
-								<CardData title="Такс такс такс">
+								<CardData title={t("timer.title")}>
 									<DateTime />
 								</CardData>
 							</Card>
 							<Card>
-								<CardData title="Наблюдение">
+								<CardData title={t("observation")}>
 									<ObserveWidget
 										useGetObservationQuery={useGetObservationQuery}
 									/>
 								</CardData>
 							</Card>
 							<Card>
-								<CardData title="Факт дня">
+								<CardData title={t("dayFact")}>
 									<FactWidget useGetFactQuery={useGetFactQuery} />
 								</CardData>
 							</Card>
 							<Card>
-								<CardData title="График успеваемости">
+								<CardData title={t("chart")}>
 									<GraphLineWidget useGetActivityQuery={useGetActivityQuery} />
 								</CardData>
 							</Card>

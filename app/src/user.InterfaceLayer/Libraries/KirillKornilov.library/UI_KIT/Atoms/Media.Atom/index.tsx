@@ -1,18 +1,21 @@
 import { FC } from "react";
 
-import "./styled/style.css";
+import * as S from "./styled";
 
 interface IMedia{
     link: string,
     logo: string,
+    color?: string,
 }
 
-const Media:FC<IMedia> =({link,logo})=> {
+
+
+const Media:FC<IMedia> =({link,logo,color})=> {
 
     return(
-        <div className="media">
-            <a href={link}><img src={logo} alt={logo}/></a>
-        </div>
+        <S.media color={color?color:""}>
+            <a href={link}><img src={logo} alt={logo} /></a>
+        </S.media>
     );
 };
 

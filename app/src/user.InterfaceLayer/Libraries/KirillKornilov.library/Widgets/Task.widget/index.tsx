@@ -1,10 +1,12 @@
 import React, { FC, useContext } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
+import { useTranslation } from "react-i18next";
 
 import TaskWidgetType from "./type";
 import { UserCategory } from "../Main.widget";
 import Task from "../../UI_KIT/Molecules/Task.molecule";
 import CardDataOptions from "../../UI_KIT/Molecules/CardDataOptions.molecule";
+import "../i18n.widget/i18n";
 
 export const TaskWidget: FC<TaskWidgetType> = ({
 	useGetTasksQuery,
@@ -15,7 +17,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 }) => {
 	// const { useGetTodoQuery } = props;
 	//const {query}
-
+	const {t} =useTranslation();
 	
 	const [toggleTask] = useToggleTaskMutation();
 
@@ -44,7 +46,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 
 	return (
 		<>
-			<CardDataOptions title="Активные задачи">
+			<CardDataOptions title= {t("activeTask")}>
 				<div className="column-card">
 					{data.map((task: any) => {
 						if (!task["is_completed"])
@@ -62,7 +64,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 					})}
 				</div>
 			</CardDataOptions>
-			<CardDataOptions title="Завершённые задачи">
+			<CardDataOptions title={t("completedTask")}>
 				<div className="column-card">
 					{data.map((task: any) => {
 						if (task["is_completed"])
