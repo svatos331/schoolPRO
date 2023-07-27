@@ -47,24 +47,29 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	const [visibleEdit, setVisibleEdit] = useState({task:{},visible:false});
 	//const [taskEdit, setTaskEdit] = useState(1);
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [visibleProfile, setVisibleProfile] = useState(false);
 	
 	
 	//alert(`Cater${category}`);
 
 	return (
 		<>
-			<UserCategory.Provider value={category}>
+				<UserCategory.Provider value={category}>
 				<SidebarDataWidget
 					useGetCategoriesQuery={useGetCategoriesQuery}
 					setCategory={setCategory}
 				/>
+
 				<S.main_page>
 					<HeaderMainWidget
 						useGetGoodsQuery={useGetGoodsQuery}
 						useGetTodoQuery={useGetTodoQuery}
 						setVisible={setVisible}
 						useGetUserQuery={useGetUserQuery}
-					/>
+						setVisibleProfile={setVisibleProfile}
+						visibleProfile={visibleProfile}
+				/>
 
 					<ModalWindowWidget
 						useAddTasksMutation={useAddTasksMutation}
@@ -72,7 +77,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						visible={visible}
 						setVisible={setVisible}
 					/>
-			
+
 
 					<EditModalWindowWidget
 						useEditTaskMutation={useEditTaskMutation}
@@ -87,6 +92,13 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 
 					<S.columns>
 						<S.left_column>
+
+							<S.container_hide hide={!visibleProfile?"none":"flex"} >
+							<>ddd</>
+							</S.container_hide>
+
+							<S.container_hide hide={visibleProfile?"none":"flex"} >
+
 							<Card>
 								<CardDataOptions title="Успехи за неделю">
 									<Activity useGetActivityQuery={useGetActivityQuery} />
@@ -103,6 +115,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 									setVisible={setVisibleEdit}
 								/>
 							</Card>
+							</S.container_hide>
 						</S.left_column>
 
 						<S.right_column>

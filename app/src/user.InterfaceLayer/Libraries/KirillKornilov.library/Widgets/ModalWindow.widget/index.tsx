@@ -3,11 +3,9 @@ import React, { FunctionComponent, useContext, useState } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
-import { Icons, Icon } from "../../UI_KIT/Atoms/Atom1/icons";
+//import { Icons, Icon } from "../../UI_KIT/Atoms/Atom1/icons";
 import ModalWindowWidgetType from "./type";
-//import { UserCategory } from "../Main.widget";
-
-import "./styled/style.css";
+import * as S from "./styled";
 
 const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 	visible,
@@ -61,12 +59,11 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 	//alert(data);
 
 	return (
-		<div
-			className="modal-base"
-			style={visible ? { display: "flex" } : { display: "none" }}
+		<S.modal_base
+		display={visible ? "flex" : "none" }
 		>
-			<div className="modal-window">
-				<div className="modal-title">
+			<S.modal_window>
+				<S.modal_title>
 					<p>Добавить новую задачу</p>
 					<select>
 						<option
@@ -78,16 +75,16 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 						</option>
 						<option value="Template">Template</option>
 					</select>
-				</div>
-				<div className="modal-task-name">
+				</S.modal_title>
+				<S.modal_task_name>
 					<p>Что нужно сделать?</p>
 					<input
 						type="text"
 						value={valueGoal}
 						onChange={(e) => setValueGoal(e.target.value)}
 					/>
-				</div>
-				<div className="modal-parameters">
+				</S.modal_task_name>
+				<S.modal_parameters>
 					<div>
 						<p>Категория</p>
 						<select
@@ -116,7 +113,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 					<div>
 						<p>Когда?</p>
 
-						<div className="sd-container">
+						<S.sd_container>
 							<input
 								className="sd"
 								type="date"
@@ -124,7 +121,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 								value={valueDate}
 								onChange={(e) => setValueDate(e.target.value)}
 							/>
-							<span className="open-button">
+							{/* <span className="open-button>
 								<button>
 									<Icon
 										width={18}
@@ -133,8 +130,8 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 										icon={Icons.Calendar}
 									/>
 								</button>
-							</span>
-						</div>
+							</span> */}
+						</S.sd_container>
 					</div>
 					<div>
 						<p>Приоритет задачи</p>
@@ -158,8 +155,8 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 
 						</select> */}
 					</div>
-				</div>
-				<div className="modal-buttons">
+				</S.modal_parameters>
+				<S.modal_buttons>
 					<Button
 						text="Отменить"
 						color="#F05454"
@@ -179,9 +176,9 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 							onClick={handleAddTask}
 						/>
 					</div>
-				</div>
-			</div>
-		</div>
+				</S.modal_buttons>
+			</S.modal_window>
+		</S.modal_base>
 	);
 };
 

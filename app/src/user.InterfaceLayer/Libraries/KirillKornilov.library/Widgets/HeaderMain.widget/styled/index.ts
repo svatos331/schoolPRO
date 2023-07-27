@@ -30,6 +30,12 @@ export const theme_button =styled.button`
     background-color: transparent;
 `;
 
+export const container_hide =styled.div<{hide:string}>`
+    
+    display: ${props=>props.hide};
+   
+
+`;
 // #main-header {
 //     display: flex;
 //     align-items: center;
