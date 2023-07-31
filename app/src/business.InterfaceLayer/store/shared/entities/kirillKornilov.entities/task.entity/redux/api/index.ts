@@ -112,8 +112,8 @@ export const goodsApi = createApi({
 				console.log(`hook_handletoggle = ${task_id}`);
 			
 			return({url: `toggleTask/${task_id}`,
-			method: "PATCH",
-			
+			method: "POST",
+			mode: "no-cors",
 			});
 		}
 			

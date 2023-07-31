@@ -627,7 +627,7 @@ func ToggleTaskById(tsks *[]Task, task_id int) {
 func ToggleTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "PATCH")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
 
 
 
@@ -914,7 +914,7 @@ func Router() *mux.Router {
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
 	router.HandleFunc("/api/task/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
-	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("PATCH", "OPTIONS") // Testing required
+	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("POST", "OPTIONS") // Testing required
 	router.HandleFunc("/api/editTask/{category_id}/{task_id}", EditTask).Methods("POST", "OPTIONS")       // Testing required
 	return router
 }
