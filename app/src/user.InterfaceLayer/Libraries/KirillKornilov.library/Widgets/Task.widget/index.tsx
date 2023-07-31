@@ -23,10 +23,10 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 	const {t} =useTranslation();
 	
 	const [toggleTask] = useToggleTaskMutation();
-
+	const category_id =useContext(UserCategory);
 	const { data, isLoading } = useGetTasksQuery({
 		user_id: useContext(UserIdContext),
-		category_id: useContext(UserCategory),
+		category_id: category_id,
 		
 	});
 	
@@ -63,7 +63,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 									completed={task["is_completed"]}
 									handleDeleteTask={() => handleDelete(Number(task["id"]))}
 									handleToggle={() => handleToggle(task["id"])}
-									onSetTaskEdit={()=>setVisible({  task:task,visible:true})}
+									onSetTaskEdit={()=>setVisible({  task:{...task,category_id},visible:true})}
 									
 								/>
 							);

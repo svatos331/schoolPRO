@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import React, { FunctionComponent, useContext, useState } from "react";
+import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
@@ -29,6 +29,37 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 	const [valueDate, setValueDate] = useState("");
 	const [valueGoal, setValueGoal] = useState("");
 	//const userCategory = useContext(UserCategory);
+
+
+	useEffect(()=>{
+		
+		setValue(task["priority"]);
+		setValueCategory(task["category_id"]);
+		// eslint-disable-next-line no-console
+		console.log(` task_ ${task["category_id"]}`);
+
+		
+		// 		id 33 
+		// goal Buyee 
+		// is_completed false 
+		// deadline 0001-01-01T00:00:00Z 
+		// priority 0
+
+		// task.case((value: any, key: any) => {
+		// 	// eslint-disable-next-line no-console
+		// 	console.log(key, value);
+		// });
+		Object.keys(task).map(
+			// eslint-disable-next-line no-console
+			k=>{console.log(k,task[k]);}
+			);
+
+		setValueDate(task["deadline"]);
+		setValueGoal(task["goal"]);
+		
+	},[task]);
+
+	//alert(task["goal"]);
 
 	const [editTask] = useEditTaskMutation();
 
@@ -142,7 +173,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 							text="Применить"
 							color="#29A19C"
 							icon={false}
-							onClick={()=>{handleEditTask();setVisible({visible:false});}}
+							onClick={()=>{handleEditTask();setVisible({task:{},visible:false});}}
 						/>
 					</div>
 				</S.modal_buttons>
