@@ -18,7 +18,9 @@ import GraphLineWidget from "../GraphLine.widget";
 import ModalWindowWidget from "../ModalWindow.widget";
 import EditModalWindowWidget from "../EditModalWindow.widget";
 import ProfileWidget from "../Profile.widget";
+import CatalogModalWidget from "../CatalogModal.widget";
 import "../i18n.widget/i18n";
+
 
 export const UserCategory = createContext(1);
 
@@ -36,6 +38,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useGetUserQuery,
 	useToggleTaskMutation,
 	useEditTaskMutation,
+	usePostCategoryMutation,
+	//useDeleteCategoryMutation,
 }) => {
 	
 	const {t} =useTranslation();
@@ -49,7 +53,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [visibleProfile, setVisibleProfile] = useState(false);
-	
+	const [visibleCatalog, setVisibleCatalog] = useState(false);
 	
 	//alert(`Cater${category}`);
 
@@ -59,6 +63,8 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 				<SidebarDataWidget
 					useGetCategoriesQuery={useGetCategoriesQuery}
 					setCategory={setCategory}
+					setVisibleCatalog={setVisibleCatalog}
+					//useDeleteCategoryMutation={useDeleteCategoryMutation}
 				/>
 
 				<S.main_page>
@@ -76,6 +82,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						useGetCategoriesQuery={useGetCategoriesQuery}
 						visible={visible}
 						setVisible={setVisible}
+						
 					/>
 
 
@@ -86,9 +93,9 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						setVisible={setVisibleEdit}
 						//taskEdit={taskEdit}
 						task={visibleEdit["task"]}
-						
-						
+			
 					/>
+					<CatalogModalWidget usePostCategoryMutation={usePostCategoryMutation} visible={visibleCatalog} setVisibleCatalog={setVisibleCatalog}/>
 
 					<S.columns>
 						<S.left_column>

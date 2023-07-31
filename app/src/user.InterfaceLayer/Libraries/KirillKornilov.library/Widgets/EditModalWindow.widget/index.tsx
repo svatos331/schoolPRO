@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import React, { FunctionComponent, useContext, useState } from "react";
+import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
@@ -19,14 +19,47 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 
 	//alert(`ffff ${task["goal"]}`);
 
+
+
 	const userId = useContext(UserIdContext);
 
 	//alert(userId);
 	const [value, setValue] = useState("2");
 	const [valueCategory, setValueCategory] = useState("1");
 	const [valueDate, setValueDate] = useState("");
-	const [valueGoal, setValueGoal] = useState(task["goal"]);
+	const [valueGoal, setValueGoal] = useState("");
 	//const userCategory = useContext(UserCategory);
+
+
+	useEffect(()=>{
+		
+		setValue(task["priority"]);
+		setValueCategory(task["category_id"]);
+		// eslint-disable-next-line no-console
+		console.log(` task_ ${task["category_id"]}`);
+
+		
+		// 		id 33 
+		// goal Buyee 
+		// is_completed false 
+		// deadline 0001-01-01T00:00:00Z 
+		// priority 0
+
+		// task.case((value: any, key: any) => {
+		// 	// eslint-disable-next-line no-console
+		// 	console.log(key, value);
+		// });
+		Object.keys(task).map(
+			// eslint-disable-next-line no-console
+			k=>{console.log(k,task[k]);}
+			);
+
+		setValueDate(task["deadline"]);
+		setValueGoal(task["goal"]);
+		
+	},[task]);
+
+	//alert(task["goal"]);
 
 	const [editTask] = useEditTaskMutation();
 
@@ -36,7 +69,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 
 	const handleEditTask = async () => {
 		await editTask({
-			id: task["id"],
+			task_id: task["id"],
 			category_id: Number(valueCategory),
 			user_id: Number(userId),
 			goal: valueGoal,
@@ -65,7 +98,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 					<input
 						type="text"
 						//value={valueGoal}
-						value={task["goal"]}
+						value={valueGoal}
 						onChange={(e) => setValueGoal(e.target.value)}
 					/>
 				</S.modal_task_name>
@@ -140,7 +173,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 							text="Применить"
 							color="#29A19C"
 							icon={false}
-							onClick={handleEditTask}
+							onClick={()=>{handleEditTask();setVisible({task:{},visible:false});}}
 						/>
 					</div>
 				</S.modal_buttons>

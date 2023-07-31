@@ -556,7 +556,7 @@ func NewTaskId(tsks []Task) int {
 }
 
 func PostTask(w http.ResponseWriter, r *http.Request) {
-
+	
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
@@ -564,7 +564,7 @@ func PostTask(w http.ResponseWriter, r *http.Request) {
 	var tsk Task
 	json.NewDecoder(r.Body).Decode(&tsk)
 	tsk.ID = NewTaskId(tsks)
-
+fmt.Println("PostTask...%d",tsk )
 	params := mux.Vars(r)
 
 	user_id, err := strconv.Atoi(params["user_id"])
@@ -627,7 +627,7 @@ func ToggleTaskById(tsks *[]Task, task_id int) {
 func ToggleTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "PATCH")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
 
 
 
@@ -649,21 +649,25 @@ func ToggleTask(w http.ResponseWriter, r *http.Request) {
 func EditTaskById(tsks *[]Task, tsk Task, task_id int) {
 	for i := 0; i < len(*tsks); i++ {
 		if (*tsks)[i].ID == task_id {
+			tsk.UserID=(*tsks)[i].UserID
 			(*tsks)[i] = tsk
 		}
 	}
 }
 
 func EditTask(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Edit...")
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "PUT")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
 
 	var tsk Task
 	json.NewDecoder(r.Body).Decode(&tsk)
 
-	params := mux.Vars(r)
+	fmt.Println(tsk)
 
+	params := mux.Vars(r)
+	fmt.Println("Edit...%",params["task_id"],params["category_id"])
 	task_id, err := strconv.Atoi(params["task_id"])
 
 	if err != nil {
@@ -675,7 +679,7 @@ func EditTask(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	
+	tsk.ID=task_id
 	tsk.CategoryID=category_id
 
 	EditTaskById(&tsks, tsk, task_id)
@@ -910,8 +914,8 @@ func Router() *mux.Router {
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
 	router.HandleFunc("/api/task/{task_id}", DeleteTask).Methods("DELETE", "OPTIONS")
-	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("PATCH", "OPTIONS") // Testing required
-	router.HandleFunc("/api/editTask/{category_id}/{task_id}", EditTask).Methods("PUT", "OPTIONS")       // Testing required
+	router.HandleFunc("/api/toggleTask/{task_id}", ToggleTask).Methods("POST", "OPTIONS") // Testing required
+	router.HandleFunc("/api/editTask/{category_id}/{task_id}", EditTask).Methods("POST", "OPTIONS")       // Testing required
 	return router
 }
 

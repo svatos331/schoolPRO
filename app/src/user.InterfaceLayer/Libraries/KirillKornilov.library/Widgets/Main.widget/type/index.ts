@@ -11,6 +11,8 @@ interface MainWidgetType {
 	useGetUserQuery:any;
 	useToggleTaskMutation:any;
 	useEditTaskMutation:any;
+	usePostCategoryMutation:any;
+	useDeleteCategoryMutation:any;
 }
 
 export default MainWidgetType;

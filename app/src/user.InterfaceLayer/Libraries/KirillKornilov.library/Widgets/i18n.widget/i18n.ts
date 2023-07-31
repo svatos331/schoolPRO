@@ -67,10 +67,10 @@ i18n
 					created: "Created",
 					done: "Done",
 					deleted:"Deleted",
-					tasks:"tasks",
+					tasks:"Tasks",
 				},
 				activeTask:"Active tasks",
-				completedTask:"Completed task",
+				completedTask:"Completed tasks",
 				timer:{
 					title:"Well well well",
 					onWatch:"On watch we have",

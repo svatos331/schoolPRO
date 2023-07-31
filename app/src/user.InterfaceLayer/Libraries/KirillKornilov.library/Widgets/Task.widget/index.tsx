@@ -8,6 +8,9 @@ import Task from "../../UI_KIT/Molecules/Task.molecule";
 import CardDataOptions from "../../UI_KIT/Molecules/CardDataOptions.molecule";
 import "../i18n.widget/i18n";
 
+
+
+
 export const TaskWidget: FC<TaskWidgetType> = ({
 	useGetTasksQuery,
 	useDeleteTasksMutation,
@@ -20,16 +23,19 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 	const {t} =useTranslation();
 	
 	const [toggleTask] = useToggleTaskMutation();
-
-	const { data, isLoading, refetch } = useGetTasksQuery({
+	const category_id =useContext(UserCategory);
+	const { data, isLoading } = useGetTasksQuery({
 		user_id: useContext(UserIdContext),
-		category_id: useContext(UserCategory),
+		category_id: category_id,
 		
 	});
+	
 	const handleToggle = async (id: number) => {
 		await toggleTask(id);
 		//alert(id);
-		refetch();
+		// eslint-disable-next-line no-console
+		console.log(`handletoggle = ${id}`);
+		
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,7 +44,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 	const handleDelete = async (id: number) => {
 		await deleteTask(id);
 		//alert(id);
-		refetch();
+	
 	};
 
 
@@ -57,7 +63,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 									completed={task["is_completed"]}
 									handleDeleteTask={() => handleDelete(Number(task["id"]))}
 									handleToggle={() => handleToggle(task["id"])}
-									onSetTaskEdit={()=>setVisible({  task:task,visible:true})}
+									onSetTaskEdit={()=>setVisible({  task:{...task,category_id},visible:true})}
 									
 								/>
 							);
