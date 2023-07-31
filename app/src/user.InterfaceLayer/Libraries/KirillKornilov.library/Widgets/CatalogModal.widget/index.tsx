@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from "react";
+import React, { FunctionComponent, useContext, useState } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
@@ -10,10 +10,12 @@ const CatalogModalWidget: FunctionComponent<CatalogModalWidgetType> = ({
 	setVisibleCatalog,
 	usePostCategoryMutation,
 }) => {
+
+	const [valueCategory,setValueCategory]=useState("");
 	const [addCategory] = usePostCategoryMutation();
 	const userId = useContext(UserIdContext);
 	const handleAddCategory = async () => {
-		await addCategory(userId);
+		await addCategory({user_id:userId,name:valueCategory});
 	};
 
 	return (
@@ -24,7 +26,7 @@ const CatalogModalWidget: FunctionComponent<CatalogModalWidgetType> = ({
 				</S.modal_title>
 				<S.modal_category>
 					<p>Название категории</p>
-					<input type="text" />
+					<input value={valueCategory}  onChange={(e)=>setValueCategory(e.target.value)} type="text" />
 				</S.modal_category>
 				<S.modal_button>
 					<Button
@@ -34,7 +36,7 @@ const CatalogModalWidget: FunctionComponent<CatalogModalWidgetType> = ({
 						icon={false}
 					/>
 					<Button
-						onClick={()=>handleAddCategory()}
+						onClick={()=>{handleAddCategory();setVisibleCatalog(false);}}
 						text="Добавить"
 						color="#29A19C"
 						icon={false}

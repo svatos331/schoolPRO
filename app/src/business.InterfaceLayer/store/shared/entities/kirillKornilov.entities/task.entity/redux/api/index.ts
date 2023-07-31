@@ -85,12 +85,15 @@ export const goodsApi = createApi({
 		}),
 
 		postCategory: build.mutation({
-			query: (user_id) => ({
-				url: `category/${user_id}`,
+			query: (body) => ({
+				url: `category/${body["user_id"]}`,
 				method: "POST",
 				mode: "no-cors",
+				body,
 			}),
 			invalidatesTags: ["Category"],
+
+
 		}),
 
 		deleteCategory: build.mutation({

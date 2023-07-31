@@ -16,7 +16,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
 	useGetCategoriesQuery,
 	setCategory,
 	setVisibleCatalog,
-	useDeleteCategoryMutation,
+	//useDeleteCategoryMutation,
 }) => {
 	//const {useGetCategoriesQuery} = props;
 

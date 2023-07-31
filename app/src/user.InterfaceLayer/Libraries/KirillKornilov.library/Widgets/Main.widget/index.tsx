@@ -39,7 +39,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useToggleTaskMutation,
 	useEditTaskMutation,
 	usePostCategoryMutation,
-	useDeleteCategoryMutation,
+	//useDeleteCategoryMutation,
 }) => {
 	
 	const {t} =useTranslation();
