@@ -26,18 +26,18 @@ const Task: FC<ITask> = ({
 }) => {
 	return (
 		<S.task
-			onClick={handleToggle}
+			
 			key={key}
 			complet={completed ? true : false}
 		>
-			<S.checkbox_box
+			<S.checkbox_box 
 				complet={completed ? true : false}
 				
 			>
-				<CheckBox checked={completed ? true : false} />
+				<CheckBox handleToggle={handleToggle} checked={completed ? true : false} />
 			</S.checkbox_box>
 
-			<p onClick={handleToggle} > {text}</p>
+			<p > {text}</p>
 			<S.btn onClick={onSetTaskEdit}>
 				<Icon
 					width={18}

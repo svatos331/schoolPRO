@@ -91,8 +91,6 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 							value={valueCategory}
 							onChange={(e) => setValueCategory(e.target.value)}
 						>
-							{/* <option value="" disabled selected>Выбрать</option>
-							<option value="Template">Template</option> */}
 
 							{data.map((user: any) => {
 								return (
@@ -121,16 +119,6 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 								value={valueDate}
 								onChange={(e) => setValueDate(e.target.value)}
 							/>
-							{/* <span className="open-button>
-								<button>
-									<Icon
-										width={18}
-										height={18}
-										color="#000"
-										icon={Icons.Calendar}
-									/>
-								</button>
-							</span> */}
 						</S.sd_container>
 					</div>
 					<div>
@@ -144,16 +132,6 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 							<option value="3">Неважный</option>
 						</select>
 
-						{/* <p>Приоритет задачи</p>
-						<select>
-							<option value="" disabled selected>Выбрать</option>
-						
-						
-							<option value="1">Важный</option>
-							<option value="2">Обычный</option>
-							<option value="3">Неважный</option>
-
-						</select> */}
 					</div>
 				</S.modal_parameters>
 				<S.modal_buttons>

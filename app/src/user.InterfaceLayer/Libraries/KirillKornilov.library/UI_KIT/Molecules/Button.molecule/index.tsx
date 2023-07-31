@@ -36,6 +36,7 @@ const Button: FC<IButton> = ({ text, color, icon, onClick }) => {
 			onClick={(e) => {
 				e.preventDefault();
 				onClick();
+				
 			}}
 		>
 		 {text}

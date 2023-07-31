@@ -19,13 +19,15 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 
 	//alert(`ffff ${task["goal"]}`);
 
+
+
 	const userId = useContext(UserIdContext);
 
 	//alert(userId);
 	const [value, setValue] = useState("2");
 	const [valueCategory, setValueCategory] = useState("1");
 	const [valueDate, setValueDate] = useState("");
-	const [valueGoal, setValueGoal] = useState(task["goal"]);
+	const [valueGoal, setValueGoal] = useState("");
 	//const userCategory = useContext(UserCategory);
 
 	const [editTask] = useEditTaskMutation();
@@ -65,7 +67,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 					<input
 						type="text"
 						//value={valueGoal}
-						value={task["goal"]}
+						value={valueGoal}
 						onChange={(e) => setValueGoal(e.target.value)}
 					/>
 				</S.modal_task_name>
@@ -140,7 +142,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 							text="Применить"
 							color="#29A19C"
 							icon={false}
-							onClick={handleEditTask}
+							onClick={()=>handleEditTask()}
 						/>
 					</div>
 				</S.modal_buttons>
