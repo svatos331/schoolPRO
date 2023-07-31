@@ -14,9 +14,9 @@ const LanguageSelectorMolecule = () => {
 
 			i18next.changeLanguage("en");
 			
-			setLanguageIcon(require("../../../assets/icons/us.png"));
-		} else {
 			setLanguageIcon(require("../../../assets/icons/ru.png"));
+		} else {
+			setLanguageIcon(require("../../../assets/icons/us.png"));
 			i18next.changeLanguage("ru");
 	
 		}
