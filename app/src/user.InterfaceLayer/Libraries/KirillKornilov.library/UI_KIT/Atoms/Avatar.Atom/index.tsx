@@ -10,8 +10,13 @@ interface IAvatar {
 const Avatar: FC<IAvatar> = ({img, diameter}) => {
 
     return (
-        <img className='avatar' src={img} style={{height: diameter, width: diameter}} />
-    );
+       // require(`../../assets/icons/${userInfo["avatar"]}`)
+      //  <img className='avatar' src={require(`../../../assets/icons/${img}`)} style={{height: diameter, width: diameter}} />
+   
+   <img className='avatar' src={img} style={{height: diameter, width: diameter}} />
+   
+   
+      );
 };
 
 export default Avatar;

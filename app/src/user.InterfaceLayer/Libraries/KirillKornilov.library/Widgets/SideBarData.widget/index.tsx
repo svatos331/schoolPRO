@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useContext} from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
-//import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
+import { useTranslation } from "react-i18next";
 
+import  "../i18n.widget/i18n";
 import Logo from "../../UI_KIT/Molecules/Logo.molecule";
 import { Icons } from "../../UI_KIT/Atoms/Atom1/icons";
 import SidebarDataItem from "../../UI_KIT/Molecules/SidebarDataItem.molecule";
@@ -14,6 +15,9 @@ import { UserCategory } from "../Main.widget";
 const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCategoriesQuery, setCategory})=>{
     //const {useGetCategoriesQuery} = props;
 
+    const {t}=useTranslation();
+
+
     const userId= useContext(UserIdContext);
 	//alert(userId);
 
@@ -23,7 +27,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCate
     if (isLoading) return <h1>isLoading</h1>;
 
     //const {setCategory}= props;
-
+    
     
 
 	return (<S.side_bar_box>
@@ -31,21 +35,22 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCate
 
 		<Logo/>
 		 <>
-            <S.data_name >Категории</S.data_name>
+            <S.data_name >{t("sidebar.categories")}</S.data_name>
+          
             <S.data_items>
                 
                <div key={1}  onClick={()=>setCategory(1)}> 
 
-               <SidebarDataItem text="Дом" color="#000" icon={Icons.House} active={userCategory==1?true:false} />
+               <SidebarDataItem text={t("sidebar.home")} color="#000" icon={Icons.House} active={userCategory==1?true:false} />
                 </div>
                 <div key={2} onClick={()=>setCategory(2)}> 
-                <SidebarDataItem   text="Семья" color="#000" icon={Icons.Family} active={userCategory==2?true:false} />
+                <SidebarDataItem   text={t("sidebar.family")} color="#000" icon={Icons.Family} active={userCategory==2?true:false} />
                 </div>
                 <div key={3} onClick={()=>setCategory(3)}> 
-                <SidebarDataItem   text="Работа" color="#000" icon={Icons.Job} active={userCategory==3?true:false} />
+                <SidebarDataItem   text={t("sidebar.job")} color="#000" icon={Icons.Job} active={userCategory==3?true:false} />
                 </div>
                 <div key={4} onClick={()=>setCategory(4)}> 
-                <SidebarDataItem  text="Спорт" color="#000" icon={Icons.Sport} active={userCategory==4?true:false} />
+                <SidebarDataItem  text={t("sidebar.sport")} color="#000" icon={Icons.Sport} active={userCategory==4?true:false} />
                 </div> 
 
                 {data.map((user:any) => {
@@ -56,7 +61,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCate
                     </div>);
                 })}
               
-                <SidebarDataItem text="Добавить" color="#29A19C" icon={Icons.ReactPlus} active={false} />
+                <SidebarDataItem text={t("sidebar.add")} color="#29A19C" icon={Icons.ReactPlus} active={false} />
                 
 
                 
@@ -71,7 +76,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType>  =({useGetCate
             </S.data_items>
          */}
 			<S.exit>
-				<SidebarDataItem text="Выйти" color="#000" icon={Icons.Exit} active={false}/>
+				<SidebarDataItem text={t("sidebar.exit")} color="#000" icon={Icons.Exit} active={false}/>
 
 			</S.exit>
 		</S.side_bar_box>

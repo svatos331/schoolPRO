@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
+import "user.InterfaceLayer/Libraries/KirillKornilov.library/Widgets/i18n.widget/i18n";
 import DateTimeContent from "../../Atoms/DataTimeContent.Atom";
 import { Icons } from "../../Atoms/Atom1/icons";
 import * as S from "./styled";
@@ -10,7 +12,7 @@ const DateTime = () => {
     const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
     "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
-
+    const {t} = useTranslation();
 
     const [datetime, setTime] = useState(new Date());
 
@@ -31,8 +33,8 @@ const DateTime = () => {
 
     return (
         <S.date_time >
-            <DateTimeContent title='На часах у нас' icon={Icons.Clock} datetime={time} />
-            <DateTimeContent title='А сегодня у нас' icon={Icons.Calendar} datetime={date} />
+            <DateTimeContent title={t("timer.onWatch")} icon={Icons.Clock} datetime={time} />
+            <DateTimeContent title={t("timer.onDay")} icon={Icons.Calendar} datetime={date} />
         </S.date_time>
     );
 

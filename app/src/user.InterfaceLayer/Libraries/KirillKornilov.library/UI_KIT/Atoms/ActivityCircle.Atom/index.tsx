@@ -1,5 +1,8 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
+
 import "./styled/style.css";
+import "user.InterfaceLayer/Libraries/KirillKornilov.library/Widgets/i18n.widget/i18n";
 
 interface IActivity {
     title: string,
@@ -7,6 +10,8 @@ interface IActivity {
 }
 
 const ActivityCircle: FC<IActivity> = ({title, number}) => {
+
+    const {t}=useTranslation();
 
     return (
         <div className='activity-circle'>
@@ -16,7 +21,7 @@ const ActivityCircle: FC<IActivity> = ({title, number}) => {
             <div className="circle">
                 <p>
                     <span>{number}</span><br/>
-                    задач
+                    {t("weekAchievements.tasks")}
                 </p>
             </div>
         </div>

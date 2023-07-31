@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import Button from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Molecules/Button.molecule";
-import {
-	Icons,
-	Icon,
-} from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Atom1/icons";
+import {Icons,Icon,} from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Atom1/icons";
 import Avatar from "user.InterfaceLayer/Libraries/KirillKornilov.library/UI_KIT/Atoms/Avatar.Atom";
+import { useTranslation } from "react-i18next";
 
+import "../i18n.widget/i18n";
+import LanguageSelectorMolecule from "../../UI_KIT/Molecules/LangSelector.molecule ";
 import * as S from "./styled";
 import HeaderMainType from "./type";
 
@@ -17,6 +17,9 @@ const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({
 	useGetTodoQuery,
 	setVisible,
 }) => {
+
+	const {t} =useTranslation(); 
+	//{t("sidebar.categories")}
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { data } = useGetGoodsQuery();
 
@@ -31,7 +34,7 @@ const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({
 		<S.main_header>
 			<S.container_hide hide={visibleProfile?"none":"flex"}>
 				<Button 
-					text="Новая задача"
+					text=	{t("header.newtask")}
 					color="#29A19C"
 					icon={true}
 					onClick={() => setVisible(true)}
@@ -47,7 +50,8 @@ const HeaderMainWidget: FunctionComponent<HeaderMainType> = ({
 				/>
 			</S.theme_button>
 			<S.user_card>
-				<p>Хорошего дня, {userInfo["name"]}</p>
+			<LanguageSelectorMolecule/>
+				<p>{t("header.greetings")}, {userInfo["name"]}</p>
 				<Avatar
 					img={require(`../../assets/icons/${userInfo["avatar"]}`)}
 					diameter={44}
