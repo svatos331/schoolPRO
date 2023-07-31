@@ -101,21 +101,31 @@ export const goodsApi = createApi({
 		}),
 
 		toggleTask: build.mutation({
-			query: (task_id) => ({
-				url: `toggleTask/${task_id}`,
-				method: "PATCH",
+			// query: (task_id) => ({
+			// 	url: `toggleTask/${task_id}`,
+			// 	method: "PATCH",
 				
-			}),
+			// }),
+
+			query: (task_id)=>{
+				// eslint-disable-next-line no-console
+				console.log(`hook_handletoggle = ${task_id}`);
+			
+			return({url: `toggleTask/${task_id}`,
+			method: "PATCH",
+			
+			});
+		}
 			
 		}),
 		editTask: build.mutation({
 			query: (body) => ({
 				url: `editTask/${body["category_id"]}/${body["task_id"]}`,
-				method: "PUT",
+				method: "POST",
 				mode: "no-cors",
 				body,
 				prepareHeaders: (headers: any) => {
-					headers.set("Accept", "application/json");
+					
 					headers.set("Access-Control-Allow-Origin", "*");
 
 					return headers;

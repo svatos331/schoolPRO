@@ -24,9 +24,12 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 		category_id: useContext(UserCategory),
 		
 	});
+	
 	const handleToggle = async (id: number) => {
 		await toggleTask(id);
 		//alert(id);
+		// eslint-disable-next-line no-console
+		console.log(`handletoggle = ${id}`);
 		refetch();
 	};
 

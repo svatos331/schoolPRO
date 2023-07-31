@@ -38,7 +38,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 
 	const handleEditTask = async () => {
 		await editTask({
-			id: task["id"],
+			task_id: task["id"],
 			category_id: Number(valueCategory),
 			user_id: Number(userId),
 			goal: valueGoal,
@@ -142,7 +142,7 @@ const EditModalWindowWidget: FunctionComponent<EditModalWindowWidgetType> = ({
 							text="Применить"
 							color="#29A19C"
 							icon={false}
-							onClick={()=>handleEditTask()}
+							onClick={()=>{handleEditTask();setVisible({visible:false});}}
 						/>
 					</div>
 				</S.modal_buttons>
