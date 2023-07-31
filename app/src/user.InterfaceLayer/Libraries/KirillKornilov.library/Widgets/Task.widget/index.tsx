@@ -8,6 +8,9 @@ import Task from "../../UI_KIT/Molecules/Task.molecule";
 import CardDataOptions from "../../UI_KIT/Molecules/CardDataOptions.molecule";
 import "../i18n.widget/i18n";
 
+
+
+
 export const TaskWidget: FC<TaskWidgetType> = ({
 	useGetTasksQuery,
 	useDeleteTasksMutation,
@@ -21,7 +24,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 	
 	const [toggleTask] = useToggleTaskMutation();
 
-	const { data, isLoading, refetch } = useGetTasksQuery({
+	const { data, isLoading } = useGetTasksQuery({
 		user_id: useContext(UserIdContext),
 		category_id: useContext(UserCategory),
 		
@@ -32,7 +35,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 		//alert(id);
 		// eslint-disable-next-line no-console
 		console.log(`handletoggle = ${id}`);
-		refetch();
+		
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -41,7 +44,7 @@ export const TaskWidget: FC<TaskWidgetType> = ({
 	const handleDelete = async (id: number) => {
 		await deleteTask(id);
 		//alert(id);
-		refetch();
+	
 	};
 
 

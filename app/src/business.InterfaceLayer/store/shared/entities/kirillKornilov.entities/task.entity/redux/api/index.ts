@@ -14,7 +14,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const goodsApi = createApi({
 	//reducerPath: `${reducerPaths.todo}/api`,
 	reducerPath: "goodsApi",
-	tagTypes: ["Tasks"],
+	tagTypes: ["Task"],
 	baseQuery: fetchBaseQuery({
 		//baseUrl: process.env.REACT_APP_API_URL,
 		baseUrl: "http://localhost:9000/api/",
@@ -40,9 +40,11 @@ export const goodsApi = createApi({
 		}),
 		getTasks: build.query({
 			query: ({ category_id, user_id }) => `task/${user_id}/${category_id}`,
+				providesTags: ["Task"],
+
 			// providesTags: (result)=> result
 			// ?[
-			// 	...result.map(({ id:any })=>({type:"Tasks", id:any })),
+			// 	...result.map(({ id:any })=>({type:"Task", id:any })),
 			// 	{type: "Tasks",id:"LIST"},
 			// ]
 			// :[{type:"Tasks", id:"LIST"}],
@@ -62,7 +64,7 @@ export const goodsApi = createApi({
 					return headers;
 				},
 			}),
-			invalidatesTags: [{ type: "Tasks", id: "LIST" }],
+			invalidatesTags: ["Task"],
 		}),
 
 		deleteTasks: build.mutation({
@@ -78,6 +80,7 @@ export const goodsApi = createApi({
 				// }
 			}),
 			//invalidatesTags:[{type: "Tasks",id: "LIST"}]
+			invalidatesTags: ["Task"],
 		}),
 
 		getObservation: build.query({
@@ -132,6 +135,7 @@ export const goodsApi = createApi({
 				},
 			}),
 		//	invalidatesTags: [{ type: "Tasks", id: "LIST" }],
+		invalidatesTags: ["Task"],
 		}),
 
 	}),
