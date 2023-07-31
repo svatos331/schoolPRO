@@ -12,6 +12,8 @@ import { useDeleteTasksMutation } from "business.InterfaceLayer/store/shared/ent
 import { useGetUserQuery } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useToggleTaskMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 import { useEditTaskMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { usePostCategoryMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
+import { useDeleteCategoryMutation } from "business.InterfaceLayer/store/shared/entities/kirillKornilov.entities/task.entity/redux/api";
 
 export const UserIdContext = createContext(0);
 
@@ -33,6 +35,8 @@ const ComponentMainPage = () => {
 	useGetUserQuery={useGetUserQuery}
 	useToggleTaskMutation={useToggleTaskMutation}
 	useEditTaskMutation={useEditTaskMutation}
+	usePostCategoryMutation={usePostCategoryMutation}
+	useDeleteCategoryMutation={useDeleteCategoryMutation}
 	/></UserIdContext.Provider>
 	</>;
 	
