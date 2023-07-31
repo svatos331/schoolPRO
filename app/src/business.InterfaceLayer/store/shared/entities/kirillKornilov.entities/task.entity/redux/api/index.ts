@@ -37,6 +37,7 @@ export const goodsApi = createApi({
 			query: (user_id: number) => `category/${user_id}`,
 			//providesTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
+			providesTags: ["Task"],
 		}),
 		getTasks: build.query({
 			query: ({ category_id, user_id }) => `task/${user_id}/${category_id}`,
@@ -50,6 +51,7 @@ export const goodsApi = createApi({
 			// :[{type:"Tasks", id:"LIST"}],
 			//provide0sTags: [`${reducerPaths.todo}TAG`],
 			//transformResponse: todoFromDtoServiceArray,
+			
 		}),
 		addTasks: build.mutation({
 			query: (body) => ({
@@ -104,21 +106,22 @@ export const goodsApi = createApi({
 		}),
 
 		toggleTask: build.mutation({
-			// query: (task_id) => ({
-			// 	url: `toggleTask/${task_id}`,
-			// 	method: "PATCH",
-				
-			// }),
+			query: (task_id) => ({
+				url: `toggleTask/${task_id}`,
+				method: "POST",
+				mode:"no-cors",
+			}),
+			invalidatesTags: ["Task"],
 
-			query: (task_id)=>{
-				// eslint-disable-next-line no-console
-				console.log(`hook_handletoggle = ${task_id}`);
+			// query: (task_id)=>{
+			// 	// eslint-disable-next-line no-console
+			// 	console.log(`hook_handletoggle = ${task_id}`);
 			
-			return({url: `toggleTask/${task_id}`,
-			method: "POST",
-			mode: "no-cors",
-			});
-		}
+			// return({url: `toggleTask/${task_id}`,
+			// method: "POST",
+			// mode: "no-cors",
+			// });
+		
 			
 		}),
 		editTask: build.mutation({
