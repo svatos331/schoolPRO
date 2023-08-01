@@ -1,54 +1,67 @@
 @import "adaptiveFont";
 @import "fonts";
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 
 }
-.p-sidebar{
-    background-color: white !important;
-    padding: 20px;
+
+.p-sidebar {
+  background-color: white !important;
+  padding: 20px;
 }
-.f-center{
-    justify-content: center;
-    align-items: center;
+
+.f-center {
+  justify-content: center;
+  align-items: center;
 }
-.text-center{
-    text-align: center;
+
+.text-center {
+  text-align: center;
 }
-.d-f{
-    display: flex;
+
+.d-f {
+  display: flex;
 }
-.MainTextMont30_45_413_900{
-    font-size: calcFluidFontSize(30,45,413, 900);
-    //font-family: Montserrat serif;
+
+.MainTextMont30_45_413_900 {
+  font-size: calcFluidFontSize(30, 45, 413, 900);
+  //font-family: Montserrat serif;
 }
-.MainTextSegoe16_20_413_900{
-    font-size: calcFluidFontSize(16,20,413, 900);
+
+.MainTextSegoe16_20_413_900 {
+  font-size: calcFluidFontSize(16, 20, 413, 900);
 
 }
-.MainTextMont28_35_413_900{
-    font-size: calcFluidFontSize(28,35,413, 900);
+
+.MainTextMont28_35_413_900 {
+  font-size: calcFluidFontSize(28, 35, 413, 900);
 
 }
-.MainTextMont24_28_413_900{
-    font-size: calcFluidFontSize(24,28,413, 900);
+
+.MainTextMont24_28_413_900 {
+  font-size: calcFluidFontSize(24, 28, 413, 900);
 
 }
-.MainTextPTSan20_24_413_900{
-    font-size: calcFluidFontSize(20,24,413, 900);
+
+.MainTextPTSan20_24_413_900 {
+  font-size: calcFluidFontSize(20, 24, 413, 900);
 
 }
-.MainTextPTSanBold19_21_413_900{
-    font-size: calcFluidFontSize(19,21,413, 900);
+
+.MainTextPTSanBold19_21_413_900 {
+  font-size: calcFluidFontSize(19, 21, 413, 900);
 
 }
-.SecondaryTextPTSanBold15_18_413_900{
-    font-size: calcFluidFontSize(15,18,413, 900);
+
+.SecondaryTextPTSanBold15_18_413_900 {
+  font-size: calcFluidFontSize(15, 18, 413, 900);
 
 }
-.SecondaryText14_16_413_900{
-    font-size: calcFluidFontSize(14,16,413, 900);
+
+.SecondaryText14_16_413_900 {
+  font-size: calcFluidFontSize(14, 16, 413, 900);
 
 }
