@@ -1,6 +1,6 @@
 import { usePostAuthorMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
-import React from "react";
-import { CreacteBlock } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CreateBlock";
+import React, { memo } from "react";
+import CreacteBlock from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CreateBlock";
 
 const Create = () => {
   return (
@@ -8,4 +8,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default memo(Create);

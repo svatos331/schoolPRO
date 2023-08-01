@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import * as ST from "./style/style";
 import { TextProps, TextTheme, TextAlign, TextSize } from "./type/index";
@@ -38,4 +38,4 @@ const Text: React.FC<TextProps> = (props: TextProps) => {
     );
 };
 
-export default Text;
+export default memo(Text);

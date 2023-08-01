@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import * as ST from "./style/style";
 import { IPaginationBtn } from "./type/index";
@@ -13,4 +13,4 @@ const PaginationBtn: React.FC<IPaginationBtn> = (props: IPaginationBtn) => {
     );
 };
 
-export default PaginationBtn;
+export default memo(PaginationBtn);

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import * as ST from "./style/style";
 
-export const Logo: React.FC = () => {
+const Logo: React.FC = () => {
 
     return (
         <ST.Logo>
@@ -10,3 +10,5 @@ export const Logo: React.FC = () => {
         </ST.Logo>
     );
 };
+
+export default memo(Logo);

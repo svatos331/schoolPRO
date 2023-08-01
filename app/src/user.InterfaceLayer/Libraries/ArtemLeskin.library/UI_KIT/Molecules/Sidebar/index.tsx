@@ -1,5 +1,5 @@
-import React from "react";
-import { NavItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/NavItem";
+import React, { memo } from "react";
+import NavItem from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/NavItem";
 import { headerRoute } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Header/const/index";
 import { SidebarI } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Sidebar/type";
 
@@ -15,4 +15,4 @@ const Sidebar: React.FC<SidebarI> = (props: SidebarI) => {
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

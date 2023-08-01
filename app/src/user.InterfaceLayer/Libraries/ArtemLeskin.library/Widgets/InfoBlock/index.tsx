@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
@@ -7,7 +7,7 @@ import { InfoBlockProps } from "./type/index";
 
 
 
-export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
+const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
     const { useGetOneMovieQuery, id } = props;
 
     const {data: info, isLoading} = useGetOneMovieQuery({id});
@@ -44,3 +44,5 @@ export const InfoBlock: React.FC<InfoBlockProps> = (props: InfoBlockProps) => {
         </ST.Block>
     );
 };
+
+export default memo(InfoBlock);

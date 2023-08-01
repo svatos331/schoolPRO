@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Select.molecule";
+import Select from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Select.molecule";
 
 import { genreDataTextList, genreDataValueList, ratingDataTextList, ratingDataValueList, yearDataTextList, yearDataValueList } from "../../data/index";
 import { SrcModule } from "../../type/index";

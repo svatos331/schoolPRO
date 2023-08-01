@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import {IInput} from "./type/index";
 import * as ST from "./style/style";
@@ -15,4 +15,4 @@ const Input: React.FC<IInput> = (props: IInput) => {
     );
 };
 
-export default Input;
+export default memo(Input);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { IPaginationBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/PaginationBar/types";
 import PaginationBtn from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/PaginationBtn";
 
@@ -21,4 +21,4 @@ const PaginationBar: React.FC<IPaginationBar> = (props: IPaginationBar) => {
     );
 };
 
-export default PaginationBar;
+export default memo(PaginationBar);

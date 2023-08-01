@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
@@ -12,4 +12,4 @@ const PageTitle: React.FC<IPageTitle> = (props: IPageTitle) => {
     );
 };
 
-export default PageTitle;
+export default memo(PageTitle);

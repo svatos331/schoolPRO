@@ -39,7 +39,7 @@ export const Wrap = styled.div<WrapProps>`
     width: 100%;
     overflow: hidden;
     height: 100%;
-    opacity: ${(props) => (props?.active?"1":"0")};
+    opacity: ${(props) => (props?.active === true?"1":"0")};
     transition: all 1s ease;
 `;
 

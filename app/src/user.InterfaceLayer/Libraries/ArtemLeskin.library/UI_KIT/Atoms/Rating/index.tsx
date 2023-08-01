@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import * as ST from "./style/style";
 import { RatingProps } from "./type/index";
@@ -11,4 +11,4 @@ const RatingComponent: React.FC<RatingProps> = ({rating, classname}: RatingProps
   );
 };
 
-export default RatingComponent;
+export default memo(RatingComponent);;
