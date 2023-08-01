@@ -16,7 +16,7 @@ import {
 	useAppDispatch,
 	useAppSelector,
 } from "../../../../../business.InterfaceLayer/store/services/hooks/redux";
-import { paymentsActions } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/slice";
+import { paymentsActions } from "../../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/payments.entity/redux/slice";
 
 const PaymentBlock: FC<IPaymentBlockProps> = ({
 	putMoney,

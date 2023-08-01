@@ -2,7 +2,7 @@ import React, { startTransition, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 import { useAppDispatch } from "../../../../business.InterfaceLayer/store/services/hooks/redux";
-import { themeActions } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
+import { themeActions } from "../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
 import Colors from "../../../constants/colors/index";
 
 const CheckAuth = () => {

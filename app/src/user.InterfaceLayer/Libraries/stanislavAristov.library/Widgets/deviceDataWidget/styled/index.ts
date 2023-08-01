@@ -2,7 +2,7 @@ import {styled} from "styled-components";
 
 import {
     ITheme
-} from "../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
+} from "../../../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
 
 export const DeviceDataWidgetWrapper = styled.header<{curcolor:ITheme}>`
   display: flex;

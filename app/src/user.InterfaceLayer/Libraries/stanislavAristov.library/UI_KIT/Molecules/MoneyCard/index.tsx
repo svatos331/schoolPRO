@@ -10,7 +10,7 @@ import IconElement from "../../Atoms/IconElement";
  import masterCard from "../../../assets/icons/cards/masterCardLogosvg.svg";
 import {
     ICardDTO
-} from "../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
+} from "../../../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/payments.entity/services/dto/from.dto";
 const MoneyCard: FC<IMoneyCardProps | ICardDTO> = ({balance, bank,type,createDate, number}) => {
     const privateNumber = useMemo(() => {
         return number.replace(/(\d{4})(?=\d{4})/g, "**** ");

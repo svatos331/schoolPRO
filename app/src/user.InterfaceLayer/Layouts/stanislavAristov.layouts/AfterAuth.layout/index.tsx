@@ -8,7 +8,7 @@ import { useAppSelector } from "../../../../business.InterfaceLayer/store/servic
 import {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	ITheme,
-} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
+} from "../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
 
 const AfterAuthLayout: FC<{ children?: JSX.Element; bgc?: ITheme }> = ({
 	bgc,
