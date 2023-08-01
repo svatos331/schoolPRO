@@ -30,11 +30,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
     const [deleteCategory]=useDeleteCategoryMutation();
 
     const handleDeleteCategory=  async (category_id:number)=>{
-		// eslint-disable-next-line prefer-const
 		const putUserCategory=userCategory;
-		//Object.assign(putUserCategory,userCategory);
-		// eslint-disable-next-line no-console
-		console.log(category_id);
         await deleteCategory(category_id);
 		if(putUserCategory==category_id){setCategory(1);}
 		else setCategory(putUserCategory);

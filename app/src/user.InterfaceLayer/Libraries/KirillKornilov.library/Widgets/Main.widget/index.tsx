@@ -21,9 +21,7 @@ import ProfileWidget from "../Profile.widget";
 import CatalogModalWidget from "../CatalogModal.widget";
 import "../i18n.widget/i18n";
 
-
 export const UserCategory = createContext(1);
-
 
 const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useGetCategoriesQuery,
@@ -41,32 +39,22 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	usePostCategoryMutation,
 	useDeleteCategoryMutation,
 }) => {
-	
-	const {t} =useTranslation();
-
+	const { t } = useTranslation();
 	const [category, setCategory] = useState(1);
-
 	const [visible, setVisible] = useState(false);
-
-	const [visibleEdit, setVisibleEdit] = useState({task:{},visible:false});
-	//const [taskEdit, setTaskEdit] = useState(1);
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [visibleEdit, setVisibleEdit] = useState({ task: {}, visible: false });
 	const [visibleProfile, setVisibleProfile] = useState(false);
 	const [visibleCatalog, setVisibleCatalog] = useState(false);
-	
-	//alert(`Cater${category}`);
 
 	return (
 		<>
-				<UserCategory.Provider value={category}>
+			<UserCategory.Provider value={category}>
 				<SidebarDataWidget
 					useGetCategoriesQuery={useGetCategoriesQuery}
 					setCategory={setCategory}
 					setVisibleCatalog={setVisibleCatalog}
 					useDeleteCategoryMutation={useDeleteCategoryMutation}
 				/>
-
 				<S.main_page>
 					<HeaderMainWidget
 						useGetGoodsQuery={useGetGoodsQuery}
@@ -75,18 +63,14 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						useGetUserQuery={useGetUserQuery}
 						setVisibleProfile={setVisibleProfile}
 						visibleProfile={visibleProfile}
-				/>
-
+					/>
 					<ModalWindowWidget
 						useAddTasksMutation={useAddTasksMutation}
 						useGetCategoriesQuery={useGetCategoriesQuery}
 						visible={visible}
 						setVisible={setVisible}
 						category={category}
-						
 					/>
-
-
 					<EditModalWindowWidget
 						useEditTaskMutation={useEditTaskMutation}
 						useGetCategoriesQuery={useGetCategoriesQuery}
@@ -94,36 +78,34 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						setVisible={setVisibleEdit}
 						//taskEdit={taskEdit}
 						task={visibleEdit["task"]}
-			
 					/>
-					<CatalogModalWidget   usePostCategoryMutation={usePostCategoryMutation} visible={visibleCatalog} setVisibleCatalog={setVisibleCatalog}/>
-
+					<CatalogModalWidget
+						usePostCategoryMutation={usePostCategoryMutation}
+						visible={visibleCatalog}
+						setVisibleCatalog={setVisibleCatalog}
+					/>
 					<S.columns>
 						<S.left_column>
-
-							<S.container_hide hide={!visibleProfile?"none":"flex"} >
-							<ProfileWidget/>
+							<S.container_hide hide={!visibleProfile ? "none" : "flex"}>
+								<ProfileWidget />
 							</S.container_hide>
 
-							<S.container_hide hide={visibleProfile?"none":"flex"} >
+							<S.container_hide hide={visibleProfile ? "none" : "flex"}>
+								<Card>
+									<CardDataOptions title={t("weekAchievements.title")}>
+										<Activity useGetActivityQuery={useGetActivityQuery} />
+									</CardDataOptions>
+								</Card>
 
-							<Card>
-								<CardDataOptions title={t("weekAchievements.title")}>
-									<Activity useGetActivityQuery={useGetActivityQuery} />
-								</CardDataOptions>
-							</Card>
-
-							<Card>
-								<TaskWidget
-									useToggleTaskMutation={useToggleTaskMutation}
-									useGetTodoQuery={useGetGoodsQuery}
-									useGetTasksQuery={useGetTasksQuery}
-									useDeleteTasksMutation={useDeleteTasksMutation}
-									
-									setVisible={setVisibleEdit}
-									// {t("sidebar.categories")}
-								/>
-							</Card>
+								<Card>
+									<TaskWidget
+										useToggleTaskMutation={useToggleTaskMutation}
+										useGetTodoQuery={useGetGoodsQuery}
+										useGetTasksQuery={useGetTasksQuery}
+										useDeleteTasksMutation={useDeleteTasksMutation}
+										setVisible={setVisibleEdit}
+									/>
+								</Card>
 							</S.container_hide>
 						</S.left_column>
 
@@ -152,8 +134,6 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 							</Card>
 						</S.right_column>
 					</S.columns>
-
-				
 				</S.main_page>
 			</UserCategory.Provider>
 		</>

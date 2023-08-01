@@ -30,13 +30,13 @@ const CatalogModalWidget: FunctionComponent<CatalogModalWidgetType> = ({
 				</S.modal_category>
 				<S.modal_button>
 					<Button
-						onClick={() => setVisibleCatalog(false)}
+						onClick={() =>{ setVisibleCatalog(false);setValueCategory("");}}
 						text="Отменить"
 						color="#F05454"
 						icon={false}
 					/>
 					<Button
-						onClick={()=>{handleAddCategory();setVisibleCatalog(false);}}
+						onClick={()=>{handleAddCategory();setVisibleCatalog(false);setValueCategory("");}}
 						text="Добавить"
 						color="#29A19C"
 						icon={false}
