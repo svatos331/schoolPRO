@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkapp=self.webpackChunkapp||[]).push([[34],{34:function(n,e,r){r.r(e),r.d(e,{default:function(){return i}});r(791);var a=r(253),t=r(184),u=function(n){var e=(0,n.useGetTodoQuery)({authToken:"",params:{id:"1"}}).data;return(0,t.jsxs)("div",{children:["data from jsonplaceholder : ",JSON.stringify(e)]})},s=function(){return(0,t.jsx)(u,{useGetTodoQuery:a.N})},i=function(){return(0,t.jsxs)("div",{children:["SvyatoslavZhilinMainPage ",(0,t.jsx)(s,{})]})}}}]);
-//# sourceMappingURL=34.ed8c89a6.chunk.js.map

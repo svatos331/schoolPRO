@@ -21,7 +21,9 @@ export const todoSlice = createSlice({
 	name: reducerPaths.todo,
 	initialState: initialTodoState,
 	reducers: {
-
+		undefined() {
+			return initialTodoState;
+		},
 	},
 });
 
