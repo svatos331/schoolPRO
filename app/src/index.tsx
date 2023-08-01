@@ -41,7 +41,7 @@ const handleOnEvent = async (event: any, error: any) => {
 };
 
 root.render(
-	<KKProvider>
+	<React.StrictMode>
 		<Provider store={store}>
 			<RouterProvider router={routers} />
 		</Provider>
@@ -51,5 +51,5 @@ root.render(
 				reverseOrder={false}
 			/>
 		</ToasterModalWindow>
-	</KKProvider>
+	</React.StrictMode>
 );
