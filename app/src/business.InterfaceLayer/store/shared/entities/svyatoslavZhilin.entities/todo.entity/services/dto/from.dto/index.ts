@@ -3,7 +3,7 @@ export interface ITodoDTO {
 	name: string;
 }
 
-export const todoFromDtoServiceArray = (props: any) => {
+export const todoFromDtoServiceArray = (props: any):ITodoDTO => {
 	return props;
 };
 
