@@ -1,9 +1,9 @@
 import { useGetMovieFromGenreQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
-import React from "react";
-import { CardBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardBar";
+import React, { memo } from "react";
+import CardBar from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardBar";
 
 
-export const RecomedPanel: React.FC = () => {
+const RecomedPanel: React.FC = () => {
     return (
         <div>
             <CardBar  
@@ -23,3 +23,5 @@ export const RecomedPanel: React.FC = () => {
         </div>
     );
 };
+
+export default memo(RecomedPanel);

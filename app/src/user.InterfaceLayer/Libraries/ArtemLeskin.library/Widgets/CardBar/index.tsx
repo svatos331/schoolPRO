@@ -1,6 +1,6 @@
-import React from "react";
-import { RecHeaader } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/RecHeader";
-import { Card } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
+import React, { memo } from "react";
+import RecHeaader from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/RecHeader";
+import Card from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule";
 import { ICard } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Card.molecule/type";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
@@ -10,7 +10,7 @@ import { CardBarProps } from "./type/index";
 
 
 
-export const CardBar: React.FC<CardBarProps> = (props: CardBarProps) => {
+const CardBar: React.FC<CardBarProps> = (props: CardBarProps) => {
     const { headerTitle, parament, useGetMovie } = props;
     const {data, isLoading}  = useGetMovie({parament});
 
@@ -29,3 +29,5 @@ export const CardBar: React.FC<CardBarProps> = (props: CardBarProps) => {
         </ST.Bar>
     );
 };
+
+export default memo(CardBar);

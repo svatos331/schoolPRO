@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
@@ -6,7 +6,7 @@ import { ReactComponent as Row } from "../../../assets/icons/RightRow.svg";
 import { RecHeaderProps } from "./type/index";
 import * as ST from "./style/style";
 
-export const RecHeaader: React.FC<RecHeaderProps> = (props: RecHeaderProps) => {
+const RecHeaader: React.FC<RecHeaderProps> = (props: RecHeaderProps) => {
     const { text } = props;
 
     return (
@@ -20,3 +20,5 @@ export const RecHeaader: React.FC<RecHeaderProps> = (props: RecHeaderProps) => {
         </ST.Header>
     );
 };
+
+export default memo(RecHeaader);

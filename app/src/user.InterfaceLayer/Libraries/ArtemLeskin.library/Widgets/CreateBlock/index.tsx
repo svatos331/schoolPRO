@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Input from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Input";
 
 import * as ST from "./style/style";
 import {CreacteBlockProps} from "./type/index";
 
 
-export const CreacteBlock: React.FC<CreacteBlockProps> = (props: CreacteBlockProps) => {
+const CreacteBlock: React.FC<CreacteBlockProps> = (props: CreacteBlockProps) => {
     const [url, setUrl] = useState("");
     const [movie, setMovie] = useState<object | null>(null);
     const [name, setName] = useState("");
@@ -42,3 +42,5 @@ export const CreacteBlock: React.FC<CreacteBlockProps> = (props: CreacteBlockPro
         </ST.Block>
     );
 };
+
+export default memo(CreacteBlock);

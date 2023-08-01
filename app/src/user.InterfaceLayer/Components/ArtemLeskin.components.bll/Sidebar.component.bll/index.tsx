@@ -1,5 +1,5 @@
 import { useAppSelector } from "business.InterfaceLayer/store/services/hooks/redux";
-import React from "react";
+import React, { memo } from "react";
 import Sidebar from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Sidebar";
 
 const SidebarBll = () => {
@@ -10,4 +10,4 @@ const SidebarBll = () => {
     );
 };
 
-export default SidebarBll;
+export default memo(SidebarBll);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { SearchPanel } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardList/module/SearchPanel";
 
 import * as ST from "./style/style";
@@ -39,4 +39,4 @@ const CardList = (props:ListCardpProps) => {
     );
 };
 
-export default CardList;
+export default memo(CardList);

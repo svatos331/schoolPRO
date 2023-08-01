@@ -1,10 +1,10 @@
-import React  from "react";
-import { Option } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Option";
+import React, { memo }  from "react";
+import Option from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Option";
 
 import * as ST from "./style/style";
 import { SelectProps } from "./type/index";
 
-export const Select: React.FC<SelectProps> = (props: SelectProps) => {
+const Select: React.FC<SelectProps> = (props: SelectProps) => {
     const {  textOptionList, valueOptionList, onChange } = props;
 
     return (
@@ -19,3 +19,5 @@ export const Select: React.FC<SelectProps> = (props: SelectProps) => {
         </ST.Select>
     );
 };
+
+export default memo(Select);

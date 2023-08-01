@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 
 import * as ST from "./style/style";
 import { OptionProps } from "./type/index";
 
-export const Option: React.FC<OptionProps> = (props: OptionProps) => {
+const Option: React.FC<OptionProps> = (props: OptionProps) => {
     const { text, value } = props;
 
     return (
@@ -12,3 +12,5 @@ export const Option: React.FC<OptionProps> = (props: OptionProps) => {
         </ST.Option>
     );
 };
+
+export default memo(Option);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
@@ -7,7 +7,7 @@ import { AdviceCardProps } from "./type/index";
 
 
 
-export const AdviceCard: React.FC<AdviceCardProps> = (props: AdviceCardProps) => {
+const AdviceCard: React.FC<AdviceCardProps> = (props: AdviceCardProps) => {
     const { text, children, value, changeGanre } = props;
 
     return (
@@ -17,3 +17,5 @@ export const AdviceCard: React.FC<AdviceCardProps> = (props: AdviceCardProps) =>
         </ST.Card>
     );
 };
+
+export default memo(AdviceCard);
