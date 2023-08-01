@@ -4,10 +4,10 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { todoApi } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";
 import { todoReducer } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/slice";
 import reducerPaths from "./reducerPaths";
-import {themeReducer} from "./shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
-import {sidebarReducer} from "./shared/entities/aristovStanislav.entities/sidebar.entity/redux/slice";
-import {paymentsApi} from "./shared/entities/aristovStanislav.entities/payments.entity/redux/api";
-import {paymentsReducer} from "./shared/entities/aristovStanislav.entities/payments.entity/redux/slice";
+import {themeReducer} from "./shared/entities/payments.entities/theme.entity/redux/slice";
+import {sidebarReducer} from "./shared/entities/payments.entities/sidebar.entity/redux/slice";
+import {paymentsApi} from "./shared/entities/payments.entities/payments.entity/redux/api";
+import {paymentsReducer} from "./shared/entities/payments.entities/payments.entity/redux/slice";
 
 const allSliceReducersReducer = combineReducers({
 	[todoApi.reducerPath]: todoApi.reducer,

@@ -3,7 +3,7 @@ import {styled} from "styled-components";
 import Colors from "../../../constants/colors/index";
 import {
     ITheme
-} from "../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
+} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
 
 export const AfterAuthLayout = styled.div<{curcolor?:ITheme, bgc? : ITheme}>`
   min-height: 100vh;

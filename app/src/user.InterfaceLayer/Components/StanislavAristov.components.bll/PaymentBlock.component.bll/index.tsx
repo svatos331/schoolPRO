@@ -5,7 +5,7 @@ import {
 	useGetBaseInfoAboutAllQuery,
 	useGetBaseInfoAboutMeQuery,
 	usePutMoneyMutation,
-} from "../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/payments.entity/redux/api";
+} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
 import PaymentBlock from "../../../Libraries/stanislavAristov.library/Widgets/paymentBlock";
 
 const PaymentBlockComponent = () => {

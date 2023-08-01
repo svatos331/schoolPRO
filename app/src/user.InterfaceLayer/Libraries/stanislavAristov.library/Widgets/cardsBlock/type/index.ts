@@ -3,7 +3,7 @@ import {QueryDefinition} from "@reduxjs/toolkit/query";
 
 import {
     IUserDTO
-} from "../../../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/payments.entity/services/dto/from.dto";
+} from "../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
 
 export type ICardsBlockProps = {
     getMe: UseQuery<QueryDefinition<any, any, any, IUserDTO>> 

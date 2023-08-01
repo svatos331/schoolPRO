@@ -12,7 +12,7 @@ import Colors from "../../../../../constants/colors";
 import EFontClasses from "../../../../../constants/fontsClasses";
 import UserLogo from "../../../UI_KIT/Molecules/UserLogo";
 import { ICardsPageTitleWidgetDefaultProps } from "./const";
-import { useGetBaseInfoAboutMeQuery } from "../../../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/payments.entity/redux/api";
+import { useGetBaseInfoAboutMeQuery } from "../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
 import GoBackWidget from "../../goBackWidget/GoBackWidget";
 const CardsPageTitleWidget: FC<ICardsPageTitleWidgetProps> = ({
 	title,
