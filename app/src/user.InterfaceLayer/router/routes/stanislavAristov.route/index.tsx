@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { RouteObject } from "react-router-dom";
+
 import routesPaths from "../../routesPaths";
 import stanislavAristovRoutesPaths from "./stanislavAristov.routesPaths";
 import BeforeAuthLayout from "../../../Layouts/stanislavAristov.layouts/BeforeAuth.layout";
@@ -24,7 +25,7 @@ const OTPPage = lazy(
 const HomePage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Home.page")
 );
-const paymentsRoutes: RouteObject[] = [
+const stanislavAristovRoutes: RouteObject[] = [
 	{
 		path: stanislavAristovRoutesPaths.AUTH,
 		element: <BeforeAuthLayout />,
@@ -160,4 +161,4 @@ const paymentsRoutes: RouteObject[] = [
 	},
 ];
 
-export default paymentsRoutes;
+export default stanislavAristovRoutes;
