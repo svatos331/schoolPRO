@@ -3,6 +3,7 @@ interface ModalWindowWidgetType {
 	useGetCategoriesQuery:any;
 	visible: boolean;
 	setVisible: any;
+	category:number;
 }
 
 export default ModalWindowWidgetType;

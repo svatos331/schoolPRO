@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import React, { FunctionComponent, useContext, useState } from "react";
+import React, { FunctionComponent, useContext, useState,useEffect } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
@@ -12,6 +12,7 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 	setVisible,
 	useGetCategoriesQuery,
 	useAddTasksMutation,
+	category
 }) => {
 	const datetime = new Date();
 
@@ -29,13 +30,17 @@ const ModalWindowWidget: FunctionComponent<ModalWindowWidgetType> = ({
 
 	const userId = useContext(UserIdContext);
 
-	//alert(userId);
 	const [value, setValue] = useState("2");
 	const [valueCategory, setValueCategory] = useState("1");
 	const [valueDate, setValueDate] = useState(`${year}-${month}-${day}`);
 	const [valueGoal, setValueGoal] = useState("");
 	//const userCategory = useContext(UserCategory);
 
+	useEffect(()=>{
+		
+		setValueCategory(`${category}`);
+		
+	},[category]);
 	const [addTask] = useAddTasksMutation();
 
 	const { data, isLoading } = useGetCategoriesQuery(userId);

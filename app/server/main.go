@@ -878,15 +878,17 @@ func DeleteCategoriesById(ctgrys *[]Category, category_id int) {
 func DeleteCategory(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Accept", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	w.Header().Set("Access-Control-Allow-Methods", "DELETE")
 
 	params := mux.Vars(r)
 
 	category_id, err := strconv.Atoi(params["category_id"])
 
+
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("category_id...",category_id)
 
 	if category_id > 4 {
 		DeleteCategoriesById(&ctgry, category_id)
@@ -909,7 +911,7 @@ func Router() *mux.Router {
 
 	router.HandleFunc("/api/category/{user_id}", GetCategories).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/category/{user_id}", PostCategory).Methods("POST", "OPTIONS")         // Testing required
-	router.HandleFunc("/api/category/{category_id}", DeleteCategory).Methods("DELETE", "OPTIONS") // Testing required
+	router.HandleFunc("/api/categoryDel/{category_id}", DeleteCategory).Methods("DELETE", "OPTIONS") // Testing required
 
 	router.HandleFunc("/api/task/{user_id}/{category_id}", GetTasks).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task/{user_id}/{category_id}", PostTask).Methods("POST")
@@ -924,8 +926,8 @@ func main() {
 	var created2 []int
 
 	for i := 0; i < 7; i++ {
-		created1 = append(created1, rand.Intn(20))
-		created2 = append(created2, rand.Intn(20))
+		created1 = append(created1, rand.Intn(19)+1)
+		created2 = append(created2, rand.Intn(19)+1)
 	}
 
 	var completed1 []int

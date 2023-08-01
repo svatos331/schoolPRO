@@ -16,7 +16,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
 	useGetCategoriesQuery,
 	setCategory,
 	setVisibleCatalog,
-	//useDeleteCategoryMutation,
+	useDeleteCategoryMutation,
 }) => {
 	//const {useGetCategoriesQuery} = props;
 
@@ -27,10 +27,23 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
 
 	const userCategory = useContext(UserCategory);
 
+    const [deleteCategory]=useDeleteCategoryMutation();
+
+    const handleDeleteCategory=  async (category_id:number)=>{
+		// eslint-disable-next-line prefer-const
+		const putUserCategory=userCategory;
+		//Object.assign(putUserCategory,userCategory);
+		// eslint-disable-next-line no-console
+		console.log(category_id);
+        await deleteCategory(category_id);
+		if(putUserCategory==category_id){setCategory(1);}
+		else setCategory(putUserCategory);
+		
+    };
+
 	const { data, isLoading } = useGetCategoriesQuery(userId);
 	if (isLoading) return <h1>isLoading</h1>;
 
-	//const {setCategory}= props;
 
 	return (
 		<S.side_bar_box>
@@ -93,6 +106,7 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
 								onClick={() => setCategory(user["id"])}
 							>
 								<SidebarDataItem
+                                    onDelete={()=>{handleDeleteCategory(Number(user["id"]));}}
 									text={user["name"]}
 									color="#000"
 									icon={Icons.Star}

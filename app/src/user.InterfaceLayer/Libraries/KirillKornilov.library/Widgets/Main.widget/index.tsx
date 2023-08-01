@@ -39,7 +39,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 	useToggleTaskMutation,
 	useEditTaskMutation,
 	usePostCategoryMutation,
-	//useDeleteCategoryMutation,
+	useDeleteCategoryMutation,
 }) => {
 	
 	const {t} =useTranslation();
@@ -64,7 +64,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 					useGetCategoriesQuery={useGetCategoriesQuery}
 					setCategory={setCategory}
 					setVisibleCatalog={setVisibleCatalog}
-					//useDeleteCategoryMutation={useDeleteCategoryMutation}
+					useDeleteCategoryMutation={useDeleteCategoryMutation}
 				/>
 
 				<S.main_page>
@@ -82,6 +82,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						useGetCategoriesQuery={useGetCategoriesQuery}
 						visible={visible}
 						setVisible={setVisible}
+						category={category}
 						
 					/>
 
@@ -95,7 +96,7 @@ const MainWidget: FunctionComponent<MainWidgetType> = ({
 						task={visibleEdit["task"]}
 			
 					/>
-					<CatalogModalWidget usePostCategoryMutation={usePostCategoryMutation} visible={visibleCatalog} setVisibleCatalog={setVisibleCatalog}/>
+					<CatalogModalWidget   usePostCategoryMutation={usePostCategoryMutation} visible={visibleCatalog} setVisibleCatalog={setVisibleCatalog}/>
 
 					<S.columns>
 						<S.left_column>
