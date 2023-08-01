@@ -41,15 +41,17 @@ const handleOnEvent = async (event: any, error: any) => {
 };
 
 root.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<RouterProvider router={routers} />
-		</Provider>
-		<ToasterModalWindow>
-			<Toaster
-				position="bottom-left"
-				reverseOrder={false}
-			/>
-		</ToasterModalWindow>
-	</React.StrictMode>
+	<KKProvider>
+		<React.StrictMode>
+			<Provider store={store}>
+				<RouterProvider router={routers} />
+			</Provider>
+			<ToasterModalWindow>
+				<Toaster
+					position="bottom-left"
+					reverseOrder={false}
+				/>
+			</ToasterModalWindow>
+		</React.StrictMode>
+	</KKProvider>
 );
