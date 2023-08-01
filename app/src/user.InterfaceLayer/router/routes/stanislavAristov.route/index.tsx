@@ -1,35 +1,37 @@
 import React, { lazy, Suspense } from "react";
 import { RouteObject } from "react-router-dom";
 import routesPaths from "../../routesPaths";
-import payments from "./payments";
-import BeforeAuthLayout from "../../../Layouts/payments.layouts/BeforeAuth.layout";
+import stanislavAristovRoutesPaths from "./stanislavAristov.routesPaths";
+import BeforeAuthLayout from "../../../Layouts/stanislavAristov.layouts/BeforeAuth.layout";
 import Error from "../../../Components/general.components/Error";
 import Loader from "../../../Components/general.components/Loader";
 import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
-import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
+import AfterAuthLayout from "../../../Layouts/stanislavAristov.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import ProfilePage from "../../../Pages/payments.pages/Profile.page";
-import MainPage from "../../../Pages/payments.pages/Main.page";
+import ProfilePage from "../../../Pages/aristovStanislav.pages/Profile.page";
+import MainPage from "../../../Pages/aristovStanislav.pages/Main.page";
 
 const CardsPage = lazy(
-	() => import("../../../Pages/payments.pages/Cards.page")
+	() => import("../../../Pages/aristovStanislav.pages/Cards.page")
 );
 const PaymentPage = lazy(
-	() => import("../../../Pages/payments.pages/Payment.page")
+	() => import("../../../Pages/aristovStanislav.pages/Payment.page")
 );
 const OTPPage = lazy(
-	() => import("../../../Pages/payments.pages/OTP.page/index")
+	() => import("../../../Pages/aristovStanislav.pages/OTP.page/index")
 );
-const HomePage = lazy(() => import("../../../Pages/payments.pages/Home.page"));
+const HomePage = lazy(
+	() => import("../../../Pages/aristovStanislav.pages/Home.page")
+);
 const paymentsRoutes: RouteObject[] = [
 	{
-		path: payments.AUTH,
+		path: stanislavAristovRoutesPaths.AUTH,
 		element: <BeforeAuthLayout />,
 		errorElement: <Error />,
 		children: [
 			{
-				path: `/${payments.AUTH}`,
+				path: `/${stanislavAristovRoutesPaths.AUTH}`,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<WelcomeAuth />
@@ -38,7 +40,7 @@ const paymentsRoutes: RouteObject[] = [
 				errorElement: <Error />,
 			},
 			{
-				path: payments.SIGNIN,
+				path: stanislavAristovRoutesPaths.SIGNIN,
 				index: true,
 				element: (
 					<Suspense fallback={<Loader />}>
@@ -48,7 +50,7 @@ const paymentsRoutes: RouteObject[] = [
 				errorElement: <Error />,
 			},
 			{
-				path: payments.SIGNUP,
+				path: stanislavAristovRoutesPaths.SIGNUP,
 				index: true,
 				element: (
 					<Suspense fallback={<Loader />}>
@@ -65,13 +67,13 @@ const paymentsRoutes: RouteObject[] = [
 		],
 	},
 	{
-		path: `/${payments.AUTH}`,
+		path: `/${stanislavAristovRoutesPaths.AUTH}`,
 		element: <AfterAuthLayout />,
 		errorElement: <Error />,
 		children: [
 			{
 				index: true,
-				path: `${payments.OTP}`,
+				path: `${stanislavAristovRoutesPaths.OTP}`,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<OTPPage />
@@ -81,13 +83,13 @@ const paymentsRoutes: RouteObject[] = [
 		],
 	},
 	{
-		path: `/${payments.AUTH}/${payments.CREATINPROFILE}`,
+		path: `/${stanislavAristovRoutesPaths.AUTH}/${stanislavAristovRoutesPaths.CREATINPROFILE}`,
 		element: <AfterAuthLayout />,
 		errorElement: <Error />,
 		children: [
 			{
 				index: true,
-				path: `/${payments.AUTH}/${payments.CREATINPROFILE}`,
+				path: `/${stanislavAristovRoutesPaths.AUTH}/${stanislavAristovRoutesPaths.CREATINPROFILE}`,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<Error />
