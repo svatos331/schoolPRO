@@ -101,7 +101,6 @@ const stanislavAristovRoutes: RouteObject[] = [
 		errorElement: <Error />,
 		children: [
 			{
-				// path: `/${routesPaths.STANISLAV_ARISTOV}`,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<HomePage />
@@ -110,16 +109,16 @@ const stanislavAristovRoutes: RouteObject[] = [
 				index: true,
 			},
 			{
-				path: `/${stanislavAristovRoutesPaths.CARDS}`,
+				path: stanislavAristovRoutesPaths.CARDS,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<CardsPage />
 					</Suspense>
 				),
-				index: true,
+				// index: true,
 			},
 			{
-				path: `/${stanislavAristovRoutesPaths.PAYMENT}`,
+				path: stanislavAristovRoutesPaths.PAYMENT,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<PaymentPage />
@@ -128,7 +127,7 @@ const stanislavAristovRoutes: RouteObject[] = [
 				index: true,
 			},
 			{
-				path: `/${stanislavAristovRoutesPaths.PROFILE}`,
+				path: stanislavAristovRoutesPaths.PROFILE,
 				element: (
 					<Suspense fallback={<Loader />}>
 						<ProfilePage />

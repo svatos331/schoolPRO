@@ -7,6 +7,7 @@ enum stanislavAristovRoutesPaths {
 	"CARDS" = "cards",
 	PAYMENT = "payment",
 	PROFILE = "profile",
+	TRANSACTIONS = "transactions",
 }
 
 export default stanislavAristovRoutesPaths;

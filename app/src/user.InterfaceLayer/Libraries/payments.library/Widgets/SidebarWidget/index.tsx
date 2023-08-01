@@ -16,6 +16,8 @@ import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/s
 import UserLogo from "../../UI_KIT/Molecules/UserLogo";
 import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import logout from "../../assets/icons/Logout2.svg";
+import stanislavAristovRoutes from "../../../../router/routes/stanislavAristov.route";
+import stanislavAristovRoutesPaths from "../../../../router/routes/stanislavAristov.route/stanislavAristov.routesPaths";
 
 const SideBarWidget: FC<{
 	getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>>;
@@ -40,11 +42,13 @@ const SideBarWidget: FC<{
 						/>
 					</ST.Header>
 					<ST.Menu>
-						<NavLink to={"/payment"}>Payment</NavLink>
-						<NavLink to={"/transaction"}>Transaction</NavLink>
-						<NavLink to={"/cards"}>MyCards</NavLink>
-						<NavLink to={"/proms"}>Promotions</NavLink>
-						<NavLink to={"/savings"}>Savings</NavLink>
+						<NavLink to={stanislavAristovRoutesPaths.PAYMENT}>Payment</NavLink>
+						<NavLink to={stanislavAristovRoutesPaths.TRANSACTIONS}>
+							Transaction
+						</NavLink>
+						<NavLink to={stanislavAristovRoutesPaths.CARDS}>MyCards</NavLink>
+						<NavLink to={"proms"}>Promotions</NavLink>
+						<NavLink to={"savings"}>Savings</NavLink>
 					</ST.Menu>
 					<SecondaryButton
 						text={"Sign Out"}
