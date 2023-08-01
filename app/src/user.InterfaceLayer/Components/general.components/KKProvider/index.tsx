@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useCallback } from "react";
+import React, { FC, ReactNode } from "react";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 
@@ -28,7 +28,7 @@ const handleOnEvent = async (event: any, error: any) => {
 export const KKProvider: FC<{ children: JSX.Element | ReactNode }> = ({
 	children,
 }) => {
-	return (
+	return isAristovStanislavRoute ? (
 		<ReactKeycloakProvider
 			authClient={keycloak}
 			initOptions={initOptions}
@@ -39,6 +39,8 @@ export const KKProvider: FC<{ children: JSX.Element | ReactNode }> = ({
 		>
 			{children}
 		</ReactKeycloakProvider>
+	) : (
+		<>{children}</>
 	);
 };
 export default KKProvider;

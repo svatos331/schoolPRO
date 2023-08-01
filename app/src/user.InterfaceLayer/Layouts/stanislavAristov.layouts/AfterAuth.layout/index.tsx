@@ -9,6 +9,7 @@ import {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	ITheme,
 } from "../../../../business.InterfaceLayer/store/shared/entities/aristovStanislav.entities/theme.entity/redux/slice";
+import KKProvider from "../../../Components/general.components/KKProvider";
 
 const AfterAuthLayout: FC<{ children?: JSX.Element; bgc?: ITheme }> = ({
 	bgc,
