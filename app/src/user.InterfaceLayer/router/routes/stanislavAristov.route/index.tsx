@@ -3,11 +3,8 @@ import { RouteObject } from "react-router-dom";
 
 import routesPaths from "../../routesPaths";
 import stanislavAristovRoutesPaths from "./stanislavAristov.routesPaths";
-import BeforeAuthLayout from "../../../Layouts/stanislavAristov.layouts/BeforeAuth.layout";
 import Error from "../../../Components/general.components/Error";
 import Loader from "../../../Components/general.components/Loader";
-import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
-import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/stanislavAristov.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
 const CardsPage = lazy(
@@ -19,9 +16,9 @@ const ProfilePage = lazy(
 const PaymentPage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Payment.page")
 );
-const OTPPage = lazy(
-	() => import("../../../Pages/AristovStanislav.pages/OTP.page/index")
-);
+// const OTPPage = lazy(
+// 	() => import("../../../Pages/AristovStanislav.pages/OTP.page/index")
+// );
 const HomePage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Home.page")
 );

@@ -24,7 +24,7 @@ const VerifierWidget: FC<IVerifierWidgetProps> = ({
 	const [phone, setPhone] = useState<string>(() => {
 		return localStorage.getItem("phone") || "+";
 	});
-	const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
+	// const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 	const curDesText = useMemo(() => {
 		// eslint-disable-next-line no-console
 

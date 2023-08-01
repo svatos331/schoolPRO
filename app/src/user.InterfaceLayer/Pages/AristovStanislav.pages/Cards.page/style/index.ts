@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
 
-import Colors from "../../../../constants/colors";
-
 export const CardsPageWrapper = styled.div`
 	width: 100%;
 
