@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 import * as ST from "./styled";
 import Typography_Montserrat_Bold from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/Typographies/Montserrat/Bold";
-import UserNameLogoComponent from "../../../Components/payments.components.bll/UserNameLogo.component.bll";
-import CardsBlockComponent from "../../../Components/payments.components.bll/SignoutBtn.component.bll";
+import UserNameLogoComponent from "../../../Components/StanislavAristov.components.bll/UserNameLogo.component.bll";
+import CardsBlockComponent from "../../../Components/StanislavAristov.components.bll/SignoutBtn.component.bll";
 //page и component юзают только widgets
 const ProfilePage: FC = () => {
 	//яерез children моно прокидывать виджеты в виджет

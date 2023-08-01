@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import * as ST from "./style/styled";
 import PaymentPageTitleWidget from "../../../Libraries/stanislavAristov.library/Widgets/pageTitles/PaymentPage.titleWidget";
-import PaymentBlockComponent from "../../../Components/payments.components.bll/PaymentBlock.component.bll";
+import PaymentBlockComponent from "../../../Components/StanislavAristov.components.bll/PaymentBlock.component.bll";
 
 const PaymentPage: FC = () => {
 	return (
