@@ -15,6 +15,8 @@ import "user.InterfaceLayer/styles/fonts.scss";
 import "primereact/resources/primereact.min.css";
 import { store } from "./business.InterfaceLayer/store";
 import mainRouter from "./user.InterfaceLayer/router";
+import KKProvider from "./user.InterfaceLayer/Components/general.components/KKProvider";
+
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);
@@ -22,15 +24,17 @@ const routers = createBrowserRouter(mainRouter);
 //в general с готовымыи конфигами
 
 root.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<RouterProvider router={routers} />
-		</Provider>
-		<ToasterModalWindow>
-			<Toaster
-				position="bottom-left"
-				reverseOrder={false}
-			/>
-		</ToasterModalWindow>
-	</React.StrictMode>
+	<KKProvider>
+		<React.StrictMode>
+			<Provider store={store}>
+				<RouterProvider router={routers} />
+			</Provider>
+			<ToasterModalWindow>
+				<Toaster
+					position="bottom-left"
+					reverseOrder={false}
+				/>
+			</ToasterModalWindow>
+		</React.StrictMode>
+	</KKProvider>
 );
