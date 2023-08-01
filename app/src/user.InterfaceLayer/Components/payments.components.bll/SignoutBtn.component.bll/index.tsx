@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { useKeycloak } from "@react-keycloak/web";
 
-import SecondaryButton from "../../../Libraries/payments.library/UI_KIT/Molecules/SecondaryButton";
+import SecondaryButton from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/SecondaryButton";
 
 const SignoutBtnComponent = () => {
 	const { keycloak } = useKeycloak();

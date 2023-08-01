@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 import * as ST from "./styled";
 // import WelcomeAuth from "../../../Libraries/svyatoslavZhilnRoutesPaths.library/Widgets/welcomeAuth";
-import AbsoluteGradientBlockBig from "../../../Libraries/payments.library/UI_KIT/Molecules/AbsoluteBlockGradientBig";
-import AbsoluteAuthBlock from "../../../Libraries/payments.library/UI_KIT/Molecules/AbsoluteAuthBlock";
-import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
+import AbsoluteGradientBlockBig from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/AbsoluteBlockGradientBig";
+import AbsoluteAuthBlock from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/AbsoluteAuthBlock";
+import AuthWidget from "../../../Libraries/stanislavAristov.library/Widgets/authWidget";
 
 const BeforeAuthLayout: FC<{ children?: JSX.Element | string }> = ({
 	children,

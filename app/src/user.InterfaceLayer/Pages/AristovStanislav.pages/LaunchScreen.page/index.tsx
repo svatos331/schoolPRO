@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import * as ST from "./style";
-import LogoColorFullWithText from "../../../Libraries/payments.library/UI_KIT/Molecules/LogoColorFullWithText";
+import LogoColorFullWithText from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/LogoColorFullWithText";
 
 const LaunchScreen: FC = () => (
 	<ST.LaunchScreen className="d-f f-center">
