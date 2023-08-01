@@ -1,5 +1,6 @@
-import React, { FC, startTransition, useTransition } from "react";
+import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
 
 import * as ST from "./styled";
 import DeviceDataWidget from "../../../Libraries/stanislavAristov.library/Widgets/deviceDataWidget";
@@ -8,7 +9,8 @@ import { useAppSelector } from "../../../../business.InterfaceLayer/store/servic
 import {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	ITheme,
-} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
+} from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/theme.entity/redux/slice";
+import i18n from "../../../Components/general.components/i18n";
 
 const AfterAuthLayout: FC<{ children?: JSX.Element; bgc?: ITheme }> = ({
 	bgc,

@@ -7,9 +7,9 @@ import { IUserWithNameWidgetProps } from "./type";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 import * as ST from "./styled";
-import { IBaseInfoUserDTO } from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
+import { IBaseInfoUserDTO } from "../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
 import { useAppDispatch } from "../../../../../../../business.InterfaceLayer/store/services/hooks/redux";
-import { paymentsActions } from "../../../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/slice";
+import { paymentsActions } from "../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/redux/slice";
 
 const UsersWithNameModuleList: FC<IUserWithNameWidgetProps> = ({
 	getMe,

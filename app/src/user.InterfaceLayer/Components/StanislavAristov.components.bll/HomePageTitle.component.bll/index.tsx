@@ -9,12 +9,12 @@ import { CheckBalance } from "../../../Pages/AristovStanislav.pages/Home.page/st
 import {
 	useGetBaseInfoAboutMeQuery,
 	useGetMeQuery,
-} from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";
+} from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/redux/api";
 import BalanceBlock from "../../../Libraries/stanislavAristov.library/Widgets/ballanceBlock";
 import EFontClasses from "../../../constants/fontsClasses";
 import Typography_Montserrat_Normal from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/Typographies/Montserrat/Normal";
 import HomePageTitleWidget from "../../../Libraries/stanislavAristov.library/Widgets/pageTitles/HomePage.titleWidget";
-import { sidebarActions } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/sidebar.entity/redux/slice";
+import { sidebarActions } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/sidebar.entity/redux/slice";
 import { useAppDispatch } from "../../../../business.InterfaceLayer/store/services/hooks/redux";
 
 const HomePageTitleComponent = () => {

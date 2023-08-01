@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// eslint-disable-next-line import/order
 import { Toaster } from "react-hot-toast";
 
+// eslint-disable-next-line import/order
+import { I18nextProvider } from "react-i18next";
 // eslint-disable-next-line import/order
 import ToasterModalWindow from "./user.InterfaceLayer/Components/general.components/ModalWindows/Toaster.modalWindow";
 
@@ -16,7 +19,6 @@ import "primereact/resources/primereact.min.css";
 import { store } from "./business.InterfaceLayer/store";
 import mainRouter from "./user.InterfaceLayer/router";
 import KKProvider from "./user.InterfaceLayer/Components/general.components/KKProvider";
-
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);
@@ -24,6 +26,7 @@ const routers = createBrowserRouter(mainRouter);
 //в general с готовымыи конфигами
 
 root.render(
+	// <I18nextProvider i18n={i18n}>
 	<KKProvider>
 		<React.StrictMode>
 			<Provider store={store}>
@@ -37,4 +40,5 @@ root.render(
 			</ToasterModalWindow>
 		</React.StrictMode>
 	</KKProvider>
+	// </I18nextProvider>
 );

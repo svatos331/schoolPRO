@@ -9,7 +9,7 @@ import logout from "../../assets/icons/Logout2.svg";
 import * as ST from "./styled";
 import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import UserLogo from "../../UI_KIT/Molecules/UserLogo";
-import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
+import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/userBaseInfo.entity/services/dto/from.dto";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SideBarContentWidget: FC<{
