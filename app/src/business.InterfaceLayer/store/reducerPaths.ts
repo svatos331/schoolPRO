@@ -1,7 +1,8 @@
 enum reducerPaths {
 	todo = "todo",
-	theme = "theme",
-	sidebar="sidebar"
+	fishing = "fishing",
+	cart = "cart",
+	auth = "auth",
 }
 
 export default reducerPaths;

@@ -1,6 +1,7 @@
 import React from "react";
-import {ProgressSpinner} from "primereact/progressspinner";
 
-const Loader = () => <ProgressSpinner/>;
+import * as ST from "./styled";
+
+const Loader = () => <ST.Loader>Загрузка</ST.Loader>;
 
 export default Loader;
