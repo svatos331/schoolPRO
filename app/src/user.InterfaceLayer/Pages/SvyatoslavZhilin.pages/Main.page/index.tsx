@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import Component1 from "../../../Components/SvyatoslavZhilin.components.bll/Components1.component.bll";
+import Component1 from "../../../Components/SvyatoslavZhilin.components.bll/Components1.components.bll";
 // import { Component1 } from "test-lib";
 
 const MainPage: FC = () => {

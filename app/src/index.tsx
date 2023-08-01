@@ -17,7 +17,7 @@ import "user.InterfaceLayer/styles/global.scss";
 import "user.InterfaceLayer/styles/scrollbar.css";
 import "user.InterfaceLayer/styles/fonts.scss";
 import "primereact/resources/primereact.min.css";
-import LaunchScreenPage from "./user.InterfaceLayer/Pages/aristovStanislav.pages/LaunchScreen.page";
+import LaunchScreenPage from "./user.InterfaceLayer/Pages/AristovStanislav.pages/LaunchScreen.page";
 import { useAppDispatch } from "./business.InterfaceLayer/store/services/hooks/redux";
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);

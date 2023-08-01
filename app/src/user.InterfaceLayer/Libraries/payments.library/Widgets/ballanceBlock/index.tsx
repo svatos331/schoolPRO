@@ -9,7 +9,7 @@ import {
 	IBalanceUserResponse,
 	IUserDTO,
 } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/services/dto/from.dto";
-import { CheckBalance } from "../../../../Pages/aristovStanislav.pages/Home.page/style";
+import { CheckBalance } from "../../../../Pages/AristovStanislav.pages/Home.page/style";
 import PrimaryButton from "../../UI_KIT/Molecules/PrimaryButton";
 import * as ST from "./styled/index";
 import { useGetMeQuery } from "../../../../../business.InterfaceLayer/store/shared/entities/payments.entities/payments.entity/redux/api";

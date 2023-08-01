@@ -5,7 +5,7 @@ import BalanceWidget from "../../../Libraries/payments.library/Widgets/ballanceB
 import PrimaryButton from "../../../Libraries/payments.library/UI_KIT/Molecules/PrimaryButton";
 import arrow from "../../../Libraries/payments.library/assets/icons/arrow/nonstraingt/SmallArrow.svg";
 import Colors from "../../../constants/colors/index";
-import { CheckBalance } from "../../../Pages/aristovStanislav.pages/Home.page/style";
+import { CheckBalance } from "../../../Pages/AristovStanislav.pages/Home.page/style";
 import {
 	useGetBaseInfoAboutMeQuery,
 	useGetMeQuery,

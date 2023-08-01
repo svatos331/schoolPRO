@@ -9,20 +9,20 @@ import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/stanislavAristov.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import ProfilePage from "../../../Pages/aristovStanislav.pages/Profile.page";
-import MainPage from "../../../Pages/aristovStanislav.pages/Main.page";
+import ProfilePage from "../../../Pages/AristovStanislav.pages/Profile.page";
+import MainPage from "../../../Pages/AristovStanislav.pages/Main.page";
 
 const CardsPage = lazy(
-	() => import("../../../Pages/aristovStanislav.pages/Cards.page")
+	() => import("../../../Pages/AristovStanislav.pages/Cards.page")
 );
 const PaymentPage = lazy(
-	() => import("../../../Pages/aristovStanislav.pages/Payment.page")
+	() => import("../../../Pages/AristovStanislav.pages/Payment.page")
 );
 const OTPPage = lazy(
-	() => import("../../../Pages/aristovStanislav.pages/OTP.page/index")
+	() => import("../../../Pages/AristovStanislav.pages/OTP.page/index")
 );
 const HomePage = lazy(
-	() => import("../../../Pages/aristovStanislav.pages/Home.page")
+	() => import("../../../Pages/AristovStanislav.pages/Home.page")
 );
 const paymentsRoutes: RouteObject[] = [
 	{

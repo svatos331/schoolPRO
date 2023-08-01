@@ -3,7 +3,8 @@ import { RouteObject } from "react-router-dom";
 
 import RoutesPaths from "./routesPaths";
 import Error from "../Components/general.components/Error";
-import paymentsRoutes from "./routes/stanislavAristov.route";
+import svyatoslavZhilinRoutes from "./routes/svyatoslavZhilin.route";
+import stanislavAristovRoutesPaths from "./routes/stanislavAristov.route/stanislavAristov.routesPaths";
 
 const CheckAuth = lazy(() => import("./services/Components/CheckAuth"));
 const mainRouter: RouteObject[] = [
@@ -11,7 +12,7 @@ const mainRouter: RouteObject[] = [
 		path: RoutesPaths.MAIN,
 		element: <CheckAuth />,
 		errorElement: <Error />,
-		children: [...paymentsRoutes],
+		children: [...svyatoslavZhilinRoutes, ...stanislavAristovRoutesPaths],
 	},
 ];
 

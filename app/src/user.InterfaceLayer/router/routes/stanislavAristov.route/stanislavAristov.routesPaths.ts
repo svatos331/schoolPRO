@@ -4,6 +4,9 @@ enum stanislavAristovRoutesPaths {
 	"SIGNIN" = "signin",
 	"SIGNUP" = "signup",
 	"CREATINPROFILE" = "creatingProfile",
+	"CARDS" = "cards",
+	PAYMENT = "payment",
+	PROFILE = "profile",
 }
 
 export default stanislavAristovRoutesPaths;
