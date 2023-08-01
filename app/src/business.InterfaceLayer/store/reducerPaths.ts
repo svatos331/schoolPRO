@@ -1,6 +1,8 @@
 enum reducerPaths {
 	todo = "todo",
-	movie = "movie"
+	movie = "movie",
+	sidebarMovie = "sidebarMovie",
+	sortValue = "sortValue"
 }
 
 export default reducerPaths;

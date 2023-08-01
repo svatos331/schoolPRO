@@ -6,9 +6,7 @@ import PageTitle from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets
 import * as ST from "../style/style";
 
 const ListPage: React.FC = () => {
-    const a = useParams();
-    const id = a.id?.split("&")[0] || a.id;
-    const ganreValue = a.id?.split("&")[1] || "";
+    const {id} = useParams();
 
     return (
         <ST.Container>
@@ -17,7 +15,6 @@ const ListPage: React.FC = () => {
             />
             <ListCard 
                 type={id === "series"?"TV_SERIES":"FILM"}
-                ganre={ganreValue || ""}
             />
         </ST.Container>
     );

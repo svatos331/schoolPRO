@@ -1,8 +1,7 @@
 import React from "react";
 import Slider from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Slider";
-import { AdviceBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/AdviceBar";
 import { RecomedPanel } from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/RecomendationPanel.component.bll";
-import { useGetAllMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
+import AdviceBarBll from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/AdviceBar.component.bll";
 
 import * as ST from "../style/style";
 
@@ -13,7 +12,7 @@ const MainPage: React.FC = () => {
         <ST.Page>
             <ST.Container>
                 <Slider/>
-                <AdviceBar useGetAllMovieQuery={useGetAllMovieQuery}/>
+                <AdviceBarBll/>
                 <RecomedPanel/>
             </ST.Container>
         </ST.Page>

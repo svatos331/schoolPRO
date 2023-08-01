@@ -8,10 +8,10 @@ import { AdviceCardProps } from "./type/index";
 
 
 export const AdviceCard: React.FC<AdviceCardProps> = (props: AdviceCardProps) => {
-    const { link, text, children } = props;
+    const { text, children, value, changeGanre } = props;
 
     return (
-        <ST.Card to={link}>
+        <ST.Card to={"/artemLeskin/list/movie"} onClick={() => changeGanre(value)}>
             {children}
             <Text text={text} size={TextSize.M}/>
         </ST.Card>
