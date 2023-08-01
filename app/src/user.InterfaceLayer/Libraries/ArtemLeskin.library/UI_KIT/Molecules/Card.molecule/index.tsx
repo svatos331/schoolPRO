@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { CardProps } from "./type/index";
 
-export const Card: React.FC<CardProps> = (props: CardProps) => {
+const Card: React.FC<CardProps> = (props: CardProps) => {
     const { card } = props;
 
     return (
@@ -21,3 +21,5 @@ export const Card: React.FC<CardProps> = (props: CardProps) => {
         </ST.Card>
     );
 };
+
+export default memo(Card);

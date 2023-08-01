@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { TextSize } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Text/type";
 
 import * as ST from "./style/style";
 import { SliderItemProps } from "./type/index";
 
-export const SliderItem: React.FC<SliderItemProps> = (props: SliderItemProps) => {
+const SliderItem: React.FC<SliderItemProps> = (props: SliderItemProps) => {
     const {slide} = props;
     const [isVideoActive, setIsVideoActive] = useState(false);
 
@@ -25,3 +25,5 @@ export const SliderItem: React.FC<SliderItemProps> = (props: SliderItemProps) =>
         </ST.Item>
     );
 };
+
+export default memo(SliderItem);

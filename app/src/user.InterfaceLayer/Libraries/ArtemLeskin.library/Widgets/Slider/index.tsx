@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { SliderItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/SliderItem.molecule";
+import React, { memo, useState } from "react";
+import SliderItem from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/SliderItem.molecule";
 import { sliderData } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Slider/data";
 
 import * as ST from "./style/style";
@@ -34,4 +34,4 @@ const Slider = () => {
     );
 };
 
-export default Slider;
+export default memo(Slider);

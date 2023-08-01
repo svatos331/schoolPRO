@@ -1,6 +1,6 @@
 import { useGetSimilarsMovieQuery } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
-import React from "react";
-import { CardBar } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardBar";
+import React, { memo } from "react";
+import CardBar from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardBar";
 
 interface ISimilarPanel {
     id: string
@@ -16,4 +16,4 @@ const SimilarPanel: React.FC<ISimilarPanel> = ({id}: ISimilarPanel) => {
   );
 };
 
-export default SimilarPanel;
+export default memo(SimilarPanel);

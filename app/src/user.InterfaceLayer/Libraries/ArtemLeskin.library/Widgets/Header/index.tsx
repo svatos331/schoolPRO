@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Logo";
-import { NavItem } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/NavItem";
+import Logo from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/Logo";
+import NavItem from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Atoms/NavItem";
 import { headerRoute } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Header/const";
 import { HeaderI } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Header/type";
 
@@ -9,7 +9,7 @@ import { ReactComponent as Burger } from "../../assets/icons/Burger.svg";
 import * as ST from "./style/style";
 
 
-export const Header: React.FC<HeaderI> = (props: HeaderI) => {
+const Header: React.FC<HeaderI> = (props: HeaderI) => {
     const {changeActive} = props;
 
     return (
@@ -26,3 +26,5 @@ export const Header: React.FC<HeaderI> = (props: HeaderI) => {
         </ST.Header>
     );
 };
+
+export default memo(Header);

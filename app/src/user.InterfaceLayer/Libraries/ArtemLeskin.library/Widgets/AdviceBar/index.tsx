@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { AdviceCardData } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/AdviceBar/const";
-import { AdviceCard } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/AdviceCard.molecule";
+import AdviceCard from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/AdviceCard.molecule";
 
 import { AdviceBarProps } from "./type/index";
 import * as ST from "./style/style";
 
-export const AdviceBar: React.FC<AdviceBarProps> = ({useGetAllMovieQuery, changeGanre}: AdviceBarProps) => {
+const AdviceBar: React.FC<AdviceBarProps> = ({useGetAllMovieQuery, changeGanre}: AdviceBarProps) => {
 
     return (
         <ST.List>
@@ -26,3 +26,5 @@ export const AdviceBar: React.FC<AdviceBarProps> = ({useGetAllMovieQuery, change
         </ST.List>
     );
 };
+
+export default memo(AdviceBar);
