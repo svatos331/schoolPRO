@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 
 export interface AdviceCardProps {
-    link: string;
     text: string;
+    value: string;
     children: ReactNode;
-    func: any
+    func: any;
+    changeGanre: (value: string) => void
 }

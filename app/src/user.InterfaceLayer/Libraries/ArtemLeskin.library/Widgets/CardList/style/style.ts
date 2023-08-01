@@ -5,15 +5,17 @@ export const List = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 0 -10px;
-    min-height: 60vh;
+    @media (max-width: 430px) {
+        justify-content: center;
+    }
 `;
 
 export const Load = styled.div`
-    height: 90vh;
+    min-height: 90vh;
 `;
 
 export const Pagination = styled(PaginationBar)`
-    margin: 0 auto;
+    justify-content: center;
 `;
 
 export const Container = styled.div`

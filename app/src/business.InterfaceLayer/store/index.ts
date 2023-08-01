@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { movieApi } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
+import { movieReducer, sidebarMovieReducer, sortValueReducer } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/slice";
 
 import { todoApi } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";
 import { todoReducer } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/slice";
@@ -10,6 +11,9 @@ const allSliceReducersReducer = combineReducers({
 	[todoApi.reducerPath]: todoApi.reducer,
 	[movieApi.reducerPath]: movieApi.reducer,
 	[reducerPaths.todo]: todoReducer,
+	[reducerPaths.movie]: movieReducer,
+	[reducerPaths.sidebarMovie]: sidebarMovieReducer,
+	[reducerPaths.sortValue]: sortValueReducer,
 });
 
 export const store = configureStore({

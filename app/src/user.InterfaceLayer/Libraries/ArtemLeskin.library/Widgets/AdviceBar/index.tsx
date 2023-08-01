@@ -5,15 +5,22 @@ import { AdviceCard } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI
 import { AdviceBarProps } from "./type/index";
 import * as ST from "./style/style";
 
-export const AdviceBar: React.FC<AdviceBarProps> = ({useGetAllMovieQuery}: AdviceBarProps) => {
+export const AdviceBar: React.FC<AdviceBarProps> = ({useGetAllMovieQuery, changeGanre}: AdviceBarProps) => {
 
     return (
         <ST.List>
              {AdviceCardData.map((card) => {
-                return (<AdviceCard func={useGetAllMovieQuery}  key={card.text} text={card.text} link={card.link}>
-                    <ST.IconWrap>
-                        <card.Icon/>
-                    </ST.IconWrap>
+                return (
+                <AdviceCard 
+                    func={useGetAllMovieQuery} 
+                    changeGanre={changeGanre} 
+                    key={card.text} 
+                    text={card.text}
+                    value={card.value}
+                    >
+                        <ST.IconWrap>
+                            <card.Icon/>
+                        </ST.IconWrap>
                 </AdviceCard>);
             })}
         </ST.List>

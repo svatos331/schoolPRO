@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { SidebarI } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Sidebar/type";
 
 export const Sidebar = styled.div<SidebarI>`
-    position: absolute;
+    position: fixed;
     display: flex;
+    transform: translateX(${(props) => (props.isActive?"75%":"200%")});
     flex-direction: column;
-    right: ${(props) => (props.isActive?"0":"-100%")};
     z-index: 100;
     background-color: black;
     border-left: 1px solid gray;
@@ -14,4 +14,7 @@ export const Sidebar = styled.div<SidebarI>`
     min-width: 200px;
     height: 95%;
     transition: all 0.6s;
+    @media (min-width: 430px) {
+        display: none;
+    }
 `;

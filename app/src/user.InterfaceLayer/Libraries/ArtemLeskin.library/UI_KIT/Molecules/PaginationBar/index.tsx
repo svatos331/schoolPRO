@@ -5,10 +5,10 @@ import PaginationBtn from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_
 import * as ST from "./style/style";
 
 const PaginationBar: React.FC<IPaginationBar> = (props: IPaginationBar) => {
-    const {count, func, current} = props;
+    const {count, func, current, className} = props;
 
     return (
-        <ST.List>
+        <ST.List className={className}>
             {Array.from({length: count}).map((item, index) => {
                 return <PaginationBtn 
                     value={index + 1} 
