@@ -1,6 +1,6 @@
 interface SignWidgetType {
-	useGetTodoQuery: any;
-	useGetGoodsQuery: any;
+	usePostAuthMutation:any;
+
 }
 
 export default SignWidgetType;

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState , FC} from "react";
+//import { useNavigate } from "react-router-dom";
 
 
 import Button from "../../UI_KIT/Molecules/Button.molecule";
@@ -13,14 +13,50 @@ import * as S from "./styled";
 
 // 	return <div>data from jsonplaceholder : {JSON.stringify(data)}</div>;
 // };
+interface ILogInFormType {
+	usePostAuthMutation:any;
+}
 
-export const LogInForm =()=>{
-	const navigate = useNavigate();
-	const onClickHandler=()=>navigate("/kirillKornilov/");
-	const [valueEmail,setValueEmail] = useState("");
-	const [valuePass, setValuePass] =useState("");
+export const LogInForm:FC<ILogInFormType> =({usePostAuthMutation})=>{
+	//const navigate = useNavigate();
+	const [valueEmail,setValueEmail] = useState("emily25@gmail.com");
+	const [valuePass, setValuePass] =useState("rlytoughpass");
+	
+	const [postAuth,result] = usePostAuthMutation();
+	
+//	useEffect(()=>{alert(result.data);},[result]);
 
+	const onClickHandler= async()=>{
+		const body={email:valueEmail,password:valuePass};
+		await postAuth(body);
+		
+		// Email     string `json:"email"`
+		// Password  string `json:"password"`
 
+		//Email:     "emily25@gmail.com",
+		//Password:  "rlytoughpass",
+		
+	
+
+		//navigate("/kirillKornilov/");
+		//alert(result.isLoading);
+		
+	};
+	
+	// eslint-disable-next-line no-console
+	console.log(`isLoad ${result.isLoading}`);
+
+// eslint-disable-next-line no-console
+console.log(`isData ${result.data}`);
+// eslint-disable-next-line no-console
+console.log(result.error);
+// eslint-disable-next-line no-console
+	//result.error.map(item=>console.log(`is =  ${item}`));
+
+	// for(const key in result.error){
+	// 	// eslint-disable-next-line no-console
+	// 	console.log(`is = ${key} - ${result.error.key}`);
+	// }
 
 	return(
 		<S.container>

@@ -7,15 +7,13 @@ import FooterSignWidget from "../FooterSign";
 // import * as S from "./styled";
 
 
-const SignWidget: FunctionComponent<SignWidgetType> = ({ useGetGoodsQuery ,useGetTodoQuery}) => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { data } = useGetGoodsQuery();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { data2 } = useGetTodoQuery();
+const SignWidget: FunctionComponent<SignWidgetType> = ({ usePostAuthMutation}) => {
+
+
 
 	return <>	
 		<HeaderSignMolecule/>
-		<LogInForm/>
+		<LogInForm usePostAuthMutation={usePostAuthMutation}/>
 		<FooterSignWidget/>
 		
 		</>;

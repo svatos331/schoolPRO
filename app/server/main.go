@@ -20,6 +20,10 @@ type User struct {
 	Password  string `json:"-"`
 	IsPremium bool   `json:"is_premium"`
 }
+type Auth struct{
+	Email     string `json:"email"`
+	Password  string `json:"password"`
+}
 
 type Category struct {
 	ID     int    `json:"id"`
@@ -897,7 +901,7 @@ func DeleteCategory(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
-func GetUserByInfo(logInfo User) (User) {
+func GetUserByInfo(logInfo Auth) (User) {
     for i := 0; i < len(users); i++ {
         if users[i].Email == logInfo.Email && users[i].Password == logInfo.Password {
             return users[i]
@@ -910,11 +914,12 @@ func GetUserByInfo(logInfo User) (User) {
 		w.Header().Set("Accept", "application/json")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Methods", "POST")
-
-		var nuser User
-		json.NewDecoder(r.Body).Decode(&nuser)
-		user :=GetUserByInfo(nuser)
 		
+		var logInfo Auth
+		json.NewDecoder(r.Body).Decode(&logInfo)
+		fmt.Println("logInfo---",logInfo)
+		user :=GetUserByInfo(logInfo)
+		fmt.Println("user---",user)
 		json.NewEncoder(w).Encode(user)
 	}
 
