@@ -1,8 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { lazy, Suspense } from "react";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RouteObject } from "react-router-dom";
-
 import routesPaths from "../../routesPaths";
 import payments from "./payments";
 import BeforeAuthLayout from "../../../Layouts/payments.layouts/BeforeAuth.layout";
@@ -12,20 +9,20 @@ import AuthWidget from "../../../Libraries/payments.library/Widgets/authWidget";
 import WelcomeAuth from "../../../Libraries/payments.library/Widgets/welcomeAuth";
 import AfterAuthLayout from "../../../Layouts/payments.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import CardsPage from "../../../Pages/payments.pages/Cards.page";
-import PaymentPage from "../../../Pages/payments.pages/Payment.page";
 import ProfilePage from "../../../Pages/payments.pages/Profile.page";
 import MainPage from "../../../Pages/payments.pages/Main.page";
 
-// const CardsPage = lazy(
-// 	() => import("../../../Pages/payments.pages/Cards.page")
-// );
+const CardsPage = lazy(
+	() => import("../../../Pages/payments.pages/Cards.page")
+);
+const PaymentPage = lazy(
+	() => import("../../../Pages/payments.pages/Payment.page")
+);
 const OTPPage = lazy(
 	() => import("../../../Pages/payments.pages/OTP.page/index")
 );
 const HomePage = lazy(() => import("../../../Pages/payments.pages/Home.page"));
 const paymentsRoutes: RouteObject[] = [
-	//domens
 	{
 		path: payments.AUTH,
 		element: <BeforeAuthLayout />,
@@ -106,27 +103,47 @@ const paymentsRoutes: RouteObject[] = [
 		children: [
 			{
 				path: `/${routesPaths.MAIN}`,
-				element: <HomePage />,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<HomePage />
+					</Suspense>
+				),
 				index: true,
 			},
 			{
 				path: `/${routesPaths.CARDS}`,
-				element: <CardsPage />,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<CardsPage />
+					</Suspense>
+				),
 				index: true,
 			},
 			{
 				path: `/${routesPaths.PAYMENT}`,
-				element: <PaymentPage />,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<PaymentPage />
+					</Suspense>
+				),
 				index: true,
 			},
 			{
 				path: `/${routesPaths.PROFILE}`,
-				element: <ProfilePage />,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<ProfilePage />
+					</Suspense>
+				),
 				index: true,
 			},
 			{
 				path: "/main",
-				element: <MainPage />,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<MainPage />
+					</Suspense>
+				),
 				index: true,
 			},
 			{

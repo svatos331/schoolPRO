@@ -1,14 +1,11 @@
 import React, { startTransition, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import { Outlet } from "react-router-dom";
 
 import { useAppDispatch } from "../../../../business.InterfaceLayer/store/services/hooks/redux";
 import { themeActions } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/theme.entity/redux/slice";
 import Colors from "../../../constants/colors/index";
-import { sidebarActions } from "../../../../business.InterfaceLayer/store/shared/entities/payments.entities/sidebar.entity/redux/slice";
 
 const CheckAuth = () => {
-	const navigate = useNavigate();
 	const dispath = useAppDispatch();
 	const { changeTheme } = themeActions;
 	useEffect(() => {
