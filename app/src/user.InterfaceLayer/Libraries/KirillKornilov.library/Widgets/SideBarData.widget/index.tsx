@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useContext } from "react";
 import { UserIdContext } from "user.InterfaceLayer/Components/KirillKornilov.components.bll/MainPage.component.bll copy";
 import { useTranslation } from "react-i18next";
+import {Link} from "react-router-dom";
 
 import "../i18n.widget/i18n";
 import Logo from "../../UI_KIT/Molecules/Logo.molecule";
@@ -122,14 +123,19 @@ const SidebarDataWidget: FunctionComponent<SidebarDataWidgetType> = ({
 				</S.data_items>
 			</>
 	{/* useDeleteCategoryMutation={useDeleteCategoryMutation} */}
+			
 			<S.exit>
+				<Link to="/kirillKornilov/sign" >  
 				<SidebarDataItem
 					text={t("sidebar.exit")}
 					color="#000"
 					icon={Icons.Exit}
 					active={false}
+
 				/>
+					</Link>
 			</S.exit>
+		
 		</S.side_bar_box>
 	);
 };

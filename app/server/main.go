@@ -897,11 +897,32 @@ func DeleteCategory(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+func GetUserByInfo(logInfo User) (User) {
+    for i := 0; i < len(users); i++ {
+        if users[i].Email == logInfo.Email && users[i].Password == logInfo.Password {
+            return users[i]
+        }
+    }
+    return User{}
+}
+
+	func PostAuth(w http.ResponseWriter, r *http.Request){
+		w.Header().Set("Accept", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST")
+
+		var nuser User
+		json.NewDecoder(r.Body).Decode(&nuser)
+		user :=GetUserByInfo(nuser)
+		
+		json.NewEncoder(w).Encode(user)
+	}
 
 func Router() *mux.Router {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/api/user/{user_id}", GetUser).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/userAuth", PostAuth).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/togglePremium/{user_id}", TogglePremium).Methods("PATCH", "OPTIONS") // Testing required
 	router.HandleFunc("/api/editUser/{user_id}", EditUser).Methods("PUT", "OPTIONS")             // Testing required
 
