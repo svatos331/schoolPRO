@@ -6,8 +6,6 @@ import { Toaster } from "react-hot-toast";
 import Keycloak from "keycloak-js";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 
-import { store } from "./business.InterfaceLayer/store";
-import mainRouter from "./user.InterfaceLayer/router";
 // eslint-disable-next-line import/order
 import ToasterModalWindow from "./user.InterfaceLayer/Components/general.components/ModalWindows/Toaster.modalWindow";
 
@@ -18,7 +16,9 @@ import "user.InterfaceLayer/styles/scrollbar.css";
 import "user.InterfaceLayer/styles/fonts.scss";
 import "primereact/resources/primereact.min.css";
 import LaunchScreenPage from "./user.InterfaceLayer/Pages/AristovStanislav.pages/LaunchScreen.page";
-import { useAppDispatch } from "./business.InterfaceLayer/store/services/hooks/redux";
+import { store } from "./business.InterfaceLayer/store";
+import mainRouter from "./user.InterfaceLayer/router";
+import KKProvider from "./user.InterfaceLayer/Components/general.components/KKProvider";
 const element = document.getElementById("app") as HTMLElement;
 const root = ReactDOM.createRoot(element);
 const routers = createBrowserRouter(mainRouter);
@@ -41,12 +41,7 @@ const handleOnEvent = async (event: any, error: any) => {
 };
 
 root.render(
-	<ReactKeycloakProvider
-		authClient={keycloak}
-		initOptions={initOptions}
-		LoadingComponent={<LaunchScreenPage />}
-		onEvent={(event, error) => handleOnEvent(event, error)}
-	>
+	<KKProvider>
 		<Provider store={store}>
 			<RouterProvider router={routers} />
 		</Provider>
@@ -56,5 +51,5 @@ root.render(
 				reverseOrder={false}
 			/>
 		</ToasterModalWindow>
-	</ReactKeycloakProvider>
+	</KKProvider>
 );
