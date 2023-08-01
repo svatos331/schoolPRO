@@ -1,53 +1,40 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import { SearchPanel } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/CardList/module/SearchPanel";
 
 import * as ST from "./style/style";
 import List from "./module/List/index";
 import { ListCardpProps } from "./type/index";
 
-const CardList = ({type,useGetAllMovieQuery, ganre: gvalue }:ListCardpProps) => {
-    const [page, setPage] = useState(1);    
-    const [order, setOrder] = useState("");
-    const [ganre, setGanre] = useState(gvalue);
-    const [year, setYear] = useState("");
-    const [rating, setRating] = useState("");
-
+const CardList = (props:ListCardpProps) => {
+    const {
+        type,
+        useGetAllMovieQuery,
+        ganre,
+        rating,
+        page,
+        order,
+        yearFrom,
+        yearTo,
+        changeOrder,
+        changeGanre,
+        changeYear,
+        changePage,
+        changeRating,
+    } = props;
     const {data, isLoading}  = useGetAllMovieQuery({
         page, 
         type, 
         order, 
-        yearTo: year?.split("-")[1] || "",
-        yearFrom: year?.split("-")[0] || "", 
+        yearTo: yearTo,
+        yearFrom: yearFrom, 
         rating, 
         ganre
     });
-
-    const changeOrder = useCallback((value: string) => {
-        setOrder(value);
-    }, []);
-
-    const changeGanre = useCallback((value: string) => {
-        setGanre(value);
-    }, []);
-
-    const changeYear = useCallback((value: string) => {
-            setYear(value);
-    },[]);
-
-    const changeRating = useCallback((value: string) => {
-        setRating(value);
-    }, []);
-
-    // eslint-disable-next-line no-console
-    console.log(data);
-    const func = (value: number) => {
-        setPage(value);
-    };
-
+    
     return (
         <ST.Container>
             <SearchPanel chGanre={changeGanre} chOrder={changeOrder} chRating={changeRating} chYear={changeYear}/>
-            <List data={data} isLoading={isLoading} page={page} func={func}/>
+            <List data={data} isLoading={isLoading} page={page} func={changePage}/>
         </ST.Container>
     );
 };

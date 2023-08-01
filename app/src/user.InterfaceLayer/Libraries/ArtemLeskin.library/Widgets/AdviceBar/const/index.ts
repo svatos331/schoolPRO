@@ -12,42 +12,42 @@ import { ReactComponent as New } from "../../../assets/icons/New.svg";
 
 export const AdviceCardData: AdviceCardInterface[] = [
     {
-        link: "/artemLeskin/list/movie",
+        value: "",
         text: "Лучшие",
         Icon: Best,
     },
     {
-        link: "/artemLeskin/list/movie",
+        value: "",
         text: "Новые",
         Icon: New,
     },
     {
-        link: "/artemLeskin/list/movie&4",
+        value: "4",
         text: "Мелодраммы",
         Icon: Melo,
     },
     {
-        link: "/artemLeskin/list/movie&1",
+        value: "1",
         text: "Ужасы",
         Icon: Horror,
     },
     {
-        link: "/artemLeskin/list/movie&8",
+        value: "8",
         text: "Приключения",
         Icon: Adv,
     },
     {
-        link: "/artemLeskin/list/movie&6",
+        value: "6",
         text: "Фантастика",
         Icon: Fant,
     },
     {
-        link: "/artemLeskin/list/movie&9",
+        value: "9",
         text: "Семейные",
         Icon: Family,
     },
     {
-        link: "/artemLeskin/list/movie&10",
+        value: "10",
         text: "Комедии",
         Icon: Comedy,
     },

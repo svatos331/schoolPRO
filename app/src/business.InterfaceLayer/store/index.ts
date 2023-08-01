@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { movieReducer } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/slice";
 import { movieApi } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/api";
+import { movieReducer, sidebarMovieReducer, sortValueReducer } from "business.InterfaceLayer/store/shared/entities/artemLeskin.entities/movie.entity/redux/slice";
 
 import reducerPaths from "./reducerPaths";
 import { todoApi } from "./shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";

@@ -1,23 +1,17 @@
-import React, { FC, useState } from "react";
-import { Header } from "user.InterfaceLayer/Libraries/ArtemLeskin.library/Widgets/Header";
+import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "user.InterfaceLayer/Libraries/ArtemLeskin.library/UI_KIT/Molecules/Sidebar";
+import HeaderBll from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/Header.component.bll";
+import SidebarBll from "user.InterfaceLayer/Components/ArtemLeskin.components.bll/Sidebar.component.bll";
 
 import * as ST from "./style/style";
 
 const MainLayout: FC = () => {
-    const [isActive, setIsActive] = useState(false);
-
-    const changeActive = () => {
-        setIsActive(!isActive);
-    };
-
     return (
         <ST.App>
 		<ST.Container>
-            <Header changeActive={changeActive} isActive={!isActive}/>
+            <HeaderBll/>
         </ST.Container>
-        <Sidebar isActive={isActive}/>
+        <SidebarBll/>
         <Outlet />
 	</ST.App>
     );

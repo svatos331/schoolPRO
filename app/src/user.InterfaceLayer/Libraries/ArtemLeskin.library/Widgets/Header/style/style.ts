@@ -17,7 +17,7 @@ export const NavItems = styled.div`
     display: flex;
     width: 65%;
     justify-content: space-between;
-    @media (max-width: 425px) {
+    @media (max-width: 430px) {
         display: none;
     }
 `;
@@ -31,7 +31,7 @@ export const Btn = styled.button`
         width: 30px;
         height: 30px;
     }
-    @media (min-width: 425px) {
+    @media (min-width: 430px) {
         display: none;
     }
 `;
