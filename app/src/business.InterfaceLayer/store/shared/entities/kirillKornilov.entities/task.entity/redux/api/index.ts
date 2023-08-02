@@ -104,6 +104,17 @@ export const goodsApi = createApi({
 
 			invalidatesTags: ["Category"],
 		}),
+		postAuth: build.mutation({
+			query: (body) => ({
+				url: "userAuth",
+				method: "POST",
+				mode: "no-cors",
+				body,
+				//responseType:"json",
+			}),
+//	router.HandleFunc("/api/userAuth", PostAuth).Methods("POST", "OPTIONS")
+
+		}),
 
 		
 	}),
@@ -123,4 +134,5 @@ export const {
 	useEditTaskMutation,
 	usePostCategoryMutation,
 	useDeleteCategoryMutation,
+	usePostAuthMutation,
 } = goodsApi;

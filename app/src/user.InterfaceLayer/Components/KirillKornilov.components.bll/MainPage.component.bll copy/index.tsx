@@ -19,7 +19,7 @@ export const UserIdContext = createContext(0);
 
 
 const ComponentMainPage = () => {
-	
+		
 	return  <>
 	<UserIdContext.Provider value={1}>
 	<MainWidget 
@@ -37,6 +37,7 @@ const ComponentMainPage = () => {
 	useEditTaskMutation={useEditTaskMutation}
 	usePostCategoryMutation={usePostCategoryMutation}
 	useDeleteCategoryMutation={useDeleteCategoryMutation}
+	
 	/></UserIdContext.Provider>
 	</>;
 	

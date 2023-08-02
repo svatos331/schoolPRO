@@ -24,8 +24,6 @@ export const signApi = createApi({
 //	router.HandleFunc("/api/userAuth", PostAuth).Methods("POST", "OPTIONS")
 
 		}),
-
-
 	}),
 });
 
