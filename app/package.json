@@ -48,7 +48,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "startdev": "concurrently \\\"node src/business.InterfaceLayer/StasAristov.mockApi/server.js /\\\"react-scripts start\\\"",
+    "startdev": "concurrently \"node src/business.InterfaceLayer/StasAristov.mockApi/server.js /\"react-scripts start\"",
+    "dev": "concurrently \"node src/business.InterfaceLayer/StasAristov.mockApi/server.js /\" \"react-scripts start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

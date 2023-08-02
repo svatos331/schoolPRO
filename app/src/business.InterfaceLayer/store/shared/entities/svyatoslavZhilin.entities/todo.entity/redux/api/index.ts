@@ -4,7 +4,7 @@ import reducerPaths from "../../../../../../reducerPaths";
 import url from "../../services/url";
 import httpMethods from "../../../../../http/httpMethods";
 import validateStatus from "../../../../../../services/utils/validateStatus";
-import {todoFromDtoServiceArray} from "../../services/dto/from.dto";
+import { todoFromDtoServiceArray } from "../../services/dto/from.dto";
 
 export interface Props {
 	authToken: string;
@@ -34,5 +34,4 @@ export const todoApi = createApi({
 		}),
 	}),
 });
-
 export const { useGetTodoQuery } = todoApi;
