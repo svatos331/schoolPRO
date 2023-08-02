@@ -76,3 +76,9 @@ select:-webkit-autofill:focus {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
+video{
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
