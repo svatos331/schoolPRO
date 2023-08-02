@@ -16,7 +16,7 @@
         },
         {
           "id": 2,
-          "balance": 8,
+          "balance": 9,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
@@ -126,11 +126,11 @@
       "src": "https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-46.jpg",
       "name": "Акакий Обрин",
       "id": "support",
-      "balance": 3422,
+      "balance": 3415,
       "cards": [
         {
           "id": 1,
-          "balance": 1702,
+          "balance": 1701,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",

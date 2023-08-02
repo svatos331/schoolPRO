@@ -1,35 +1,26 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { useKeycloak } from "@react-keycloak/web";
+import { createApi } from "@reduxjs/toolkit/query/react";
 
 import reducerPaths from "../../../../../../reducerPaths";
 import httpMethods from "../../../../../http/httpMethods";
 import validateStatus from "../../../../../../services/utils/validateStatus";
 import {
 	balanceFromUser,
-	cardsFromUser,
-	transactionsFromUser,
-	userFromDtoServiceArray,
+	cardsFromDtoServiceObject,
+	putFromResponse,
 } from "../../services/dto/from.dto";
-import {
-	transformFromBaseInfoDTO,
-	transformFromBaseInfoDTOArray,
-} from "../../../userBaseInfo.entity/services/dto/from.dto";
 import url from "../../services/url";
 import { baseQueryWithReauth } from "../../../payments.entity/redux/api";
-
-export type IPutMoneyProps = {
+type IPutMoneyProps = {
 	params: {
-		id: string;
+		userId: string;
 	};
-	balance: number;
+	sum: number;
 };
-
 // // // Создаем API с middleware
-export const paymentsApi = createApi({
+export const cardsApi = createApi({
 	reducerPath: `${reducerPaths.payments}/api`,
 	baseQuery: baseQueryWithReauth,
 	tagTypes: [
-		`${reducerPaths.put_money}TAG`,
 		`${reducerPaths.payments_totalBalance}TAG`,
 		`${reducerPaths.payments_cards}TAG`,
 	],
@@ -54,8 +45,21 @@ export const paymentsApi = createApi({
 				};
 			},
 			providesTags: [`${reducerPaths.payments_cards}TAG`],
-			transformResponse: cardsFromUser,
+			transformResponse: cardsFromDtoServiceObject,
+		}),
+		putMoney: builder.mutation<any, IPutMoneyProps>({
+			query: ({ params, sum }) => {
+				return {
+					url: url.pay,
+					method: httpMethods.POST,
+					validateStatus,
+					params,
+					body: { sum },
+				};
+			},
+			invalidatesTags: [`${reducerPaths.payments_totalBalance}TAG`],
+			transformResponse: putFromResponse,
 		}),
 	}),
 });
-export const { useGetCardsQuery, useGetTotalBalanceQuery } = paymentsApi;
+export const { useGetCardsQuery, useGetTotalBalanceQuery } = cardsApi;
