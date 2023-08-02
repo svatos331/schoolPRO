@@ -38,6 +38,8 @@ module.exports = {
 				html: true,
 			},
 		],
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-filename-extension":[1,{"extensions":[".ts",".tsx"]}],
 		"react/jsx-first-prop-new-line": ["error", "multiline"],
 		// "import/no-unresolved": [2, { caseSensitive: false }],
 		"no-unused-vars": "off",
