@@ -2,19 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { useKeycloak } from "@react-keycloak/web";
 
 import reducerPaths from "../../../../../../reducerPaths";
-import httpMethods from "../../../../../http/httpMethods";
-import validateStatus from "../../../../../../services/utils/validateStatus";
-import {
-	balanceFromUser,
-	cardsFromUser,
-	transactionsFromUser,
-	userFromDtoServiceArray,
-} from "../../services/dto/from.dto";
-import {
-	transformFromBaseInfoDTO,
-	transformFromBaseInfoDTOArray,
-} from "../../../users.entity/services/dto/from.dto";
-import url from "../../services/url";
 
 const updateToken = () => {
 	const { keycloak } = useKeycloak();
@@ -35,10 +22,15 @@ export const baseQueryWithReauth = async (
 	extraOptions: any
 ) => {
 	let res = await baseQuery(args, api, extraOptions);
+	// eslint-disable-next-line no-console
+
 	if (res?.error?.status === 403 || res?.error?.status === 401) {
 		// eslint-disable-next-line no-console
 		await updateToken();
 		res = await baseQuery(args, api, extraOptions);
+	} else {
+		// eslint-disable-next-line no-console
+		console.log(1);
 	}
 
 	return res;
@@ -53,18 +45,6 @@ export const paymentsApi = createApi({
 		`${reducerPaths.payments}TAG`,
 		`${reducerPaths.payments_transactions}TAG`,
 	],
-	endpoints: (builder) => ({
-		getTransactions: builder.query({
-			query: () => {
-				return {
-					url: url.me,
-					method: httpMethods.GET,
-					validateStatus,
-				};
-			},
-			providesTags: [`${reducerPaths.payments_transactions}TAG`],
-			transformResponse: transactionsFromUser,
-		}),
-	}),
+	endpoints: (builder) => ({}),
 });
-export const { useGetTransactionsQuery } = paymentsApi;
+export {};

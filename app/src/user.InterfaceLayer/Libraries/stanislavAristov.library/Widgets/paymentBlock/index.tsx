@@ -29,11 +29,7 @@ const PaymentBlock: FC<IPaymentBlockProps> = ({
 		putMoneyMutation,
 		{ isLoading: isPutMoneyLoading, isError: isPutMoneyError },
 	] = putMoney();
-	const {
-		data: me,
-		isLoading: isBalanceLoading,
-		isError: isGetMeError,
-	} = getMe({});
+
 	const [sum, setSum] = useState<number>(() => 0 | 0);
 	const { changePaySum } = paymentsActions;
 	const selectedUserId = useAppSelector(selectedUserIdSelector);
@@ -68,15 +64,13 @@ const PaymentBlock: FC<IPaymentBlockProps> = ({
 	);
 	const [isError, setIsError] = useState<boolean>(false);
 	const payFromMeToUser = async (userId: string, sum: number) => {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		if (!selectedUserId) {
 			showError();
 			setIsError(true);
 
 			return;
 		}
-		await putMoneyMutation({ params: { id: userId }, balance: sum ?? 0 });
+		await putMoneyMutation({ params: { userId: userId }, sum: sum ?? 0 });
 		if (isPutMoneyError) {
 			showError();
 			setIsError(true);

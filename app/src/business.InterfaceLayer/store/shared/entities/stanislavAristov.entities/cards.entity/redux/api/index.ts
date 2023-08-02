@@ -10,7 +10,7 @@ import {
 } from "../../services/dto/from.dto";
 import url from "../../services/url";
 import { baseQueryWithReauth } from "../../../payments.entity/redux/api";
-type IPutMoneyProps = {
+export type IPutMoneyProps = {
 	params: {
 		userId: string;
 	};
@@ -18,7 +18,7 @@ type IPutMoneyProps = {
 };
 // // // Создаем API с middleware
 export const cardsApi = createApi({
-	reducerPath: `${reducerPaths.payments}/api`,
+	reducerPath: `${reducerPaths.payments_cards}/api`,
 	baseQuery: baseQueryWithReauth,
 	tagTypes: [
 		`${reducerPaths.payments_totalBalance}TAG`,
@@ -62,4 +62,8 @@ export const cardsApi = createApi({
 		}),
 	}),
 });
-export const { useGetCardsQuery, useGetTotalBalanceQuery } = cardsApi;
+export const {
+	useGetCardsQuery,
+	useGetTotalBalanceQuery,
+	usePutMoneyMutation,
+} = cardsApi;

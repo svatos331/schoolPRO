@@ -5,11 +5,12 @@ import routesPaths from "../../routesPaths";
 import stanislavAristovRoutesPaths from "./stanislavAristov.routesPaths";
 import Error from "../../../Components/general.components/Error";
 import Loader from "../../../Components/general.components/Loader";
-import AfterAuthLayout from "../../../Layouts/stanislavAristov.layouts/AfterAuth.layout";
 import Colors from "../../../constants/colors/index";
-import KKProvider from "../../../Components/general.components/KKProvider";
 const CardsPage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Cards.page")
+);
+const AfterAuthLayout = lazy(
+	() => import("../../../Layouts/stanislavAristov.layouts/AfterAuth.layout")
 );
 const ProfilePage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Profile.page")
@@ -17,16 +18,18 @@ const ProfilePage = lazy(
 const PaymentPage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Payment.page")
 );
-// const OTPPage = lazy(
-// 	() => import("../../../Pages/AristovStanislav.pages/OTP.page/index")
-// );
+
 const HomePage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Home.page")
 );
 const stanislavAristovRoutes: RouteObject[] = [
 	{
 		path: routesPaths.STANISLAV_ARISTOV,
-		element: <AfterAuthLayout bgc={Colors.WHITE} />,
+		element: (
+			<Suspense fallback={<Loader />}>
+				<AfterAuthLayout bgc={Colors.WHITE} />
+			</Suspense>
+		),
 		errorElement: <Error />,
 		children: [
 			{

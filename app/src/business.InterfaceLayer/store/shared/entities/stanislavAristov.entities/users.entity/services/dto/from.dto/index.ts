@@ -3,11 +3,13 @@ export interface IBaseInfoUserDTO {
 	name: string;
 	id: string;
 }
-export const transformFromBaseInfoDTO = (props: any): IBaseInfoUserDTO => {
+export const transformFromBaseInfoDTO = (
+	props: IBaseInfoUserDTO
+): IBaseInfoUserDTO => {
 	return props;
 };
 export const transformFromBaseInfoDTOArray = (
-	props: any
+	props: IBaseInfoUserDTO[]
 ): IBaseInfoUserDTO[] => {
 	return props;
 };

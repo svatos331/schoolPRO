@@ -6,19 +6,20 @@ import validateStatus from "../../../../../../services/utils/validateStatus";
 import { baseQueryWithReauth } from "../../../payments.entity/redux/api";
 import url from "../../services/url";
 import {
+	IBaseInfoUserDTO,
 	transformFromBaseInfoDTO,
 	transformFromBaseInfoDTOArray,
 } from "../../services/dto/from.dto";
 
 export const usersApi = createApi({
-	reducerPath: `${reducerPaths.payments}/api`,
+	reducerPath: `${reducerPaths.payments_users}/api`,
 	baseQuery: baseQueryWithReauth,
 	tagTypes: [
 		`${reducerPaths.baseInfoAboutMe}TAG`,
 		`${reducerPaths.baseUserInfoArray}TAG`,
 	],
 	endpoints: (builder) => ({
-		getBaseInfoAboutMe: builder.query({
+		getBaseInfoAboutMe: builder.query<IBaseInfoUserDTO, void>({
 			query: () => {
 				return {
 					url: url.me,

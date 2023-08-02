@@ -2,7 +2,6 @@
   "users": [
     {
       "src": "https://i.yapx.cc/PWwHk.jpg",
-      "balance": 1717,
       "name": "Артемий Билибобо",
       "id": "supervisor",
       "cards": [
@@ -16,7 +15,7 @@
         },
         {
           "id": 2,
-          "balance": 9,
+          "balance": 29,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
@@ -63,7 +62,6 @@
     },
     {
       "src": "https://i.yapx.cc/PWwHk.jpg",
-      "balance": 3232,
       "name": "Михалайооо БубульГуморович",
       "id": "verificator",
       "cards": [
@@ -126,11 +124,10 @@
       "src": "https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-46.jpg",
       "name": "Акакий Обрин",
       "id": "support",
-      "balance": 3415,
       "cards": [
         {
           "id": 1,
-          "balance": 1701,
+          "balance": 1681,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",

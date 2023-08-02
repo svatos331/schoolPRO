@@ -1,12 +1,9 @@
 import { UseQuery } from "@reduxjs/toolkit/dist/query/react/buildHooks";
 import { QueryDefinition } from "@reduxjs/toolkit/query";
 
-import {
-	IBaseInfoUserDTO,
-	UsersBaseInfoArray,
-} from "../../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
+import { IBaseInfoUserDTO } from "../../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
 
 export type IUserWithNameWidgetProps = {
-	getAllUsers: UseQuery<QueryDefinition<any, any, any, UsersBaseInfoArray>>;
+	getAllUsers: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO[]>>;
 	getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>>;
 };

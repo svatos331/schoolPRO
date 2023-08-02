@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Nullable } from "primereact/ts-helpers";
 
 import reducerPaths from "../../../../../../reducerPaths";
 import { IBaseInfoUserDTO } from "../../services/dto/from.dto";
-import { Nullable } from "primereact/ts-helpers";
 
 export enum IUsersEnum {
 	usersInfoArray = "usersInfoArray",
@@ -38,6 +38,6 @@ export const usersSlice = createSlice({
 	},
 });
 
-export const paymentsActions = usersSlice.actions;
-export const paymentsReducer = usersSlice.reducer;
-export const { loadBaseInfoAboutMe, loadBaseInfoAboutAll } = paymentsActions;
+export const usersActions = usersSlice.actions;
+export const usersReducer = usersSlice.reducer;
+export const { loadBaseInfoAboutMe, loadBaseInfoAboutAll } = usersActions;

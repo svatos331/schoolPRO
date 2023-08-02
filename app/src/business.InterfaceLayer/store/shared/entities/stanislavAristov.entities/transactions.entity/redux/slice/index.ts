@@ -1,35 +1,30 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import reducerPaths from "../../../../../../reducerPaths";
+import { ITranDTO } from "../../services/dto/from.dto";
 
-export enum IPaymentsEnum {
-    selectedUserId = "selectedUserId",
-    paySum = "paySum"
+export enum ITransactionsEnum {
+	transactions = "transactions",
 }
 
-export interface IPaymentsType {
-    [IPaymentsEnum.selectedUserId]: string | null
-    [IPaymentsEnum.paySum]: number | 1
+export interface ITransactionsType {
+	[ITransactionsEnum.transactions]: ITranDTO[];
 }
 
-export const initialPaymentsState: IPaymentsType = {
-    [IPaymentsEnum.selectedUserId]: null,
-    [IPaymentsEnum.paySum]: 1
-
+export const initialTransactionsState: ITransactionsType = {
+	[ITransactionsEnum.transactions]: [],
 };
 
-export const paymentsSlice = createSlice({
-    name: reducerPaths.payments,
-    initialState: initialPaymentsState,
-    reducers: {
-        changeSelectedUserId: (state, {payload}: PayloadAction<string>) => {
-            state.selectedUserId = payload;
-        },
-        changePaySum: (state, {payload}: PayloadAction<number>) => {
-            state.paySum = payload;
-        },
-    },
+export const transactionsSlice = createSlice({
+	name: reducerPaths.payments_transactions,
+	initialState: initialTransactionsState,
+	reducers: {
+		loadTransactions: (state, { payload }: PayloadAction<ITranDTO[]>) => {
+			state[ITransactionsEnum.transactions] = payload;
+		},
+	},
 });
 
-export const paymentsActions = paymentsSlice.actions;
-export const paymentsReducer = paymentsSlice.reducer;
+const transactionsActions = transactionsSlice.actions;
+export const transactionReducer = transactionsSlice.reducer;
+export const { loadTransactions } = transactionsActions;

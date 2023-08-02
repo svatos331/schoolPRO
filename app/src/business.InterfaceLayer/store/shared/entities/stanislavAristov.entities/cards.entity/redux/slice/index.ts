@@ -25,6 +25,6 @@ export const cardsSlice = createSlice({
 	},
 });
 
-export const paymentsActions = cardsSlice.actions;
-export const paymentsReducer = cardsSlice.reducer;
-export const { loadCardsByMe } = paymentsActions;
+const cardsActions = cardsSlice.actions;
+export const cardsReducer = cardsSlice.reducer;
+export const { loadCardsByMe } = cardsActions;

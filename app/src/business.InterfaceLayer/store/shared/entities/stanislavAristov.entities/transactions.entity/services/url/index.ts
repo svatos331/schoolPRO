@@ -1,5 +1,5 @@
 enum url {
-	"transactions" = "/transactions",
+	"transactions" = "/transactions/me",
 }
 
 export default url;

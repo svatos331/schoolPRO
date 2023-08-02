@@ -1,12 +1,11 @@
 import React from "react";
-import { styled } from "styled-components";
 
+import PaymentBlock from "../../../Libraries/stanislavAristov.library/Widgets/paymentBlock";
 import {
 	useGetBaseInfoAboutAllQuery,
 	useGetBaseInfoAboutMeQuery,
-	usePutMoneyMutation,
-} from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/redux/api";
-import PaymentBlock from "../../../Libraries/stanislavAristov.library/Widgets/paymentBlock";
+} from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/redux/api";
+import { usePutMoneyMutation } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/cards.entity/redux/api";
 
 const PaymentBlockComponent = () => {
 	const selectedUserIdSelector = (state: any) => state.payments.selectedUserId;

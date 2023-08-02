@@ -76,33 +76,6 @@ server.use((req, res, next) => {
 server.use(middlewares);
 //ends
 
-server.post("/addBalance/:id", (req, res) => {
-	const balanceToAdd = parseInt(req.body?.balance ?? 0);
-
-	const token = req.headers.authorization.substring(7);
-
-	// Проверяем, что значение balanceToAdd неотрицательное
-	if (isNaN(balanceToAdd) || balanceToAdd < 0) {
-		res.status(400).json({
-			error:
-				"Некорректное значение баланса. Баланс должен быть неотрицательным числом.",
-		});
-	} else {
-		const user = router.db
-			.get("users")
-			.find((user) => user.id == req.params.id)
-			.value();
-
-		if (user) {
-			// Прибавляем значение к текущему балансу пользователя
-			user.balance = parseInt(user.balance) + balanceToAdd;
-			router.db.write();
-			res.json({ balance: user.balance });
-		} else {
-			res.status(404).json({ error: "Пользователь не найден." });
-		}
-	}
-});
 server.get("/me", (req, res) => {
 	const token = req.headers.authorization.substring(7);
 	const id = extractClaimFromJWT(token, "preferred_username");
@@ -125,7 +98,6 @@ server.get("/baseInfoAboutMe", (req, res) => {
 		src: user.src,
 		name: user.name,
 		id: user.id,
-		balance: user.balance,
 	});
 });
 server.get("/balance/me", (req, res) => {
@@ -136,7 +108,6 @@ server.get("/balance/me", (req, res) => {
 		.find((user) => user.id == id)
 		.value();
 	const balance = user.cards.reduce((acc, cur) => +acc + +cur.balance, 0);
-	user.balance = balance;
 	router.db.write();
 
 	return res.json({ balance });
@@ -161,6 +132,16 @@ server.get("/cards/me", (req, res) => {
 
 	return res.json(user?.cards ?? []);
 });
+server.get("/transactions/me", (req, res) => {
+	const token = req.headers.authorization.substring(7);
+	const id = extractClaimFromJWT(token, "preferred_username");
+	const user = router.db
+		.get("users")
+		.find((user) => user.id == id)
+		.value();
+
+	return res.json(user?.transactions ?? []);
+});
 server.post("/pay", (req, res) => {
 	const userId = req.query.userId;
 	let { sum } = req.body;
@@ -173,7 +154,6 @@ server.post("/pay", (req, res) => {
 
 	// eslint-disable-next-line no-unreachable
 	const meId = extractClaimFromJWT(token, "preferred_username");
-
 	const me = router.db
 		.get("users")
 		.find((user) => user.id == meId)
@@ -182,11 +162,15 @@ server.post("/pay", (req, res) => {
 		.get("users")
 		.find((user) => user.id == userId)
 		.value();
-	if (sum > me.balance) {
-		res.status(404, "недостаточно средств");
-	}
-	// const balanceMe = me.cards.reduce((acc, cur) => +acc + +cur.balance, 0);
+
 	const meCard = me.cards.find((card) => card.balance >= sum);
+	if (me?.cards?.length ?? 0 === 0) {
+		res.status(404);
+		return res.json({ error: "у вас нет карт" });
+	}
+	if (!meCard) {
+		res.status(404, "на карте недостаточно средств");
+	}
 	if (user.cards.length === 0) {
 		res.status(404, "у польззователя нет карт");
 	}
@@ -213,42 +197,7 @@ server.post("/pay", (req, res) => {
 		myCard: meCard,
 	});
 });
-server.post("/payFromMeTo", (req, res) => {
-	const userId = req.query.id;
 
-	let { balance } = req.body;
-	balance = parseInt(balance);
-
-	// if(isNaN(balance) || (balance | 0 < balance) || balance < 0){
-	//     return res.status(404, "баланс должен быть целочислен");
-	// }
-	const token = req.headers.authorization.substring(7);
-
-	// eslint-disable-next-line no-unreachable
-	const meId = extractClaimFromJWT(token, "preferred_username");
-
-	const me = router.db
-		.get("users")
-		.find((user) => user.id == meId)
-		.value();
-	const user = router.db
-		.get("users")
-		.find((user) => user.id == userId)
-		.value();
-	if (balance > me.balance) {
-		res.status(404, "недостаточно средств");
-	}
-
-	me.balance = parseInt(me.balance) - balance;
-	user.balance = parseInt(user.balance) + balance;
-	router.db.write();
-
-	return res.json({
-		balance: user.balance,
-		id: user.id,
-		meBalance: me.balance,
-	});
-});
 server.use(jsonServer.bodyParser);
 
 server.use(router);

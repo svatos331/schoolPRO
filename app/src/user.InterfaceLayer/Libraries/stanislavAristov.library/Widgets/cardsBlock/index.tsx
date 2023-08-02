@@ -1,15 +1,14 @@
 import React, { FC } from "react";
-import { styled } from "styled-components";
 
 import * as ST from "./styled/index";
 import { ICardsBlockProps } from "./type";
 import CardListModule from "./modules/cardListWidget";
 
-const CardsBlock: FC<ICardsBlockProps> = ({ getMe }) => {
+const CardsBlock: FC<ICardsBlockProps> = ({ getCards }) => {
 	return (
 		<ST.CardsBlock>
 			<ST.CardsList>
-				<CardListModule getMe={getMe} />
+				<CardListModule getCards={getCards} />
 			</ST.CardsList>
 			<ST.ResentTransactions>
 				<div>1</div>

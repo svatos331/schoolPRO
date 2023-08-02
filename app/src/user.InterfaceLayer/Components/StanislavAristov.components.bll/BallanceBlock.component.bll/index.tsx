@@ -1,15 +1,12 @@
 import React from "react";
-import { styled } from "styled-components";
-import { UseQuery } from "@reduxjs/toolkit/dist/query/react/buildHooks";
-import { QueryDefinition } from "@reduxjs/toolkit/query";
 
-import { useGetBaseInfoAboutMeQuery } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/redux/api";
 import BalanceBlock from "../../../Libraries/stanislavAristov.library/Widgets/ballanceBlock";
+import { useGetTotalBalanceQuery } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/cards.entity/redux/api";
 
 const BalanceBlockComponent = () => {
 	return (
 		<>
-			<BalanceBlock getMe={useGetBaseInfoAboutMeQuery} />
+			<BalanceBlock getTotalBalance={useGetTotalBalanceQuery} />
 		</>
 	);
 };

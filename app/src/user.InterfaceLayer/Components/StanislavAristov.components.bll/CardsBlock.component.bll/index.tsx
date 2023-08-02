@@ -1,15 +1,10 @@
 import React from "react";
-import { styled } from "styled-components";
 
-import { useGetMeQuery } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/redux/api";
 import CardsBlock from "../../../Libraries/stanislavAristov.library/Widgets/cardsBlock";
+import { useGetCardsQuery } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/cards.entity/redux/api";
 
 const CardsBlockComponent = () => {
-	return (
-		<>
-			<CardsBlock getMe={useGetMeQuery} />
-		</>
-	);
+	return <CardsBlock getCards={useGetCardsQuery} />;
 };
 
 export default CardsBlockComponent;
