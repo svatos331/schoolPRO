@@ -12,7 +12,7 @@ import EFontClasses from "../../../../../../constants/fontsClasses";
 import Colors from "../../../../../../constants/colors";
 import IconElement from "../../../../UI_KIT/Atoms/IconElement";
 import diagram from "../../../../assets/icons/mainIcon/ballanceDiagram.svg";
-import { IBaseInfoUserDTO } from "../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/userBaseInfo.entity/services/dto/from.dto";
+import { IBaseInfoUserDTO } from "../../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
 
 const BalanceWidget: FC<{
 	getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>>;

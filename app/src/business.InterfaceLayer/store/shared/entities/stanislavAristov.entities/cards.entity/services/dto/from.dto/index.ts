@@ -10,12 +10,12 @@ export interface IBalanceUserResponse {
 	balance: string;
 }
 
-export const balanceFromUser = (response: IBalanceUserResponse) => {
+export const balanceFromUser = (response: any): IBalanceUserResponse => {
 	return response;
 };
-export const putFromResponse = (response: ICardDTO) => {
+export const putFromResponse = (response: any): ICardDTO => {
 	return response;
 };
-export const cardsFromDtoServiceObject = (response: ICardDTO[]) => {
+export const cardsFromDtoServiceObject = (response: any): ICardDTO[] => {
 	return response;
 };

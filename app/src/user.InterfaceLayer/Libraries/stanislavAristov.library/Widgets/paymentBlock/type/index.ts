@@ -11,7 +11,7 @@ import {
 import {
 	IBaseInfoUserDTO,
 	UsersBaseInfoArray,
-} from "../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/userBaseInfo.entity/services/dto/from.dto";
+} from "../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
 import { IBalanceUserResponse } from "../../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/payments.entity/services/dto/from.dto";
 
 export type IPaymentBlockProps = {

@@ -12,7 +12,7 @@ import {
 	useAppSelector,
 } from "../../../../../business.InterfaceLayer/store/services/hooks/redux";
 import { sidebarActions } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/sidebar.entity/redux/slice";
-import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/userBaseInfo.entity/services/dto/from.dto";
+import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
 import UserLogo from "../../UI_KIT/Molecules/UserLogo";
 import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import logout from "../../assets/icons/Logout2.svg";
