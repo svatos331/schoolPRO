@@ -10,6 +10,8 @@ import * as ST from "./styled";
 import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import UserLogo from "../../UI_KIT/Molecules/UserLogo";
 import { IBaseInfoUserDTO } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/services/dto/from.dto";
+import UserLogoWidget from "../userLogoWidget";
+import { useGetBaseInfoAboutMeQuery } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/redux/api";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SideBarContentWidget: FC<{
@@ -23,10 +25,9 @@ const SideBarContentWidget: FC<{
 	return (
 		<ST.SideBarContentWidgetWrapper>
 			<ST.Header>
-				<UserLogo
-					isLoading={isLoading}
-					image={baseInfo?.src ?? undefined}
-				/>
+				<NavLink to="profile">
+					<UserLogoWidget getMe={useGetBaseInfoAboutMeQuery} />
+				</NavLink>
 			</ST.Header>
 			<ST.Menu>
 				<NavLink to={"/payment"}>Payment</NavLink>

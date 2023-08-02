@@ -18,6 +18,8 @@ import SecondaryButton from "../../UI_KIT/Molecules/SecondaryButton";
 import logout from "../../assets/icons/Logout2.svg";
 import stanislavAristovRoutes from "../../../../router/routes/stanislavAristov.route";
 import stanislavAristovRoutesPaths from "../../../../router/routes/stanislavAristov.route/stanislavAristov.routesPaths";
+import UserLogoWidget from "../userLogoWidget";
+import { useGetBaseInfoAboutMeQuery } from "../../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/users.entity/redux/api";
 
 const SideBarWidget: FC<{
 	getMe: UseQuery<QueryDefinition<any, any, any, IBaseInfoUserDTO>>;
@@ -36,10 +38,12 @@ const SideBarWidget: FC<{
 			>
 				<ST.SideBarContentWidgetWrapper>
 					<ST.Header>
-						<UserLogo
-							isLoading={isLoading}
-							image={baseInfo?.src ?? undefined}
-						/>
+						<NavLink to="profile">
+							<UserLogo
+								isLoading={isLoading}
+								image={baseInfo?.src ?? undefined}
+							/>
+						</NavLink>
 					</ST.Header>
 					<ST.Menu>
 						<NavLink to={stanislavAristovRoutesPaths.PAYMENT}>Payment</NavLink>

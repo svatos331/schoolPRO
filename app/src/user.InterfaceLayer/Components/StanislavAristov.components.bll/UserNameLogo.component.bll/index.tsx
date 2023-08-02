@@ -6,5 +6,4 @@ import { useGetBaseInfoAboutMeQuery } from "../../../../business.InterfaceLayer/
 const UserNameLogoComponent = () => {
 	return <UserLogoWidget getMe={useGetBaseInfoAboutMeQuery} />;
 };
-
 export default UserNameLogoComponent;

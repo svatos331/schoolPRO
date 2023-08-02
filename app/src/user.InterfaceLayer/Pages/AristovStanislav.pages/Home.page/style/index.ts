@@ -4,7 +4,6 @@ export const HomePageWrapper = styled.div`
 	width: 100%;
 	min-height: 100vh;
 
-	display: flex;
 	flex-direction: column;
 	gap: 0;
 	//padding: 0 20px;

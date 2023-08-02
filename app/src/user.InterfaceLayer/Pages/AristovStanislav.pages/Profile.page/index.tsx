@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import * as ST from "./styled";
+import * as ST from "./styled/styled";
 import Typography_Montserrat_Bold from "../../../Libraries/stanislavAristov.library/UI_KIT/Molecules/Typographies/Montserrat/Bold";
 import UserNameLogoComponent from "../../../Components/StanislavAristov.components.bll/UserNameLogo.component.bll";
 import CardsBlockComponent from "../../../Components/StanislavAristov.components.bll/SignoutBtn.component.bll";

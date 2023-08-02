@@ -127,7 +127,7 @@
       "cards": [
         {
           "id": 1,
-          "balance": 1681,
+          "balance": 3381,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
@@ -135,7 +135,7 @@
         },
         {
           "id": 2,
-          "balance": "1713",
+          "balance": 13,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
