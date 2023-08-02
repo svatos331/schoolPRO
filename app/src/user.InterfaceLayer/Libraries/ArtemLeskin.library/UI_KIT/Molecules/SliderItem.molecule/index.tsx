@@ -17,6 +17,7 @@ const SliderItem: React.FC<SliderItemProps> = (props: SliderItemProps) => {
             <ST.Title title={slide.title} size={TextSize.XL}/>
             <ST.Wrap active={isVideoActive}>
             <ST.Video
+                style={{height: "100%"}}
                 videoSrc={slide.video}
                 volume={0.25}
                 muted={false}
