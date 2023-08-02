@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 enum reducerPaths {
 	todo = "todo",
 	fishing = "fishing",
@@ -6,3 +7,12 @@ enum reducerPaths {
 }
 
 export default reducerPaths;
+=======
+enum reducerPaths {
+	todo = "todo",
+	goods="goods",
+	go="go"
+}
+
+export default reducerPaths;
+>>>>>>> design.kornilov_task_3
