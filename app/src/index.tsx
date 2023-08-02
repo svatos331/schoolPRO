@@ -15,7 +15,7 @@ import "user.InterfaceLayer/styles/fonts.scss";
 import "primereact/resources/primereact.min.css";
 import { store } from "./business.InterfaceLayer/store";
 import mainRouter from "./user.InterfaceLayer/router";
-import KKProvider from "./user.InterfaceLayer/Components/general.components/KKProvider";
+import KKProvider from "./user.InterfaceLayer/Components/StanislavAristov.components.bll/KKProvider";
 import Loader from "./user.InterfaceLayer/Components/general.components/Loader";
 
 const element = document.getElementById("app") as HTMLElement;

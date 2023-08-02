@@ -14,7 +14,7 @@ import Typography_Montserrat_Normal from "../../../UI_KIT/Molecules/Typographies
 import Colors from "../../../../../constants/colors";
 import EFontClasses from "../../../../../constants/fontsClasses";
 import UserLogo from "../../../UI_KIT/Molecules/UserLogo";
-import "../../../../../Components/general.components/i18n";
+import "../../../../../Components/StanislavAristov.components.bll/i18n";
 const HomePageTitleWidget: FC<IHomePageTitleWidgetProps> = ({
 	openFunc,
 	getMe,

@@ -10,7 +10,7 @@ import {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	ITheme,
 } from "../../../../business.InterfaceLayer/store/shared/entities/stanislavAristov.entities/theme.entity/redux/slice";
-import i18n from "../../../Components/general.components/i18n";
+import i18n from "../../../Components/StanislavAristov.components.bll/i18n";
 
 const AfterAuthLayout: FC<{ children?: JSX.Element; bgc?: ITheme }> = ({
 	bgc,

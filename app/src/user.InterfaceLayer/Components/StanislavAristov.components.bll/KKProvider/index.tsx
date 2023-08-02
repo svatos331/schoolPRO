@@ -3,7 +3,7 @@ import { ReactKeycloakProvider } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 
 import LaunchScreenPage from "../../../Pages/AristovStanislav.pages/LaunchScreen.page";
-import Loader from "../Loader";
+import Loader from "../../general.components/Loader";
 const keycloakSetting = {
 	url: process.env.REACT_APP_KEYCLOAK_URL ?? "",
 	realm: process.env.REACT_APP_KEYCLOAK_REALM ?? "",
