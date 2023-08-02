@@ -6,7 +6,7 @@ import { WrapProps, ItemProps } from "../type/index";
 
 
 export const Item = styled.div<ItemProps>`
-    width: 100000px;
+    width: 100%;
     background: url('${(props) => (props.img)}');
     height: 66vh;
     position: relative;
