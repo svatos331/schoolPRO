@@ -4,15 +4,21 @@ import artemLeskinRoutes from "user.InterfaceLayer/router/routes/artemLeskin.rou
 
 import svyatoslavZhilinRoutes from "./routes/svyatoslavZhilin.route";
 import RoutesPaths from "./routesPaths";
-import CheckAuth from "./services/Components/CheckAuth";
+import ivanKosteevRoutes from "./routes/ivanKosteev.route";
 import Error from "../Components/general.components/Error";
+import kirillKornilovRoutesRoutes from "./routes/KirillKornilov.route";
+import CheckAuth from "./services/Components/CheckAuth";
 
 const mainRouter: RouteObject[] = [
 	{
 		path: RoutesPaths.MAIN,
 		element: <CheckAuth />,
 		errorElement: <Error />,
+<<<<<<< HEAD
 		children: [...svyatoslavZhilinRoutes, ...artemLeskinRoutes],
+=======
+		children: [...svyatoslavZhilinRoutes , ...ivanKosteevRoutes, ...kirillKornilovRoutesRoutes],
+>>>>>>> kirillKornilov/task-1
 	},
 ];
 

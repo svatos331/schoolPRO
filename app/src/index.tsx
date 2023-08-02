@@ -24,10 +24,10 @@ root.render(
 			<RouterProvider router={routers} />
 		</Provider>
 		<ToasterModalWindow>
-			<Toaster
-				position="bottom-left"
-				reverseOrder={false}
-			/>
-		</ToasterModalWindow>
+		<Toaster
+			position="bottom-left"
+			reverseOrder={false}
+		/>
+	</ToasterModalWindow>
 	</React.StrictMode>
 );

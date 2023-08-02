@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 declare module "*.svg" {
 	import React = require("react");
 	export const ReactComponent: React.FunctionComponent<
@@ -8,3 +9,13 @@ declare module "*.svg" {
 }
 
 declare module "*.module.css";
+=======
+declare module "*.svg" {
+	import React = require("react");
+	export const ReactComponent: React.FunctionComponent<
+		React.SVGProps<SVGSVGElement>
+	>;
+	const src: string;
+	export default src;
+}
+>>>>>>> kirillKornilov/task-1

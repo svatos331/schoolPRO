@@ -22,6 +22,7 @@ module.exports = {
 	rules: {
 		"max-lines": ["error", { max: 150, skipBlankLines: true }],
 		indent: "off",
+		// "linebreak-style": ["error", "unix"],
 		"linebreak-style": [
 			"error",
 			process.platform === "win32" ? "windows" : "unix",
@@ -37,6 +38,8 @@ module.exports = {
 				html: true,
 			},
 		],
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-filename-extension":[1,{"extensions":[".ts",".tsx"]}],
 		"react/jsx-first-prop-new-line": ["error", "multiline"],
 		// "import/no-unresolved": [2, { caseSensitive: false }],
 		"no-unused-vars": "off",
