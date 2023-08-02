@@ -1,10 +1,18 @@
 import React from "react";
 
-import { useGetTodoQuery } from "../../../../business.InterfaceLayer/store/shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";
-import Widget1 from "../../../Libraries/SvyatoslavZhilin.library/Widgets/widget1";
+// import { useGetTodoQuery } from "../../../../business.InterfaceLayer/store/shared/entities/svyatoslavZhilin.entities/todo.entity/redux/api";
 
 const Component1 = () => {
-	return <Widget1 useGetTodoQuery={useGetTodoQuery} />;
+	// const { data } = useGetTodoQuery({ authToken: "", params: { id: "1" } });
+
+	// // eslint-disable-next-line no-console
+	// console.log(123, data);
+
+	return (
+		<div>
+			<div>ф</div>
+		</div>
+	);
 };
 
 export default Component1;

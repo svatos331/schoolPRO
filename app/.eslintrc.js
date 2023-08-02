@@ -22,6 +22,7 @@ module.exports = {
 	rules: {
 		"max-lines": ["error", { max: 150, skipBlankLines: true }],
 		indent: "off",
+		// "linebreak-style": ["error", "unix"],
 		"linebreak-style": [
 			"error",
 			process.platform === "win32" ? "windows" : "unix",

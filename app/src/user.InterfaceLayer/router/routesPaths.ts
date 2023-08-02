@@ -3,6 +3,7 @@ enum RoutesPaths {
 	MAIN = "/",
 	DEFAULT = "",
 	SVYATOSLAV_ZHILIN = "/svyatoslavZhilin",
+	IVAN_KOSTEEV = "/ivanKosteev",
 	ARTEM_LESKIN = "/artemLeskin",
 }
 
