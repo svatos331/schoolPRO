@@ -2,19 +2,21 @@
   "users": [
     {
       "src": "https://i.yapx.cc/PWwHk.jpg",
-      "balance": 133323,
+      "balance": 1717,
       "name": "Артемий Билибобо",
       "id": "supervisor",
       "cards": [
         {
-          "balance": "1713",
+          "id": 1,
+          "balance": 1716,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
           "bank": "masterCard"
         },
         {
-          "balance": "0",
+          "id": 2,
+          "balance": 8,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
@@ -61,11 +63,12 @@
     },
     {
       "src": "https://i.yapx.cc/PWwHk.jpg",
-      "balance": 64774,
+      "balance": 3232,
       "name": "Михалайооо БубульГуморович",
       "id": "verificator",
       "cards": [
         {
+          "id": 1,
           "balance": 3232,
           "type": "Company",
           "createDate": "01/2020",
@@ -73,6 +76,7 @@
           "bank": "masterCard"
         },
         {
+          "id": 2,
           "balance": 0,
           "type": "Company",
           "createDate": "01/2020",
@@ -122,16 +126,18 @@
       "src": "https://pixelbox.ru/wp-content/uploads/2021/09/avatar-boys-vk-46.jpg",
       "name": "Акакий Обрин",
       "id": "support",
-      "balance": 96505,
+      "balance": 3422,
       "cards": [
         {
-          "balance": "1713",
+          "id": 1,
+          "balance": 1702,
           "type": "Company",
           "createDate": "01/2020",
           "number": "1234123412342134",
           "bank": "masterCard"
         },
         {
+          "id": 2,
           "balance": "1713",
           "type": "Company",
           "createDate": "01/2020",

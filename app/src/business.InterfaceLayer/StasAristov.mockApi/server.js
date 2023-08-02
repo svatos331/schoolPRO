@@ -128,6 +128,20 @@ server.get("/baseInfoAboutMe", (req, res) => {
 		balance: user.balance,
 	});
 });
+server.get("/balance/me", (req, res) => {
+	const token = req.headers.authorization.substring(7);
+	const id = extractClaimFromJWT(token, "preferred_username");
+	const user = router.db
+		.get("users")
+		.find((user) => user.id == id)
+		.value();
+	const balance = user.cards.reduce((acc, cur) => +acc + +cur.balance, 0);
+	user.balance = balance;
+	router.db.write();
+
+	return res.json({ balance });
+});
+
 server.get("/public/users", (req, res) => {
 	const users = router.db.get("users").map(({ src, name, id }) => ({
 		src,
@@ -136,6 +150,68 @@ server.get("/public/users", (req, res) => {
 	}));
 
 	return res.json(users);
+});
+server.get("/cards/me", (req, res) => {
+	const token = req.headers.authorization.substring(7);
+	const id = extractClaimFromJWT(token, "preferred_username");
+	const user = router.db
+		.get("users")
+		.find((user) => user.id == id)
+		.value();
+
+	return res.json(user?.cards ?? []);
+});
+server.post("/pay", (req, res) => {
+	const userId = req.query.userId;
+	let { sum } = req.body;
+	sum = parseInt(sum);
+
+	// if(isNaN(sum) || (sum | 0 < sum) || sum < 0){
+	//     return res.status(404, "баланс должен быть целочислен");
+	// }
+	const token = req.headers.authorization.substring(7);
+
+	// eslint-disable-next-line no-unreachable
+	const meId = extractClaimFromJWT(token, "preferred_username");
+
+	const me = router.db
+		.get("users")
+		.find((user) => user.id == meId)
+		.value();
+	const user = router.db
+		.get("users")
+		.find((user) => user.id == userId)
+		.value();
+	if (sum > me.balance) {
+		res.status(404, "недостаточно средств");
+	}
+	// const balanceMe = me.cards.reduce((acc, cur) => +acc + +cur.balance, 0);
+	const meCard = me.cards.find((card) => card.balance >= sum);
+	if (user.cards.length === 0) {
+		res.status(404, "у польззователя нет карт");
+	}
+	let minIndex = 0;
+	user.cards.forEach((_, curIndex, cards) => {
+		if (cards[curIndex].balance < cards[minIndex].balance) {
+			minIndex = curIndex;
+		}
+	});
+	const userCard = user.cards[minIndex || 0];
+
+	if (!userCard) {
+		res.status(404, "у пользователя нет доступных карт");
+	}
+	if (meCard) {
+		meCard.balance = parseInt(meCard.balance) - sum;
+	} else {
+		res.status(404, "нет доступных карт");
+	}
+	userCard.balance = parseInt(userCard.balance) + sum;
+	router.db.write();
+
+	return res.json({
+		myCard: meCard,
+	});
 });
 server.post("/payFromMeTo", (req, res) => {
 	const userId = req.query.id;

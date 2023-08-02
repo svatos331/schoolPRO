@@ -26,7 +26,6 @@ const routers = createBrowserRouter(mainRouter);
 //в general с готовымыи конфигами
 
 root.render(
-	// <I18nextProvider i18n={i18n}>
 	<KKProvider>
 		<React.StrictMode>
 			<Provider store={store}>
@@ -40,5 +39,4 @@ root.render(
 			</ToasterModalWindow>
 		</React.StrictMode>
 	</KKProvider>
-	// </I18nextProvider>
 );
