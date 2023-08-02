@@ -1,52 +1,114 @@
-{"user": [
-  {
-    "userId": 1,
-    "email":  "some@mail.ru",
-    "password": "pass",
-    "firstname": "Ivan",
-    "lastname": "Ivanov",
-    "userType": 0,
-    "avatar": "",
-    "phone": "",
-    "username": "",
-    "bio": ""
-  },
-  {
-    "userId": 2,
-    "email":  "some2@mail.ru",
-    "password": "pass2",
-    "firstname": "Petr",
-    "lastname": "Petrov",
-    "userType": 0,
-    "avatar": "",
-    "phone": "",
-    "username": "",
-    "bio": ""
-  }
-],
-
+{
+  "user": [
+    {
+      "id": 1,
+      "email": "some@mail.ru",
+      "password": "pass",
+      "firstname": "Ivan",
+      "lastname": "Ivanov",
+      "userType": 0,
+      "avatar": "",
+      "phone": "",
+      "username": "user1",
+      "bio": ""
+    },
+    {
+      "id": 2,
+      "email": "some2@mail.ru",
+      "password": "pass2",
+      "firstname": "Petr",
+      "lastname": "Petrov",
+      "userType": 1,
+      "avatar": "",
+      "phone": "",
+      "username": "user2",
+      "bio": ""
+    },
+    {
+      "email": "11",
+      "password": "2",
+      "firstname": "my_f_n1",
+      "lastname": "my_l_n",
+      "userType": 0,
+      "avatar": "https://abrakadabra.fun/uploads/posts/2022-03/1647809364_1-abrakadabra-fun-p-milie-avatarki-na-vatsap-2.jpg",
+      "phone": "89999999999",
+      "username": "my_username",
+      "bio": "mybio1",
+      "id": 3
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "shoes"
+    },
+    {
+      "id": 2,
+      "name": "t-shirt"
+    }
+  ],
+  "product": [
+    {
+      "category": 1,
+      "id": 1,
+      "details": "some details",
+      "price": 1000,
+      "name": "some product",
+      "photo": "",
+      "influencerId": 1,
+      "rating": 0
+    },
+    {
+      "category": 1,
+      "id": 2,
+      "details": "some details 2",
+      "price": 10002,
+      "name": "some product 2",
+      "photo": "",
+      "influencerId": 3,
+      "rating": 0
+    },
+    {
+      "category": 2,
+      "id": 3,
+      "details": "some details 3",
+      "price": 500,
+      "name": "some product 3",
+      "photo": "",
+      "influencerId": 3,
+      "rating": 0
+    },
+    {
+      "category": 1,
+      "details": "description_shoes",
+      "price": 100,
+      "name": "myTestProd",
+      "photo": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSEBBnjq83-qLphou2YtgaZCkLMPpys0ylZjT5zIE4VxmFtOCvM",
+      "influencerId": 3,
+      "rating": 0,
+      "id": 4
+    }
+  ],
+  "review": [
+    {
+      "userId": 1,
+      "prodId": 1,
+      "star": 3,
+      "description": "my review"
+    }
+  ],
   "todos": [
-  {
-    "userId": 1,
-    "id": 1,
-    "title": "vvv delectus aut autem",
-    "completed": false
-  },
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "vvv delectus aut autem",
+      "completed": false
+    },
     {
       "userId": 2,
       "id": 2,
       "title": "ggg delectus aut autem",
       "completed": true
     }
-  ],
-
-  "product": [
-    {
-      "category": 1,
-      "id": 1,
-      "details": "some details",
-      "price": "1000",
-      "name": "some product"
-    }
-  ]}
-
+  ]
+}

@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 
-import "./styled/style.css";
+import * as ST from "./styled/styled";
 
 export const TextLoginToStart: FC = () => {
 	return (
-		<p className="logToStart">
+		<ST.TextLoginToStart>
 			Login to get started with Influshop <br /> If not yet registered click on
 			sign up to get started
-		</p>
+		</ST.TextLoginToStart>
 	);
 };

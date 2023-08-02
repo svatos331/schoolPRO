@@ -1,5 +1,4 @@
 enum url {
-	todo = "/todos",
 	user = "/user",
 }
 

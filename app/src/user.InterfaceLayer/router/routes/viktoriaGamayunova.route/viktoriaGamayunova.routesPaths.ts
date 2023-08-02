@@ -1,6 +1,9 @@
 enum viktoriaGamayunovaRoutesPaths {
 	LAST = "last",
-	SIGN_IN = "sign_in",
+	PRODUCTS = "products",
+	PRODUCT = "product",
+	ACCOUNT = "account",
+	SHOP = "shop",
 }
 
 export default viktoriaGamayunovaRoutesPaths;

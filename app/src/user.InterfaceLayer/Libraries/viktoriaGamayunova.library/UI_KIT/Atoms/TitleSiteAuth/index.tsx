@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import "./styled/style.css";
+import * as ST from "./styled";
 
-export const titleSiteAuth: FC = () => {
-	return <p className="titleSiteAuth">Influshop</p>;
+export const TitleSiteAuth: FC = () => {
+	return <ST.title>Influshop</ST.title>;
 };

@@ -3,14 +3,11 @@ import { RouteObject } from "react-router-dom";
 
 import RoutesPaths from "../../routesPaths";
 import Error from "../../../Components/general.components/Error";
-import MainLayout from "../../../Layouts/viktoriaGamayunova.layouts/Main.layout";
+// import MainLayout from "../../../Layouts/viktoriaGamayunova.layouts/Main.layout";
 import viktoriaGamayunovaRoutesPaths from "./viktoriaGamayunova.routesPaths";
 import Loader from "../../../Components/general.components/Loader";
+import AccountPage from "../../../Pages/viktoriaGamayunova.pages/Account.page";
 // import MainPage from "../../../Pages/viktoriaGamayunova.pages/Main.page";
-
-const LastPage = lazy(
-	() => import("../../../Pages/viktoriaGamayunova.pages/Last.page")
-);
 
 // const MainPage = lazy(
 // 	() => import("../../../Pages/viktoriaGamayunova.pages/Main.page")
@@ -19,34 +16,60 @@ const LastPage = lazy(
 const SignInPage = lazy(
 	() => import("../../../Pages/viktoriaGamayunova.pages/SignIn.page")
 );
+const ProductsPage = lazy(
+	() => import("../../../Pages/viktoriaGamayunova.pages/Products.page")
+);
+const ProductPage = lazy(
+	() => import("../../../Pages/viktoriaGamayunova.pages/Product.page")
+);
+const UserShopPage = lazy(
+	() => import("../../../Pages/viktoriaGamayunova.pages/UserShop.page")
+);
 
 const viktoriaGamayunovaRoutes: RouteObject[] = [
 	{
 		path: RoutesPaths.VIKTORIA_GAMAYUNOVA,
 		// ???
-		element: <MainLayout />,
+		// element: <MainLayout />,
 		errorElement: <Error />,
 		children: [
 			{
 				index: true,
-				element: <Suspense fallback={<Loader />}>{/*<MainPage />*/}</Suspense>,
+				element: <Suspense fallback={<Loader />}>{<SignInPage />}</Suspense>,
 				errorElement: <Error />,
 			},
 			{
-				path: viktoriaGamayunovaRoutesPaths.LAST,
+				path: viktoriaGamayunovaRoutesPaths.PRODUCTS,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<LastPage />
+						<ProductsPage />
 					</Suspense>
 				),
 				errorElement: <Error />,
 			},
 			{
-				path: viktoriaGamayunovaRoutesPaths.SIGN_IN,
+				path: `${viktoriaGamayunovaRoutesPaths.SHOP}/:id`,
 				element: (
 					<Suspense fallback={<Loader />}>
-						<SignInPage />
-						{/*<MainPage />*/}
+						<UserShopPage />
+					</Suspense>
+				),
+				errorElement: <Error />,
+			},
+			{
+				path: `${viktoriaGamayunovaRoutesPaths.PRODUCT}/:id`,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<ProductPage />
+					</Suspense>
+				),
+				errorElement: <Error />,
+			},
+			{
+				path: viktoriaGamayunovaRoutesPaths.ACCOUNT,
+				element: (
+					<Suspense fallback={<Loader />}>
+						<AccountPage />
 					</Suspense>
 				),
 				errorElement: <Error />,
@@ -55,6 +78,7 @@ const viktoriaGamayunovaRoutes: RouteObject[] = [
 				path: RoutesPaths.NOT_FOUND,
 				element: <div>страницы нет</div>,
 			},
+			{},
 		],
 	},
 ];

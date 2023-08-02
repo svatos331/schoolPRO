@@ -1,12 +1,8 @@
 export interface IUserDTO {
 	email: string;
-	pass: string;
+	password: string;
 }
 
 export const userFromDtoServiceArray = (props: any): IUserDTO => {
-	return props;
-};
-
-export const userFromDtoServiceObject = (props: any) => {
 	return props;
 };

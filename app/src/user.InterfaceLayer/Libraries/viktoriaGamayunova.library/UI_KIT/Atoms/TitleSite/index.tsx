@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import "./styled/style.css";
+import * as ST from "./styled/styled";
 
-export const titleSite: FC = () => {
-	return <p className="titleSite">Influshop</p>;
+export const TitleSite: FC = () => {
+	return <ST.titleSite>Influshop</ST.titleSite>;
 };
