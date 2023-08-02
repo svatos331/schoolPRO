@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, startTransition, Suspense } from "react";
 import { RouteObject } from "react-router-dom";
 
 import routesPaths from "../../routesPaths";
@@ -6,6 +6,7 @@ import stanislavAristovRoutesPaths from "./stanislavAristov.routesPaths";
 import Error from "../../../Components/general.components/Error";
 import Loader from "../../../Components/general.components/Loader";
 import Colors from "../../../constants/colors/index";
+
 const CardsPage = lazy(
 	() => import("../../../Pages/AristovStanislav.pages/Cards.page")
 );
@@ -47,7 +48,7 @@ const stanislavAristovRoutes: RouteObject[] = [
 						<CardsPage />
 					</Suspense>
 				),
-				// index: true,
+				index: true,
 			},
 			{
 				path: stanislavAristovRoutesPaths.PAYMENT,

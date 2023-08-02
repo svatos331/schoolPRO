@@ -164,8 +164,9 @@ server.post("/pay", (req, res) => {
 		.value();
 
 	const meCard = me.cards.find((card) => card.balance >= sum);
-	if (me?.cards?.length ?? 0 === 0) {
+	if (me?.cards?.length === 0) {
 		res.status(404);
+
 		return res.json({ error: "у вас нет карт" });
 	}
 	if (!meCard) {

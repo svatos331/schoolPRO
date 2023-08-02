@@ -1,8 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, Suspense } from "react";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 
 import LaunchScreenPage from "../../../Pages/AristovStanislav.pages/LaunchScreen.page";
+import Loader from "../Loader";
 const keycloakSetting = {
 	url: process.env.REACT_APP_KEYCLOAK_URL ?? "",
 	realm: process.env.REACT_APP_KEYCLOAK_REALM ?? "",
@@ -28,7 +29,7 @@ const handleOnEvent = async (event: any, error: any) => {
 export const KKProvider: FC<{ children: JSX.Element | ReactNode }> = ({
 	children,
 }) => {
-	return isAristovStanislavRoute ? (
+	const content = isAristovStanislavRoute ? (
 		<ReactKeycloakProvider
 			authClient={keycloak}
 			initOptions={initOptions}
@@ -41,6 +42,12 @@ export const KKProvider: FC<{ children: JSX.Element | ReactNode }> = ({
 		</ReactKeycloakProvider>
 	) : (
 		<>{children}</>
+	);
+
+	return isAristovStanislavRoute ? (
+		<Suspense fallback={<Loader />}>{content}</Suspense>
+	) : (
+		content
 	);
 };
 export default KKProvider;

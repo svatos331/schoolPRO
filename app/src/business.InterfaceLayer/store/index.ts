@@ -29,7 +29,7 @@ const allSliceReducersReducer = combineReducers({
 	[reducerPaths.payments_users]: usersReducer,
 
 	[reducerPaths.payments]: paymentsReducer,
-	[paymentsApi.reducerPath]: paymentsApi.reducer,
+	// [paymentsApi.reducerPath]: paymentsApi.reducer,
 
 	[reducerPaths.theme]: themeReducer,
 	[reducerPaths.sidebar]: sidebarReducer,

@@ -23,14 +23,12 @@ export const baseQueryWithReauth = async (
 ) => {
 	let res = await baseQuery(args, api, extraOptions);
 	// eslint-disable-next-line no-console
-
 	if (res?.error?.status === 403 || res?.error?.status === 401) {
 		// eslint-disable-next-line no-console
 		await updateToken();
 		res = await baseQuery(args, api, extraOptions);
 	} else {
 		// eslint-disable-next-line no-console
-		console.log(1);
 	}
 
 	return res;
