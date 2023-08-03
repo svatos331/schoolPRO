@@ -9,7 +9,7 @@ const Input: React.FC<IInput> = (props: IInput) => {
     return (
         <ST.Input 
             value={value} 
-            onChange={(e) => onChange(e.target.value)} 
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} 
             placeholder={placceholder}
         />
     );

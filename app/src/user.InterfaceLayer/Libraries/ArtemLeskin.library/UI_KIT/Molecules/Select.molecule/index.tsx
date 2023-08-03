@@ -8,7 +8,7 @@ const Select: React.FC<SelectProps> = (props: SelectProps) => {
     const {  textOptionList, valueOptionList, onChange } = props;
 
     return (
-        <ST.Select defaultValue={valueOptionList[0]} onChange={(e) => onChange(e.target.value)}>
+        <ST.Select defaultValue={valueOptionList[0]} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>
             {textOptionList.map((text, index) => (
                 <Option 
                     value={valueOptionList[index]} 
